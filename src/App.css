@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: .75em 5%;
 }
 
-.App-link {
-  color: #61dafb;
+  .App-header > .logo {
+    font-weight: 900;
+    font-size: 1.1em;
+    letter-spacing: -1px;
+  }
+
+.App-content {
+  margin: 2em 5%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .App-content > h3 {
+    font-weight: 900;
+    font-size: 2.2em;
+    letter-spacing: -1px;
+    margin-bottom: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  .App-content > h5 {
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing:  -1px;
+    margin-top: -0.5em;
+    color: #aaa;
   }
-}
+
+    .App-content > h5 > .emphasis {
+      color:  #555;
+    }
+
+  .App-content > .categories {
+    margin-top: 4em;
+    width: 20em;
+  }
+
+    .App-content > .categories > .category {
+      padding: 1em;
+      border-bottom:  1px solid #ccc;
+    }
+
+    .App-content > .categories > .category:last-of-type {
+      border-bottom: 0;
+    }
+
+      .App-content > .categories > .category > .category-title {
+        font-weight: 900;
+        font-size:  1.37em;
+        letter-spacing: -1px;
+        text-transform:  uppercase;
+      }
