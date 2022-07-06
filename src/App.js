@@ -20,6 +20,9 @@ function App() {
           <div className="category">
             <div className="category-title">Projects</div>
           </div>
+          <div className="category">
+            <div className="category-title">Blog</div>
+          </div>
         </div>
       </div>
     </div>
