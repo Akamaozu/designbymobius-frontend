@@ -33,6 +33,14 @@
     .App-content > .categories > .category {
       padding: 2em;
       border-bottom:  1px solid #ccc;
+      background-color: #fff;
+      transition: background-color 1.2s ease;
+    }
+
+    .App-content > .categories > .category:hover {
+      cursor: pointer;
+      background-color:  #fffde4;
+      transition: background-color .1s ease;
     }
 
     .App-content > .categories > .category:last-of-type {
