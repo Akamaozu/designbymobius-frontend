@@ -32,10 +32,12 @@
   }
 
     .App-content > .categories > .category {
+      display: block;
       padding: 2em;
       background-color: #fff;
       border-bottom:  1px solid #ccc;
       transition: background-color 1.2s ease;
+      text-decoration: none;
     }
 
     .App-content > .categories > .category:hover {
@@ -49,6 +51,7 @@
     }
 
       .App-content > .categories > .category > .category-title {
+        color: #000;
         font-weight: 900;
         font-size:  1.37em;
         letter-spacing: -1px;
