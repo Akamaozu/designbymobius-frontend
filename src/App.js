@@ -30,7 +30,7 @@ function App() {
       </div>
       {
         FACEBOOK_PAGE_ID
-          ? <FacebookChat pageId={ FACEBOOK_PAGE_ID } />
+          ? <FacebookChat pageId={ FACEBOOK_PAGE_ID } language="en_US" />
           : null
       }
     </div>
