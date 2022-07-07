@@ -27,11 +27,11 @@
 
   .App-content > .categories {
     margin-top: 4em;
-    width: 20em;
+    width: 33em;
   }
 
     .App-content > .categories > .category {
-      padding: 1em;
+      padding: 2em;
       border-bottom:  1px solid #ccc;
     }
 
@@ -44,4 +44,10 @@
         font-size:  1.37em;
         letter-spacing: -1px;
         text-transform:  uppercase;
+      }
+
+      .App-content > .categories > .category > .category-subtitle {
+        margin-top:  .5em;
+        line-height: .85em;
+        color: #888;
       }

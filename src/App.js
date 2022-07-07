@@ -16,16 +16,15 @@ function App() {
           <span className="emphasis">JavaScript</span>
           {" "} + <span className="emphasis">Node.js</span>
           {" "} + <span className="emphasis">React</span>
-         </h5>
+        </h5>
         <div className="categories">
           <div className="category">
             <div className="category-title">Resume</div>
+            <div className="category-subtitle">Curated experience from 10+ years writing code</div>
           </div>
           <div className="category">
             <div className="category-title">Projects</div>
-          </div>
-          <div className="category">
-            <div className="category-title">Blog</div>
+            <div className="category-subtitle">Things I've built, from open-source libraries to businesses</div>
           </div>
         </div>
       </div>
