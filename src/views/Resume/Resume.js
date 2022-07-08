@@ -5,7 +5,9 @@ import './style.css'
 
 const WorkExperience = props => {
   const experience = props.experience ?? {}
-  const duration = experience.start === experience.end ? experience.start : `${experience.start} - ${experience.end}`
+  const duration = experience.start === experience.end
+                    ? experience.start
+                    : `${experience.start} - ${experience.end}`
 
   return (
     <div className="workExperience">
@@ -37,9 +39,11 @@ const Resume = () => {
       </ViewSubtitle>
       <div className="workExperiences">
         {
-          sortedWorkExperiences.map(experience => {
-            return <WorkExperience experience={experience} />
-          })
+          workExperiences.length > 0
+            ? sortedWorkExperiences.map(experience => {
+                return <WorkExperience experience={experience} />
+              })
+            : <span>No Work Experience Found</span>
         }
       </div>
     </>
