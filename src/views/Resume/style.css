@@ -1,0 +1,19 @@
+.workExperiences {
+  margin: 4em 5% 2em 5%;
+}
+
+  .workExperiences > .workExperience {
+    margin-bottom: 1em;
+  }
+
+    .workExperiences > .workExperience > .workExperience-title {
+      color:  #000;
+      font-weight: 900;
+      font-size: 1.2em;
+      letter-spacing: -1px;
+    }
+
+    .workExperiences > .workExperience > .workExperience-when {
+      color: #888;
+      margin-top: -0.35em;
+    }
