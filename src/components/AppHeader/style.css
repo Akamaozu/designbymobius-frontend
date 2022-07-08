@@ -1,0 +1,10 @@
+.AppHeader {
+  box-sizing: border-box;
+  margin: .75em 5%;
+}
+
+  .AppHeader > .LogoLink {
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 2em;
+  }

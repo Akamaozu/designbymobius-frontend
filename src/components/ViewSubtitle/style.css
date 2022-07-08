@@ -1,0 +1,11 @@
+.ViewSubtitle {
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin-top: -0.5em;
+  color: #aaa;
+}
+
+  .ViewSubtitle > .emphasis {
+    color: #555;
+  }

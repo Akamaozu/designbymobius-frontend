@@ -1,14 +1,16 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import ViewTitle from '../../components/ViewTitle'
+import ViewSubtitle from '../../components/ViewSubtitle'
 
 const Home = () => {
   return (
     <>
-      <h3>Software Engineer</h3>
-      <h5>
+      <ViewTitle>Software Engineer</ViewTitle>
+      <ViewSubtitle>
         <span className="emphasis">JavaScript</span>
         {" "} + <span className="emphasis">Node.js</span>
         {" "} + <span className="emphasis">React</span>
-      </h5>
+      </ViewSubtitle>
       <div className="categories">
         <Link className="category" to="/resume">
           <div className="category-title">Resume</div>
