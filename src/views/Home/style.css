@@ -1,0 +1,37 @@
+.HomeCategories {
+  margin-top: 4em;
+  max-width: 33em;
+}
+
+  .HomeCategories > .HomeCategory {
+    display: block;
+    padding: 2em;
+    background-color: #fff;
+    border-bottom:  1px solid #ccc;
+    transition: background-color 1.2s ease;
+    text-decoration: none;
+  }
+
+  .HomeCategories > .HomeCategory:hover {
+    cursor: pointer;
+    background-color:  #fffde4;
+    transition: background-color .1s ease;
+  }
+
+  .HomeCategories > .HomeCategory:last-of-type {
+    border-bottom: 0;
+  }
+
+    .HomeCategories > .HomeCategory > .HomeCategory-title {
+      color: #000;
+      font-weight: 900;
+      font-size:  1.37em;
+      letter-spacing: -1px;
+      text-transform:  uppercase;
+    }
+
+    .HomeCategories > .HomeCategory > .HomeCategory-subtitle {
+      margin-top:  .5em;
+      line-height: 1em;
+      color: #888;
+    }

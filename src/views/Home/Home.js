@@ -1,6 +1,16 @@
 import { Link } from 'react-router-dom'
 import ViewTitle from '../../components/ViewTitle'
 import ViewSubtitle from '../../components/ViewSubtitle'
+import './style.css'
+
+const HomeCategory = props => {
+  return (
+    <Link className="HomeCategory" to={ props.to }>
+      <div className="HomeCategory-title">{ props.title }</div>
+      <div className="HomeCategory-subtitle">{ props.subtitle }</div>
+    </Link>
+  )
+}
 
 const Home = () => {
   return (
@@ -11,15 +21,17 @@ const Home = () => {
         {" "} + <span className="emphasis">Node.js</span>
         {" "} + <span className="emphasis">React</span>
       </ViewSubtitle>
-      <div className="categories">
-        <Link className="category" to="/resume">
-          <div className="category-title">Resume</div>
-          <div className="category-subtitle">Curated experience from 10+ years writing code</div>
-        </Link>
-        <Link className="category" to="/projects">
-          <div className="category-title">Projects</div>
-          <div className="category-subtitle">Things I've built, from open-source libraries to businesses</div>
-        </Link>
+      <div className="HomeCategories">
+        <HomeCategory
+          to="/resume"
+          title="Resume"
+          subtitle="Curated experience from 10+ years writing code"
+        />
+        <HomeCategory
+          to="/projects"
+          title="Projects"
+          subtitle="Things I've built, from open-source libraries to businesses"
+        />
       </div>
     </>
   )
