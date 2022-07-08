@@ -13,11 +13,11 @@ function App() {
       <div className="App">
         <AppHeader />
         <div className="AppView">
-            <Routes>
-              <Route path="/" element={ <Home /> } />
-              <Route path="/resume" element={ <Resume /> } />
-              <Route path="/projects" element={ <Resume /> } />
-            </Routes>
+          <Routes>
+            <Route path="/" element={ <Home /> } />
+            <Route path="/resume" element={ <Resume /> } />
+            <Route path="/projects" element={ <Resume /> } />
+          </Routes>
         </div>
         {
           FACEBOOK_PAGE_ID
@@ -26,7 +26,7 @@ function App() {
         }
       </div>
     </BrowserRouter>
-  );
+  )
 }
 
 export default App
