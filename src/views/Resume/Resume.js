@@ -3,23 +3,23 @@ import ViewSubtitle from '../../components/ViewSubtitle'
 import data from '../../data'
 import './style.css'
 
-const WorkExperience = props => {
-  const experience = props.experience ?? {}
+const Experience = props => {
+  const experience = props.data ?? {}
   const duration = experience.start === experience.end
                     ? experience.start
                     : `${experience.start} - ${experience.end}`
 
   return (
-    <div className="workExperience">
-      <div className="workExperience-title">{ experience.title }</div>
-      <div className="workExperience-when">{ duration }</div>
+    <div className="Experience">
+      <div className="Experience-title">{ experience.title }</div>
+      <div className="Experience-when">{ duration }</div>
     </div>
   )
 }
 
 const Resume = () => {
-  const workExperiences = data?.workExperiences ?? []
-  const sortedWorkExperiences = [...workExperiences].sort((a,b) => {
+  const experiences = data?.experiences?.items ?? []
+  const sortedExperiences = [...experiences].sort((a,b) => {
     // sort newer start date higher
     if (a.start > b.start) return -1
     if (a.start < b.start) return 1
@@ -37,13 +37,13 @@ const Resume = () => {
       <ViewSubtitle>
         Curated experience from <span className="emphasis">10+ years writing code</span>
       </ViewSubtitle>
-      <div className="workExperiences">
+      <div className="Experiences">
         {
-          workExperiences.length > 0
-            ? sortedWorkExperiences.map(experience => {
-                return <WorkExperience experience={experience} />
+          experiences.length > 0
+            ? sortedExperiences.map(experience => {
+                return <Experience data={experience} />
               })
-            : <span>No Work Experience Found</span>
+            : <span>No Experience Found</span>
         }
       </div>
     </>

@@ -2,22 +2,24 @@
   margin-top: -0.35em;
 }
 
-.workExperiences {
+.Experiences {
   margin: 4em 5% 2em 5%;
 }
 
-  .workExperiences > .workExperience {
+  .Experiences > .Experience {
     margin-bottom: 1em;
   }
 
-    .workExperiences > .workExperience > .workExperience-title {
-      color:  #000;
+    .Experiences > .Experience > .Experience-title {
+      color: #000;
       font-weight: 900;
       font-size: 1.2em;
       letter-spacing: -1px;
     }
 
-    .workExperiences > .workExperience > .workExperience-when {
+    .Experiences > .Experience > .Experience-when {
       color: #888;
+      font-size: 1.1em;
       margin-top: -0.35em;
+      letter-spacing: -1px;
     }

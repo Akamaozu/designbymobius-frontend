@@ -1,7 +1,7 @@
-import workExperiences from './workExperiences'
+import experiences from './experiences'
 
 const data = {
-  workExperiences,
+  experiences,
 }
 
 export default data
