@@ -10,14 +10,43 @@
     margin-bottom: 1em;
   }
 
-    .Experiences > .Experience > .Experience-title {
-      color: #000;
-      font-weight: 900;
-      font-size: 1.2em;
-      letter-spacing: -1px;
+    .Experiences > .Experience > .Experience-header {
+      overflow: hidden;
     }
 
+      .Experiences > .Experience > .Experience-header > .Experience-title {
+        color: #000;
+        font-weight: 900;
+        font-size: 1.2em;
+        letter-spacing: -1px;
+        float: left;
+      }
+
+      .Experiences > .Experience > .Experience-header > .Experience-type {
+        float: right;
+        color:  #fff;
+        font-size: .7em;
+        margin-top:  0.5em;
+        line-height: 1.25em;
+        padding: .25em .75em;
+        border-radius: .75em;
+        text-transform: uppercase;
+      }
+
+        .Experiences > .Experience > .Experience-header > .Experience-type.Experience-type-employment {
+          background-color: #c130a2;
+        }
+
+        .Experiences > .Experience > .Experience-header > .Experience-type.Experience-type-contract {
+          background-color: purple;
+        }
+
+        .Experiences > .Experience > .Experience-header > .Experience-type.Experience-type-entrepreneur {
+          background-color: darkorchid;
+        }
+
     .Experiences > .Experience > .Experience-when {
+      position: relative;
       color: #888;
       font-size: 1.1em;
       margin-top: -0.35em;

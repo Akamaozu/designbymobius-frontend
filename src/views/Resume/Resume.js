@@ -5,13 +5,17 @@ import './style.css'
 
 const Experience = props => {
   const experience = props.data ?? {}
+  const experienceType = props.type ?? {}
   const duration = experience.start === experience.end
                     ? experience.start
                     : `${experience.start} - ${experience.end}`
 
   return (
     <div className="Experience">
-      <div className="Experience-title">{ experience.title }</div>
+      <div className="Experience-header">
+        <div className="Experience-title">{ experience.title }</div>
+        <div className={ `Experience-type Experience-type-${experience.type}` }>{ experienceType.label }</div>
+      </div>
       <div className="Experience-when">{ duration }</div>
     </div>
   )
@@ -41,7 +45,7 @@ const Resume = () => {
         {
           experiences.length > 0
             ? sortedExperiences.map(experience => {
-                return <Experience data={experience} />
+                return <Experience data={experience} type={ data?.experiences?.types.find(type => type.slug === experience.type) } />
               })
             : <span>No Experience Found</span>
         }
