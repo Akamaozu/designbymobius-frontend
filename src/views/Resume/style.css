@@ -45,6 +45,10 @@
           background-color: darkorchid;
         }
 
+        .Experiences > .Experience > .Experience-header > .Experience-type.Experience-type-open-source {
+          background-color: mediumaquamarine;
+        }
+
     .Experiences > .Experience > .Experience-when {
       position: relative;
       color: #888;

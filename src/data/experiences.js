@@ -12,7 +12,12 @@ const experienceTypes = [
   {
     slug: 'entrepreneur',
     label: 'Entrepreneur',
-    description: 'Business Owner / Operator'
+    description: 'Business Owner / Operator',
+  },
+  {
+    slug: 'open-source',
+    label: 'Open Source',
+    description: 'Open Source Contributions',
   }
 ]
 
@@ -68,6 +73,12 @@ const experiences = [
     ],
   },
   {
+    title: 'node-supe',
+    start: '2016',
+    end: '2019',
+    type: 'open-source',
+  },
+  {
     title: 'Hubbli',
     start: '2016',
     end: '2018',
@@ -86,6 +97,12 @@ const experiences = [
       'item one',
       'item two',
     ],
+  },
+  {
+    title: 'jackrabbit',
+    start: '2019',
+    end: '2019',
+    type: 'open-source',
   },
   {
     title: 'Robots and Pencils',
