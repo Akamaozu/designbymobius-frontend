@@ -5,18 +5,60 @@ import './style.css'
 
 const Experience = props => {
   const experience = props.data ?? {}
-  const experienceType = props.type ?? {}
+  const experienceType = data?.experiences?.types?.find(type => type.slug === experience.type) ?? {}
   const duration = experience.start === experience.end
                     ? experience.start
                     : `${experience.start} - ${experience.end}`
+  const technologies = data.technologies.items.reduce((technologies, technology) => {
+    technologies[technology.slug] = technology
+    return technologies
+  }, {})
+  const experienceTechnologies = [...experience.technologies]
+  const expandedExperienceTechnologies = []
+
+  while (experienceTechnologies.length > 0) {
+    const technologySlug = experienceTechnologies.shift()
+    expandedExperienceTechnologies.push(technologySlug)
+
+    const technology = technologies[technologySlug]
+    if (technology.dependencies) technology.dependencies.forEach(dependencySlug => {
+      if (!experienceTechnologies.includes(dependencySlug) && !expandedExperienceTechnologies.includes(dependencySlug)) experienceTechnologies.push(dependencySlug)
+    })
+  }
 
   return (
     <div className="Experience">
       <div className="Experience-header">
-        <div className="Experience-title">{ experience.title }</div>
+        <div className="Experience-title">{ experience.label }</div>
         <div className={ `Experience-type Experience-type-${experience.type}` }>{ experienceType.label }</div>
       </div>
       <div className="Experience-when">{ duration }</div>
+      {
+        experience.technologies
+          ? (
+              <div className="Experience-technologies">
+                {
+                  expandedExperienceTechnologies
+                    .sort((a,b) => {
+                      const aTech = technologies[a].label
+                      const bTech = technologies[b].label
+
+                      if (aTech > bTech) return 1
+                      if (aTech < bTech) return -1
+
+                      return 0
+                    })
+                    .map(technologySlug => {
+                      const technologyDisplayName = technologies[technologySlug].label
+                      return (
+                        <div className={ `Experience-technology Experience-technology-${technologySlug}` }>{ technologyDisplayName }</div>
+                      )
+                    })
+                }
+              </div>
+            )
+          : null
+      }
     </div>
   )
 }
@@ -45,7 +87,8 @@ const Resume = () => {
         {
           experiences.length > 0
             ? sortedExperiences.map(experience => {
-                return <Experience data={experience} type={ data?.experiences?.types.find(type => type.slug === experience.type) } />
+                const experienceType = data?.experiences?.types.find(type => type.slug === experience.type)
+                return <Experience data={experience} type={ experienceType } />
               })
             : <span>No Experience Found</span>
         }

@@ -56,3 +56,17 @@
       margin-top: -0.35em;
       letter-spacing: -1px;
     }
+
+    .Experiences > .Experience > .Experience-technologies {
+    }
+
+      .Experiences > .Experience > .Experience-technologies > .Experience-technology {
+        display:  inline-block;
+        margin-right: .5em;
+        border: 1px solid #888;
+        padding: .1em .5em;
+        font-size: .7em;
+        line-height: 1.2em;
+        color: #888;
+        border-radius: .5em;
+      }
