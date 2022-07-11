@@ -128,6 +128,16 @@ const experiences = [
     ],
   },
   {
+    slug: 'fman-sublimehelper',
+    label: 'fman-sublimehelper',
+    start: '2018',
+    end: '2018',
+    type: 'open-source',
+    technologies: [
+      'python',
+    ],
+  },
+  {
     slug: 'spotgetter',
     label: 'Spotgetter',
     start: '2018',

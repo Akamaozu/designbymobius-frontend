@@ -72,6 +72,11 @@ const technologies = [
     ],
   },
   {
+    slug: 'python',
+    label: 'Python',
+    type: 'language',
+  },
+  {
     slug: 'rabbitmq',
     label: 'RabbitMQ',
     type: 'message-queue',
