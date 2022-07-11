@@ -54,6 +54,16 @@ const experiences = [
     ]
   },
   {
+    slug: 'metabox-maker',
+    label: 'metabox-maker',
+    start: '2012',
+    end: '2014',
+    type: 'open-source',
+    technologies: [
+      'wordpress',
+    ],
+  },
+  {
     slug: 'tour-d-afrique',
     label: 'Tour D\'Afrique',
     start: '2013',
