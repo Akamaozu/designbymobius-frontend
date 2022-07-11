@@ -70,3 +70,19 @@
         color: #888;
         border-radius: .5em;
       }
+
+    .Experiences > .Experience > .Experience-notes {
+      margin:  1em 1em 0 1em;
+    }
+
+      .Experiences > .Experience > .Experience-notes > .Experience-note {
+        font-size: .85em;
+        margin-bottom: 1em;
+        color: #888;
+      }
+
+      .Experiences > .Experience > .Experience-notes > .Experience-note:first-of-type {
+        font-weight: 900;
+        color:  #555;
+      }
+

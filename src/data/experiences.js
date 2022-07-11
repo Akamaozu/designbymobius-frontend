@@ -42,6 +42,12 @@ const experiences = [
     technologies: [
       'wordpress',
     ],
+    notes: [
+      'Was commissioned to build a unique theme for a lifestyle blog. We focused on building little details that created a delightful experience for the readers.',
+      'When your mouse hovered on a preview card, other page elements dimmed to create more emphasis.',
+      'Keyboard arrow keys were augmented to scroll through the post preview cards.',
+      'Up and down arrow keys on the keyboard were context-aware, automatically scrolling to sections unless it was in the article body, in which case it behaved normally.',
+    ],
   },
   {
     slug: 'marine-magnetics',
@@ -51,7 +57,13 @@ const experiences = [
     type: 'contract',
     technologies: [
       'wordpress',
-    ]
+    ],
+    notes: [
+      'The Marine Magnetics site was hacked and I was called in by Hypenotic to bring it back online.',
+      'The theme files were corrupted beyond recovery and there were no backups. I had to rebuild the site using a previous view from the Wayback Machine.',
+      'I analyzed the WordPress installation, found the source of the malware and removed it.',
+      'After recovery I noticed there were bugs in the site\'s JavaScript so I cleaned those up as well.',
+    ],
   },
   {
     slug: 'metabox-maker',
@@ -72,6 +84,12 @@ const experiences = [
     technologies: [
       'wordpress',
     ],
+    notes: [
+      'Catalyst Workshop was making huge upgrades to a client\'s site and I was responsible for bringing many of the designs to life. My primary responsibility was implementing the design and behavior of Tour Overview section.',
+      'My favorite part of was the strategies employed to keep the Tour Section page behavior very fast. The redesign was beautiful, but the experience would have been subpar if the section was sluggish.',
+      'Each tour overview and sections are independent pages with unique URLs, but loaded subsequent sections dynamically.',
+      'Map embeds for each tour section are loaded dynamically to avoid unnecessary downloads of heavy assets. Embeds were also cached to prevent more data and time waste for visiting a section multiple times.',
+    ],
   },
   {
     slug: 'cyclusbreak',
@@ -80,8 +98,9 @@ const experiences = [
     end: '2015',
     type: 'contract',
     notes: [
-      'item one',
-      'item two',
+      'CyclusBreak is a Student-Counsellor Relationship Manager built by Blueport Software. It connects university students with their counsellors, making it easier for students to get the help needed for optimal academic and social success.',
+      'I automated report generation of CyclusBreak\'s business objectives. The reports were exported as Excel documents and emailed to appropriate stakeholders on a schedule.',
+      'I also implemented the app\'s invitation system, notifications (in-app and via email) and some admin config interfaces.',
     ],
     technologies: [
       'meteor',
@@ -94,8 +113,8 @@ const experiences = [
     end: '2016',
     type: 'contract',
     notes: [
-      'paragraph 1',
-      'paragraph 2',
+      'Built a Desktop App with Electron to mediate between the Point of Sale (POS) interface and the cashier\'s computer.',
+      'It enabled them to trivially update the receipt design, the POS interface or reconfigure which printer the receipt was sent to without ever being on-site.',
     ],
     technologies: [
       'electron',
@@ -144,8 +163,8 @@ const experiences = [
     end: '2020',
     type: 'entrepreneur',
     notes: [
-      'item one',
-      'item two',
+      'Spotgetter is process automation software for USMLE Step 2 CS medical exams.',
+      'Instead of manually refreshing webpages looking for an availability that meets their requirements, Spotgetter automated the process of searching and getting a spot.',
     ],
     technologies: [
       'puppeteer',

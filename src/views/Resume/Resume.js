@@ -59,6 +59,19 @@ const Experience = props => {
             )
           : null
       }
+      {
+        experience.notes
+          ? (
+              <div className="Experience-notes">
+                {
+                  experience.notes.map(note => {
+                    return <div className="Experience-note">{ note }</div>
+                  })
+                }
+              </div>
+            )
+          : null
+      }
     </div>
   )
 }
