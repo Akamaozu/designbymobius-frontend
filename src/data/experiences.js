@@ -157,6 +157,7 @@ const experiences = [
     technologies: [
       'nodejs',
       'react',
+      'typescript',
     ],
   },
 ]

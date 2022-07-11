@@ -90,6 +90,14 @@ const technologies = [
     type: 'database',
   },
   {
+    slug: 'typescript',
+    label: 'TypeScript',
+    type: 'language',
+    dependencies: [
+      'javascript',
+    ],
+  },
+  {
     slug: 'wordpress',
     label: 'WordPress',
     type: 'framework',
