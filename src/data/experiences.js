@@ -58,7 +58,7 @@ const experiences = [
     technologies: [
       'wordpress',
     ],
-    nutshell: 'Marine Magnetics website was hacked. Hypenotic called me in to restore it. Did I mention there were no backups?',
+    nutshell: 'Marine Magnetics website hacked, had no backups. Hypenotic called me in to restore it.',
     notes: [
       'The theme files were corrupted beyond recovery and there were no backups. I had to rebuild the site using a previous view from the Wayback Machine.',
       'I analyzed the WordPress installation, found the source of the malware and removed it.',
@@ -129,6 +129,7 @@ const experiences = [
     technologies: [
       'nodejs',
     ],
+    nutshell: 'Erlang-inspired Process Supervision for Node.js',
   },
   {
     slug: 'hubbli',
@@ -143,6 +144,7 @@ const experiences = [
     technologies: [
       'nodejs',
       'rabbitmq',
+      'redis',
       'wordpress',
     ],
   },
@@ -189,12 +191,14 @@ const experiences = [
     start: '2021',
     end: '2022',
     type: 'employment',
+    nutshell: 'Client apps, servers and third-party integrations for Banking, Education and Medical projects',
     notes: [
       'item one',
       'item two',
     ],
     technologies: [
       'nodejs',
+      'postgres',
       'react',
       'typescript',
     ],

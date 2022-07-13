@@ -64,6 +64,11 @@ const technologies = [
     type: 'language',
   },
   {
+    slug: 'postgres',
+    label: 'PostgreSQL',
+    type: 'database',
+  },
+  {
     slug: 'puppeteer',
     label: 'Puppeteer',
     type: 'framework',
