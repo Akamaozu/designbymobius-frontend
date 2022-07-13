@@ -71,6 +71,13 @@
         border-radius: .5em;
       }
 
+    .Experiences > .Experience > .Experience-nutshell {
+      margin: 1em;
+      color: #555;
+      font-weight: 900;
+      font-size: .85em;
+    }
+
     .Experiences > .Experience > .Experience-notes {
       margin:  1em 1em 0 1em;
     }
@@ -80,9 +87,3 @@
         margin-bottom: 1em;
         color: #888;
       }
-
-      .Experiences > .Experience > .Experience-notes > .Experience-note:first-of-type {
-        font-weight: 900;
-        color:  #555;
-      }
-

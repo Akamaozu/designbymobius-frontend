@@ -58,8 +58,8 @@ const experiences = [
     technologies: [
       'wordpress',
     ],
+    nutshell: 'Marine Magnetics website was hacked. Hypenotic called me in to restore it. Did I mention there were no backups?',
     notes: [
-      'The Marine Magnetics site was hacked and I was called in by Hypenotic to bring it back online.',
       'The theme files were corrupted beyond recovery and there were no backups. I had to rebuild the site using a previous view from the Wayback Machine.',
       'I analyzed the WordPress installation, found the source of the malware and removed it.',
       'After recovery I noticed there were bugs in the site\'s JavaScript so I cleaned those up as well.',
@@ -112,8 +112,8 @@ const experiences = [
     start: '2016',
     end: '2016',
     type: 'contract',
+    nutshell: 'Built a configurable Point of Sale (POS) application for 18Techs',
     notes: [
-      'Built a Desktop App with Electron to mediate between the Point of Sale (POS) interface and the cashier\'s computer.',
       'It enabled them to trivially update the receipt design, the POS interface or reconfigure which printer the receipt was sent to without ever being on-site.',
     ],
     technologies: [

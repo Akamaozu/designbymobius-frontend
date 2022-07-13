@@ -60,6 +60,11 @@ const Experience = props => {
           : null
       }
       {
+        experience.nutshell
+          ? <div className="Experience-nutshell">{ experience.nutshell }</div>
+          : null
+      }
+      {
         experience.notes
           ? (
               <div className="Experience-notes">
