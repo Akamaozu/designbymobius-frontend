@@ -58,7 +58,7 @@ const experiences = [
     technologies: [
       'wordpress',
     ],
-    nutshell: 'Restored Marine Magnetics hacked website with no backups, patched vulnerability',
+    nutshell: 'Restored Marine Magnetics hacked website with no available backups and patched vulnerability',
     notes: [
       'The theme files were corrupted beyond recovery and there were no backups. I had to rebuild the site using a previous view from the Wayback Machine.',
       'I analyzed the WordPress installation, found the source of the malware and removed it.',
