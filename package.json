@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "pre-commit": "^1.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-messenger-chat-plugin": "^3.0.5",
@@ -23,6 +24,9 @@
     "eject": "react-scripts eject",
     "heroku-postbuild": "echo Skip build on Heroku"
   },
+  "pre-commit": [
+    "build"
+  ],
   "eslintConfig": {
     "extends": [
       "react-app",
