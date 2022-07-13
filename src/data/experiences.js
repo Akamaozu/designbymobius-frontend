@@ -58,7 +58,7 @@ const experiences = [
     technologies: [
       'wordpress',
     ],
-    nutshell: 'Marine Magnetics website hacked, had no backups. Hypenotic called me in to restore it.',
+    nutshell: 'Restored Marine Magnetics hacked website with no backups, patched vulnerability',
     notes: [
       'The theme files were corrupted beyond recovery and there were no backups. I had to rebuild the site using a previous view from the Wayback Machine.',
       'I analyzed the WordPress installation, found the source of the malware and removed it.',
@@ -164,6 +164,7 @@ const experiences = [
     start: '2018',
     end: '2020',
     type: 'entrepreneur',
+    nutshell: 'Automated exam availability search and registration for Medical Students',
     notes: [
       'Spotgetter is process automation software for USMLE Step 2 CS medical exams.',
       'Instead of manually refreshing webpages looking for an availability that meets their requirements, Spotgetter automated the process of searching and getting a spot.',
