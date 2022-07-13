@@ -112,7 +112,7 @@ const experiences = [
     start: '2016',
     end: '2016',
     type: 'contract',
-    nutshell: 'Built a configurable Point of Sale (POS) application for 18Techs',
+    nutshell: 'Built a configurable Point of Sale application for 18Techs',
     notes: [
       'It enabled them to trivially update the receipt design, the POS interface or reconfigure which printer the receipt was sent to without ever being on-site.',
     ],
@@ -154,6 +154,10 @@ const experiences = [
     start: '2018',
     end: '2018',
     type: 'open-source',
+    nutshell: 'Wrote feature to improve File Manager extension\'s usability',
+    notes: [
+      <a href="https://github.com/oskretc/fman-sublimehelper/pull/1" target="_blank">View Pull Request</a>
+    ],
     technologies: [
       'python',
     ],
@@ -181,6 +185,12 @@ const experiences = [
     start: '2019',
     end: '2019',
     type: 'open-source',
+    nutshell: 'Critical bug-fixes and improvements to Node.js drivers for RabbitMQ',
+    notes: [
+      <a href="https://github.com/pagerinc/jackrabbit/pull/40" target="_blank">Critical Fix #1</a>,
+      <a href="https://github.com/pagerinc/jackrabbit/pull/88" target="_blank">Critical Fix #2</a>,
+      <a href="https://github.com/pagerinc/jackrabbit/pull/74" target="_blank">Improvement</a>
+    ],
     technologies: [
       'nodejs',
       'rabbitmq',
