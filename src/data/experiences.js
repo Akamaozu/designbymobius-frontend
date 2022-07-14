@@ -60,6 +60,9 @@ const experiences = [
     ],
     nutshell: 'Restored Marine Magnetics hacked website with no available backups and patched vulnerability',
     notes: [
+      <>
+        Referrer: <a href="https://hypenotic.com/" target="_blank">Hypenotic</a>
+      </>,
       'The theme files were corrupted beyond recovery and there were no backups. I had to rebuild the site using a previous view from the Wayback Machine.',
       'I analyzed the WordPress installation, found the source of the malware and removed it.',
       'After recovery I noticed there were bugs in the site\'s JavaScript so I cleaned those up as well.',
@@ -85,6 +88,9 @@ const experiences = [
       'wordpress',
     ],
     notes: [
+      <>
+        Referrer: <a href="https://catalystworkshop.com" target="_blank">Catalyst Workshop</a>
+      </>,
       'Catalyst Workshop was making huge upgrades to a client\'s site and I was responsible for bringing many of the designs to life. My primary responsibility was implementing the design and behavior of Tour Overview section.',
       'My favorite part of was the strategies employed to keep the Tour Section page behavior very fast. The redesign was beautiful, but the experience would have been subpar if the section was sluggish.',
       'Each tour overview and sections are independent pages with unique URLs, but loaded subsequent sections dynamically.',
@@ -138,6 +144,9 @@ const experiences = [
     end: '2018',
     type: 'employment',
     notes: [
+      <>
+        Site: <a href="https://hubbli.com" target="_blank">hubbli.com</a>
+      </>,
       'item one',
       'item two',
     ],
@@ -217,6 +226,9 @@ const experiences = [
     type: 'employment',
     nutshell: 'Client apps, servers and third-party integrations for Banking, Education and Medical projects',
     notes: [
+      <>
+        Site: <a href="https://robotsandpencils.com" target="_blank">robotsandpencils.com</a>
+      </>,
       'item one',
       'item two',
     ],

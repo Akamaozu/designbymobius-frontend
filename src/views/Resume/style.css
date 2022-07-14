@@ -33,19 +33,19 @@
         text-transform: uppercase;
       }
 
-        .Experiences > .Experience > .Experience-header > .Experience-type.Experience-type-employment {
+        .Experiences > .Experience.Experience-type-employment > .Experience-header > .Experience-type {
           background-color: #c130a2;
         }
 
-        .Experiences > .Experience > .Experience-header > .Experience-type.Experience-type-contract {
+        .Experiences > .Experience.Experience-type-contract > .Experience-header > .Experience-type {
           background-color: purple;
         }
 
-        .Experiences > .Experience > .Experience-header > .Experience-type.Experience-type-entrepreneur {
+        .Experiences > .Experience.Experience-type-entrepreneur > .Experience-header > .Experience-type {
           background-color: darkorchid;
         }
 
-        .Experiences > .Experience > .Experience-header > .Experience-type.Experience-type-open-source {
+        .Experiences > .Experience.Experience-type-open-source > .Experience-header > .Experience-type {
           background-color: mediumaquamarine;
         }
 
@@ -87,3 +87,19 @@
         margin-bottom: 1em;
         color: #888;
       }
+
+        .Experiences > .Experience.Experience-type-employment > .Experience-notes > .Experience-note > a {
+          color: #c130a2;
+        }
+
+        .Experiences > .Experience.Experience-type-contract > .Experience-notes > .Experience-note > a {
+          color: purple;
+        }
+
+        .Experiences > .Experience.Experience-type-entrepreneur > .Experience-notes > .Experience-note > a {
+          color: darkorchid;
+        }
+
+        .Experiences > .Experience.Experience-type-open-source > .Experience-notes > .Experience-note > a {
+          color: mediumaquamarine;
+        }

@@ -27,10 +27,10 @@ const Experience = props => {
   }
 
   return (
-    <div className="Experience">
+    <div className={ `Experience Experience-type-${experience.type}` }>
       <div className="Experience-header">
         <div className="Experience-title">{ experience.label }</div>
-        <div className={ `Experience-type Experience-type-${experience.type}` }>{ experienceType.label }</div>
+        <div className="Experience-type">{ experienceType.label }</div>
       </div>
       <div className="Experience-when">{ duration }</div>
       {
