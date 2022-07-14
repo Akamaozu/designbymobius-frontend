@@ -156,7 +156,8 @@ const experiences = [
     type: 'open-source',
     nutshell: 'Wrote feature to improve File Manager extension\'s usability',
     notes: [
-      <a href="https://github.com/oskretc/fman-sublimehelper/pull/1" target="_blank">View Pull Request</a>
+      'Replaced hard-coded path to dependency with user-configurable path. Fails intelligently if path doesn\'t exist on disk.',
+      <a href="https://github.com/oskretc/fman-sublimehelper/pull/1" target="_blank">View Feature</a>,
     ],
     technologies: [
       'python',
