@@ -200,17 +200,17 @@ const experiences = [
       <>
         Fixed race condition with emitted event in critical API call <code>queue.consume</code>
         <br />
-        <a href="https://github.com/pagerinc/jackrabbit/pull/40" target="_blank">View Fix</a>
+        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/40" target="_blank">View Fix</a>
       </>,
       <>
         Fixed race condition with hoisted variable in critical API call <code>queue.consume</code>
         <br />
-        <a href="https://github.com/pagerinc/jackrabbit/pull/88" target="_blank">View Fix</a>
+        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/88" target="_blank">View Fix</a>
       </>,
       <>
         Added option to opt out of creating a reply queue for every exchange
         <br />
-        <a href="https://github.com/pagerinc/jackrabbit/pull/74" target="_blank">View Improvement</a>
+        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/74" target="_blank">View Improvement</a>
       </>
     ],
     technologies: [
