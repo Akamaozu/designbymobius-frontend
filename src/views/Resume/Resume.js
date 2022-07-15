@@ -4,6 +4,19 @@ import ViewSubtitle from '../../components/ViewSubtitle'
 import data from '../../data'
 import './style.css'
 
+const ExperienceNotesViewToggler = props => {
+  const { showNotes, onClick } = props
+  return (
+    <span onClick={ onClick }>
+      {
+        showNotes
+          ? 'Hide Notes'
+          : 'Show Notes'
+      }
+    </span>
+  )
+}
+
 const Experience = props => {
   const experience = props.data ?? {}
   const experienceType = data?.experiences?.types?.find(type => type.slug === experience.type) ?? {}
@@ -69,31 +82,25 @@ const Experience = props => {
       }
       {
         experience.notes
-          ? showNotes
-              ? (
-                  <div className="Experience-notes">
-                    {
-                      experience.notes.map(note => {
-                        return <div className="Experience-note">{ note }</div>
-                      })
-                    }
-                  </div>
-                )
-              : null
+          ? (
+              <div className={ `Experience-notes Experience-notes-${showNotes ? 'shown' : 'hidden' }` }>
+                {
+                  experience.notes.map(note => {
+                    return <div className="Experience-note">{ note }</div>
+                  })
+                }
+              </div>
+            )
           : null
       }
       {
         experience.notes
           ? (
-              <div
-                className="Experience-notes-view-toggle"
-                onClick={ () => setShowNotes(!showNotes) }
-              >
-                {
-                  showNotes
-                    ? 'Hide Notes'
-                    : 'View Notes'
-                }
+              <div className="Experience-notes-view-toggle">
+                <ExperienceNotesViewToggler
+                  showNotes={ showNotes }
+                  onClick={ () => setShowNotes(!showNotes) }
+                />
               </div>
             )
           : null
