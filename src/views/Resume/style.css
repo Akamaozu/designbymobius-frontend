@@ -110,10 +110,11 @@
 
         .Experiences > .Experience > .Experience-notes > .Experience-note > code {
           background-color: #ddd;
-          border: 2px solid #aaa;
+          border: 1px solid #aaa;
           color: darkgoldenrod;
-          font-size: .85em;
-          padding: .1em .35em;
+          font-size: .75em;
+          padding: 0em .45em;
           border-radius: .5em;
-          margin: .4em 0;
+          margin: 0 0.1em;
+          vertical-align: .2em;
         }
