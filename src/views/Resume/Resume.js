@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import ViewTitle from '../../components/ViewTitle'
 import ViewSubtitle from '../../components/ViewSubtitle'
 import data from '../../data'
@@ -15,6 +16,8 @@ const Experience = props => {
   }, {})
   const experienceTechnologies = [...experience.technologies]
   const expandedExperienceTechnologies = []
+  const initialShowNotes = props.showNotes
+  const [ showNotes, setShowNotes ] = useState(initialShowNotes ?? false)
 
   while (experienceTechnologies.length > 0) {
     const technologySlug = experienceTechnologies.shift()
@@ -66,12 +69,30 @@ const Experience = props => {
       }
       {
         experience.notes
+          ? showNotes
+              ? (
+                  <div className="Experience-notes">
+                    {
+                      experience.notes.map(note => {
+                        return <div className="Experience-note">{ note }</div>
+                      })
+                    }
+                  </div>
+                )
+              : null
+          : null
+      }
+      {
+        experience.notes
           ? (
-              <div className="Experience-notes">
+              <div
+                className="Experience-notes-view-toggle"
+                onClick={ () => setShowNotes(!showNotes) }
+              >
                 {
-                  experience.notes.map(note => {
-                    return <div className="Experience-note">{ note }</div>
-                  })
+                  showNotes
+                    ? 'Hide Notes'
+                    : 'View Notes'
                 }
               </div>
             )

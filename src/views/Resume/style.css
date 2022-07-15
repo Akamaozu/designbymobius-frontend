@@ -118,3 +118,11 @@
           margin: 0 0.1em;
           vertical-align: .2em;
         }
+
+    .Experiences > .Experience > .Experience-notes-view-toggle {
+      margin: 0 1.35em;
+      font-size: 0.65em;
+      text-transform: uppercase;
+      cursor: pointer;
+      color: #aaa;
+    }
