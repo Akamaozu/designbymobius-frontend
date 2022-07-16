@@ -143,12 +143,14 @@ const experiences = [
     start: '2016',
     end: '2018',
     type: 'employment',
+    nutshell: 'School Communication Software - Messaging, Groups, Events and Billing',
     notes: [
       <>
         Site: <a href="https://hubbli.com" target="_blank">hubbli.com</a>
       </>,
-      'item one',
-      'item two',
+      'Built system to enable schools accept debit and credit cards on invoices issued. Tuition was deposited in the school\'s bank account in 72 hours.',
+      'Improved server reliability and performance by switching certain types of requests from on-demand to message queues and scheduled bulk processing.',
+      'Created Slack integrations to notify support, engineers and management about lifecycle events and errors.',
     ],
     technologies: [
       'nodejs',
@@ -163,7 +165,7 @@ const experiences = [
     start: '2018',
     end: '2018',
     type: 'open-source',
-    nutshell: 'Wrote feature to improve File Manager extension\'s usability',
+    nutshell: 'Built feature to improve File Manager extension\'s usability',
     notes: [
       'Replaced hard-coded path to dependency with user-configurable path. Fails intelligently if path doesn\'t exist on disk.',
       <a href="https://github.com/oskretc/fman-sublimehelper/pull/1" target="_blank">View Feature</a>,
