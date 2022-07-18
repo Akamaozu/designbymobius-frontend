@@ -165,10 +165,10 @@ const experiences = [
     start: '2018',
     end: '2018',
     type: 'open-source',
-    nutshell: 'Built feature to improve File Manager extension\'s usability',
+    nutshell: 'Improved File Manager extension\'s usability',
     notes: [
       'Replaced hard-coded path to dependency with user-configurable path. Fails intelligently if path doesn\'t exist on disk.',
-      <a href="https://github.com/oskretc/fman-sublimehelper/pull/1" target="_blank">View Feature</a>,
+      <a href="https://github.com/oskretc/fman-sublimehelper/pull/1" target="_blank">View Pull Request</a>,
     ],
     technologies: [
       'python',
@@ -202,17 +202,17 @@ const experiences = [
       <>
         Fixed race condition with emitted event in critical API call <code>queue.consume</code>
         <br />
-        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/40" target="_blank">View Fix</a>
+        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/40" target="_blank">View Pull Request</a>
       </>,
       <>
         Fixed race condition with hoisted variable in critical API call <code>queue.consume</code>
         <br />
-        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/88" target="_blank">View Fix</a>
+        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/88" target="_blank">View Pull Request</a>
       </>,
       <>
         Added option to opt out of creating a reply queue for every exchange
         <br />
-        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/74" target="_blank">View Improvement</a>
+        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/74" target="_blank">View Pull Request</a>
       </>
     ],
     technologies: [
