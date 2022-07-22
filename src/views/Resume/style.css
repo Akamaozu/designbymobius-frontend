@@ -2,8 +2,38 @@
   margin-top: -0.35em;
 }
 
+.Experiences-filters {
+  margin: 2em;
+}
+
+  .Experiences-filters > .Experiences-filter {
+    margin-top: .5em;
+  }
+
+    .Experiences-filters > .Experiences-filter > .Experiences-filter-title {
+      text-transform: uppercase;
+      font-size: .75em;
+      color: #333;
+    }
+
+    .Experiences-filters > .Experiences-filter > .Experiences-filter-type-option {
+      display: inline-block;
+      margin-right: .5em;
+      border: 1px solid #aaa;
+      font-size: .7em;
+      text-transform: uppercase;
+      padding: .1em .64em;
+      border-radius: .64em;
+      color:  #aaa;
+    }
+
+    .Experiences-filters > .Experiences-filter > .Experiences-filter-type-option.Experiences-filter-type-option-active {
+      border-color: limegreen;
+      color: limegreen;
+    }
+
 .Experiences {
-  margin: 4em 2em 2em 2em;
+  margin: 2em;
 }
 
   .Experiences > .Experience {
