@@ -24,7 +24,8 @@
       text-transform: uppercase;
       padding: .1em .64em;
       border-radius: .64em;
-      color:  #aaa;
+      color: #aaa;
+      cursor: pointer;
     }
 
     .Experiences-filters > .Experiences-filter > .Experiences-filter-type-option.Experiences-filter-type-option-active {
