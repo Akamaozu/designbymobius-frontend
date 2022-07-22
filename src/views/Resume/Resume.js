@@ -203,7 +203,7 @@ const Resume = () => {
                 return (
                   <div
                     key={experienceType.slug}
-                    className={`Experiences-filter-type-option Experiences-filter-type-option-${experienceType.slug}${experienceFilters.types.includes(experienceType.slug) ? ' Experiences-filter-type-option-active' : ''}`}
+                    className={`Experiences-filter-type-option Experiences-filter-type-option-${experienceType.slug}${experienceFilters.types?.includes(experienceType.slug) ? ' Experiences-filter-type-option-active' : ''}`}
                     onClick={() => {
                       if (!experienceFilters.types) return typeFilter.add(experienceType.slug)
 
