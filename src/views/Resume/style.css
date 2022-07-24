@@ -42,12 +42,16 @@
     }
 
 .Experiences-filter-results {
-  padding: 1em 2em;
   margin: 2em;
+  padding: .5em 2em;
   border: 1px dashed #ccc;
   border-radius: 1em;
-  color: #ccc;
 }
+
+  .Experiences-filter-results > span {
+    color: #ccc;
+    font-size: .85em;
+  }
 
 .Experiences {
   margin: 2em;
@@ -94,6 +98,10 @@
 
         .Experiences > .Experience.Experience-type-open-source > .Experience-header > .Experience-type {
           background-color: mediumaquamarine;
+        }
+
+        .Experiences > .Experience.Experience-type-volunteer > .Experience-header > .Experience-type {
+          background-color: darkorange;
         }
 
     .Experiences > .Experience > .Experience-when {
@@ -156,6 +164,10 @@
 
         .Experiences > .Experience.Experience-type-open-source > .Experience-notes > .Experience-note > a {
           color: mediumaquamarine;
+        }
+
+        .Experiences > .Experience.Experience-type-volunteer > .Experience-notes > .Experience-note > a {
+          color: darkorange;
         }
 
         .Experiences > .Experience > .Experience-notes > .Experience-note > a.inline-block {

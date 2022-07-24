@@ -338,14 +338,16 @@ const Resume = () => {
         </div>
       </div>
       <div className="Experiences-filter-results">
-        {
-          `${experiences.length} Items`
-        }
-        {
-          isFiltered
-            ? `, ${sortedExperiences.length} Match${sortedExperiences.length !== 1 ? 'es' : '' }`
-            : null
-        }
+        <span>
+          {
+            `${experiences.length} Items`
+          }
+          {
+            isFiltered
+              ? `, ${sortedExperiences.length} Match${sortedExperiences.length !== 1 ? 'es' : '' }`
+              : null
+          }
+        </span>
       </div>
       <ExperiencesList experiences={sortedExperiences} />
     </>
