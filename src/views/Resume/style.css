@@ -6,6 +6,10 @@
   margin: 2em;
 }
 
+  .Experiences-filters > .Experiences-filters-title {
+    color: #333;
+  }
+
   .Experiences-filters > .Experiences-filter {
     margin: 1.5em 0;
   }
@@ -36,6 +40,14 @@
       border-color: limegreen;
       color: limegreen;
     }
+
+.Experiences-filter-results {
+  padding: 1em 2em;
+  margin: 2em;
+  border: 1px dashed #ccc;
+  border-radius: 1em;
+  color: #ccc;
+}
 
 .Experiences {
   margin: 2em;

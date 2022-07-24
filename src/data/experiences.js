@@ -18,6 +18,11 @@ const experienceTypes = [
     slug: 'open-source',
     label: 'Open Source',
     description: 'Open Source Contributions',
+  },
+  {
+    slug: 'volunteer',
+    label: 'Volunteer',
+    description: 'Non-code Contributions',
   }
 ]
 
@@ -79,6 +84,17 @@ const experiences = [
     ],
   },
   {
+    slug: 'ladies-learning-code',
+    label: 'Ladies Learning Code',
+    start: '2012',
+    end: '2012',
+    type: 'volunteer',
+    nutshell: 'Supported small groups learning to setup WordPress locally for the first time',
+    technologies: [
+      'wordpress',
+    ]
+  },
+  {
     slug: 'tour-d-afrique',
     label: 'Tour D\'Afrique',
     start: '2013',
@@ -120,7 +136,8 @@ const experiences = [
     type: 'contract',
     nutshell: 'Built a configurable Point of Sale application for 18Techs',
     notes: [
-      'It enabled them to trivially update the receipt design, the POS interface or reconfigure which printer the receipt was sent to without ever being on-site.',
+      '',
+      'Designed it to  trivially update the receipt design, the POS interface or reconfigure which printer the receipt was sent to without ever being on-site.',
     ],
     technologies: [
       'electron',
@@ -212,7 +229,8 @@ const experiences = [
       <>
         Added option to opt out of creating a reply queue for every exchange
         <br />
-        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/74" target="_blank">View Pull Request</a>
+        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/74" target="_blank">View Pull Request
+        </a>
       </>
     ],
     technologies: [

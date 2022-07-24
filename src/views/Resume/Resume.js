@@ -116,6 +116,43 @@ const Experience = props => {
   )
 }
 
+const ExperiencesList = props => {
+  const experiences = props?.experiences ?? []
+
+  return (
+    <div className="Experiences">
+      {
+        experiences.length > 0
+          ? experiences.map(experience => {
+              return <Experience data={experience} key={experience.slug} />
+            })
+          : <span>No Experience Found</span>
+      }
+    </div>
+  )
+}
+
+const ExperiencesFilterOption = props => {
+  const { active, children, onClick, slug } = props
+  const baseClass = 'Experiences-filter-option'
+  const classes = [
+    baseClass,
+    `${baseClass}-${slug}`,
+  ]
+
+  if (active) classes.push(`${baseClass}-active`)
+
+  return (
+    <div
+      key={slug}
+      className={classes.join(' ')}
+      onClick={onClick}
+    >
+      { children }
+    </div>
+  )
+}
+
 const Resume = () => {
   const experiences = data?.experiences?.items ?? []
   const experienceTypes = data?.experiences?.types ?? []
@@ -185,15 +222,19 @@ const Resume = () => {
   }
 
   // filter experiences
+  const [ isFiltered, updateIsFiltered ] = useState(false)
   const [ filteredExperiences, updateFilteredExperiences ] = useState([])
   useEffect(() => {
+    let filtered = false
     const updatedFilteredExperiences = [...experiences].filter(experience => {
+
       if (experienceFilters.types && experienceFilters.types.length > 0) {
+        filtered = true
         if (!experienceFilters.types.includes(experience.type)) return false
       }
 
       if (experienceFilters.technologies && experienceFilters.technologies.length > 0) {
-        if (!experience.technologies) return true
+        filtered = true
 
         // check expanded technologies for filtered techs
         const allExperienceTechnologies = getDependentTechnologies(experience.technologies, technologyMap)
@@ -209,6 +250,7 @@ const Resume = () => {
       return true
     })
 
+    updateIsFiltered(filtered)
     updateFilteredExperiences(updatedFilteredExperiences)
   }, [ experiences, experienceTypes, experienceFilters ])
 
@@ -237,21 +279,22 @@ const Resume = () => {
         Curated experience from <span className="emphasis">10+ years writing code</span>
       </ViewSubtitle>
       <div className="Experiences-filters">
-        <div>Filter Experiences</div>
+        <div className="Experiences-filters-title">Filter Experiences</div>
         <div className="Experiences-filter Experiences-filter-type">
           <div className="Experiences-filter-title">Type</div>
           {
             experienceTypes
               .sort((a,b) => {
+                // label, alphabetically
                 if (a.label > b.label) return 1
                 if (a.label < b.label) return -1
                 return 0
               })
               .map(experienceType => {
                 return (
-                  <div
-                    key={experienceType.slug}
-                    className={`Experiences-filter-option Experiences-filter-option-${experienceType.slug}${experienceFilters.types?.includes(experienceType.slug) ? ' Experiences-filter-option-active' : ''}`}
+                  <ExperiencesFilterOption
+                    active={experienceFilters.types?.includes(experienceType.slug)}
+                    slug={experienceType.slug}
                     onClick={() => {
                       if (!experienceFilters.types) return typeFilter.add(experienceType.slug)
 
@@ -260,7 +303,7 @@ const Resume = () => {
                     }}
                   >
                     { experienceType.label }
-                  </div>
+                  </ExperiencesFilterOption>
                 )
               })
           }
@@ -276,20 +319,10 @@ const Resume = () => {
                 return 0
               })
               .map(technology => {
-                const baseClassName = 'Experiences-filter-option'
-                const classNames = [
-                  baseClassName,
-                  `${baseClassName}-${technology.slug}`,
-                ]
-
-                if (experienceFilters.technologies?.includes(technology.slug)) {
-                  classNames.push(`${baseClassName}-active`)
-                }
-
                 return (
-                  <div
-                    key={technology.slug}
-                    className={ classNames.join(' ') }
+                  <ExperiencesFilterOption
+                    active={experienceFilters.technologies?.includes(technology.slug)}
+                    slug={technology.slug}
                     onClick={() => {
                       if (!experienceFilters.technologies) return technologyFilter.add(technology.slug)
 
@@ -298,22 +331,23 @@ const Resume = () => {
                     }}
                   >
                     { technology.label }
-                  </div>
+                  </ExperiencesFilterOption>
                 )
               })
           }
         </div>
       </div>
-      <div className="Experiences">
+      <div className="Experiences-filter-results">
         {
-          sortedExperiences.length > 0
-            ? sortedExperiences.map(experience => {
-                const experienceType = data?.experiences?.types.find(type => type.slug === experience.type)
-                return <Experience data={experience} key={experience.slug} />
-              })
-            : <span>No Experience Found</span>
+          `${experiences.length} Items`
+        }
+        {
+          isFiltered
+            ? `, ${sortedExperiences.length} Match${sortedExperiences.length !== 1 ? 'es' : '' }`
+            : null
         }
       </div>
+      <ExperiencesList experiences={sortedExperiences} />
     </>
   )
 }
