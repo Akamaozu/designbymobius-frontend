@@ -7,7 +7,7 @@
 }
 
   .Experiences-filters > .Experiences-filter {
-    margin-top: .5em;
+    margin: 1.5em 0;
   }
 
     .Experiences-filters > .Experiences-filter > .Experiences-filter-title {
@@ -16,7 +16,7 @@
       color: #333;
     }
 
-    .Experiences-filters > .Experiences-filter > .Experiences-filter-type-option {
+    .Experiences-filters > .Experiences-filter > .Experiences-filter-option {
       display: inline-block;
       margin-right: .5em;
       border: 1px solid #aaa;
@@ -28,7 +28,11 @@
       cursor: pointer;
     }
 
-    .Experiences-filters > .Experiences-filter > .Experiences-filter-type-option.Experiences-filter-type-option-active {
+    .Experiences-filters > .Experiences-filter.Experiences-filter-technology > .Experiences-filter-option {
+      text-transform: none;
+    }
+
+    .Experiences-filters > .Experiences-filter > .Experiences-filter-option.Experiences-filter-option-active {
       border-color: limegreen;
       color: limegreen;
     }

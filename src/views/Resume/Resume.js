@@ -17,32 +17,37 @@ const ExperienceNotesViewToggler = props => {
   )
 }
 
+const getDependentTechnologies = (technologies, technologyMap) => {
+  const dependentTechnologies = []
+  const queue = [...technologies]
+
+  while (queue.length > 0) {
+    const technologySlug = queue.shift()
+    dependentTechnologies.push(technologySlug)
+
+    const technology = technologyMap[technologySlug]
+    if (technology.dependencies) technology.dependencies.forEach(dependencySlug => {
+      if (!queue.includes(dependencySlug) && !dependentTechnologies.includes(dependencySlug)) queue.push(dependencySlug)
+    })
+  }
+
+  return dependentTechnologies
+}
+
 const Experience = props => {
   const experience = props.data ?? {}
   const experienceType = data?.experiences?.types?.find(type => type.slug === experience.type) ?? {}
   const duration = experience.start === experience.end
                     ? experience.start
                     : `${experience.start} - ${experience.end}`
-  const technologies = data.technologies.items.reduce((technologies, technology) => {
-    technologies[technology.slug] = technology
-    return technologies
+  const technologyMap = data.technologies.items.reduce((technologyMap, technology) => {
+    technologyMap[technology.slug] = technology
+    return technologyMap
   }, {})
-  const experienceTechnologies = [...experience.technologies]
-  const expandedExperienceTechnologies = []
+  const expandedExperienceTechnologies = getDependentTechnologies(experience.technologies, technologyMap)
   const initialShowNotes = props.showNotes
   const [ showNotes, setShowNotes ] = useState(initialShowNotes ?? false)
   const [ experienceFilters, setExperienceFilters ] = useState({})
-
-
-  while (experienceTechnologies.length > 0) {
-    const technologySlug = experienceTechnologies.shift()
-    expandedExperienceTechnologies.push(technologySlug)
-
-    const technology = technologies[technologySlug]
-    if (technology.dependencies) technology.dependencies.forEach(dependencySlug => {
-      if (!experienceTechnologies.includes(dependencySlug) && !expandedExperienceTechnologies.includes(dependencySlug)) experienceTechnologies.push(dependencySlug)
-    })
-  }
 
   return (
     <div className={ `Experience Experience-type-${experience.type}` }>
@@ -58,8 +63,8 @@ const Experience = props => {
                 {
                   expandedExperienceTechnologies
                     .sort((a,b) => {
-                      const aTech = technologies[a].label
-                      const bTech = technologies[b].label
+                      const aTech = technologyMap[a].label
+                      const bTech = technologyMap[b].label
 
                       if (aTech > bTech) return 1
                       if (aTech < bTech) return -1
@@ -67,7 +72,7 @@ const Experience = props => {
                       return 0
                     })
                     .map(technologySlug => {
-                      const technologyDisplayName = technologies[technologySlug].label
+                      const technologyDisplayName = technologyMap[technologySlug].label
                       return (
                         <div className={ `Experience-technology Experience-technology-${technologySlug}` }>{ technologyDisplayName }</div>
                       )
@@ -115,6 +120,13 @@ const Resume = () => {
   const experiences = data?.experiences?.items ?? []
   const experienceTypes = data?.experiences?.types ?? []
 
+  const technologies = data?.technologies?.items ?? []
+  const technologyTypes = data?.technologies?.types
+  const technologyMap = data?.technologies?.items.reduce((technologyMap, technology) => {
+    technologyMap[technology.slug] = technology
+    return technologyMap
+  }, {}) ?? {}
+
   // create filters data-store and updates api
   const [ experienceFilters, updateExperienceFilters ] = useState({})
   const typeFilter = {
@@ -144,18 +156,54 @@ const Resume = () => {
       if (updated) updateExperienceFilters(updates)
     }
   }
+  const technologyFilter = {
+    add: technology => {
+      let updated = false
+      let updates = { ...experienceFilters }
+
+      if (!updates.technologies) updates.technologies = []
+      if (!updates.technologies.includes(technology)) {
+        updates.technologies.push(technology)
+        updated = true
+      }
+
+      if (updated) updateExperienceFilters(updates)
+    },
+    del: technology => {
+      let updated = false
+      let updates = { ...experienceFilters }
+
+      if (!updates.technologies) updates.technologies = []
+      if (updates.technologies.includes(technology)) {
+        const technologyIndex = updates.technologies.indexOf(technology)
+        updates.technologies.splice(technologyIndex, 1)
+        updated = true
+      }
+
+      if (updated) updateExperienceFilters(updates)
+    }
+  }
 
   // filter experiences
   const [ filteredExperiences, updateFilteredExperiences ] = useState([])
   useEffect(() => {
-    if (!experienceFilters.types || experienceFilters.types.length === 0) {
-      updateFilteredExperiences(experiences)
-      return
-    }
-
     const updatedFilteredExperiences = [...experiences].filter(experience => {
-      if (experienceFilters.types) {
+      if (experienceFilters.types && experienceFilters.types.length > 0) {
         if (!experienceFilters.types.includes(experience.type)) return false
+      }
+
+      if (experienceFilters.technologies && experienceFilters.technologies.length > 0) {
+        if (!experience.technologies) return true
+
+        // check expanded technologies for filtered techs
+        const allExperienceTechnologies = getDependentTechnologies(experience.technologies, technologyMap)
+        let match = false
+        allExperienceTechnologies.forEach(technologySlug => {
+          if (match) return
+          if (experienceFilters.technologies.includes(technologySlug)) match = true
+        })
+
+        return match
       }
 
       return true
@@ -191,7 +239,7 @@ const Resume = () => {
       <div className="Experiences-filters">
         <div>Filter Experiences</div>
         <div className="Experiences-filter Experiences-filter-type">
-          <div className="Experiences-filter-title">by type</div>
+          <div className="Experiences-filter-title">Type</div>
           {
             experienceTypes
               .sort((a,b) => {
@@ -203,7 +251,7 @@ const Resume = () => {
                 return (
                   <div
                     key={experienceType.slug}
-                    className={`Experiences-filter-type-option Experiences-filter-type-option-${experienceType.slug}${experienceFilters.types?.includes(experienceType.slug) ? ' Experiences-filter-type-option-active' : ''}`}
+                    className={`Experiences-filter-option Experiences-filter-option-${experienceType.slug}${experienceFilters.types?.includes(experienceType.slug) ? ' Experiences-filter-option-active' : ''}`}
                     onClick={() => {
                       if (!experienceFilters.types) return typeFilter.add(experienceType.slug)
 
@@ -212,6 +260,44 @@ const Resume = () => {
                     }}
                   >
                     { experienceType.label }
+                  </div>
+                )
+              })
+          }
+        </div>
+        <div className="Experiences-filter Experiences-filter-technology">
+          <div className="Experiences-filter-title">technology</div>
+          {
+            technologies
+              .sort((a,b) => {
+                // label, alphabetically
+                if (a.label > b.label) return 1
+                if (a.label < b.label) return -1
+                return 0
+              })
+              .map(technology => {
+                const baseClassName = 'Experiences-filter-option'
+                const classNames = [
+                  baseClassName,
+                  `${baseClassName}-${technology.slug}`,
+                ]
+
+                if (experienceFilters.technologies?.includes(technology.slug)) {
+                  classNames.push(`${baseClassName}-active`)
+                }
+
+                return (
+                  <div
+                    key={technology.slug}
+                    className={ classNames.join(' ') }
+                    onClick={() => {
+                      if (!experienceFilters.technologies) return technologyFilter.add(technology.slug)
+
+                      if (experienceFilters.technologies?.includes(technology.slug)) technologyFilter.del(technology.slug)
+                      else technologyFilter.add(technology.slug)
+                    }}
+                  >
+                    { technology.label }
                   </div>
                 )
               })
