@@ -103,6 +103,7 @@ const experiences = [
     technologies: [
       'wordpress',
     ],
+    nutshell: 'Interactive Overview of cross-continent Bicycle Tours',
     notes: [
       <>
         Referrer: <a href="https://catalystworkshop.com" target="_blank">Catalyst Workshop</a>
@@ -119,10 +120,14 @@ const experiences = [
     start: '2015',
     end: '2015',
     type: 'contract',
+    nutshell: 'Student-Counsellor Relationship Manager - Invite System, Admin Interfaces and Reports',
     notes: [
-      'CyclusBreak is a Student-Counsellor Relationship Manager built by Blueport Software. It connects university students with their counsellors, making it easier for students to get the help needed for optimal academic and social success.',
-      'I automated report generation of CyclusBreak\'s business objectives. The reports were exported as Excel documents and emailed to appropriate stakeholders on a schedule.',
-      'I also implemented the app\'s invitation system, notifications (in-app and via email) and some admin config interfaces.',
+      <>
+        Referrer: <a href="http://blueportsoftware.com" target="_blank">Blueport Software</a>
+      </>,
+      'Student-Counsellor Relationship Managers connect university students with their counsellors, making it easier for students to get the help needed for optimal academic and social success.',
+      'Automated report generation of CyclusBreak\'s business objectives. The reports were exported as Excel documents and emailed to appropriate stakeholders on a schedule.',
+      'Implemented the app\'s invitation system, notifications (in-app and via email) and some admin config interfaces.',
     ],
     technologies: [
       'meteor',
@@ -134,10 +139,13 @@ const experiences = [
     start: '2016',
     end: '2016',
     type: 'contract',
-    nutshell: 'Built a configurable Point of Sale application for 18Techs',
+    nutshell: 'Point of Sale desktop application with customizable Invoice Layout',
     notes: [
-      '',
-      'Designed it to  trivially update the receipt design, the POS interface or reconfigure which printer the receipt was sent to without ever being on-site.',
+      <>
+        Referrer: <a href="https://18techs.com" target="_blank">18Techs</a>
+      </>,
+      'With a few clicks in the POS interface, users can select which printer the receipt would be sent to.',
+      'Proudest accomplishment was selecting printers and printing receipts without triggering Windows print prompt. Resulted in a much smoother user experience in the app.',
     ],
     technologies: [
       'electron',
@@ -152,7 +160,10 @@ const experiences = [
     technologies: [
       'nodejs',
     ],
-    nutshell: 'Erlang-inspired Process Supervision for Node.js',
+    nutshell: 'Erlang-inspired process supervision library for Node.js',
+    notes: [
+      '',
+    ]
   },
   {
     slug: 'hubbli',
