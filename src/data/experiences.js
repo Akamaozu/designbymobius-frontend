@@ -33,6 +33,10 @@ const experiences = [
     start: '2010',
     end: '2014',
     type: 'contract',
+    nutshell: 'Mobile Phone Retailer - Product Gallery and Price Update apps',
+    notes: [
+      'Created an offline-capable Price Update app to manage the large product list and rapidly-changing prices from a mobile phone.',
+    ],
     technologies: [
       'react',
       'wordpress',
@@ -47,6 +51,7 @@ const experiences = [
     technologies: [
       'wordpress',
     ],
+    nutshell: 'Built novel interfaces and controls for interactive Lifestyle Blog',
     notes: [
       'Was commissioned to build a unique theme for a lifestyle blog. We focused on building little details that created a delightful experience for the readers.',
       'When your mouse hovered on a preview card, other page elements dimmed to create more emphasis.',
@@ -81,6 +86,11 @@ const experiences = [
     type: 'open-source',
     technologies: [
       'wordpress',
+    ],
+    nutshell: 'Streamline creation of custom admin interface components in WordPress',
+    notes: [
+      'Leveraged hooks and enqueue system to make it easy to create a metabox (custom admin interface component) with a few lines of code.',
+      <a href="https://github.com/Akamaozu/dxm-wp-metabox" target="_blank">View Repository</a>
     ],
   },
   {
