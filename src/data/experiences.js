@@ -35,7 +35,13 @@ const experiences = [
     type: 'contract',
     nutshell: 'Mobile Phone Retailer - Product Gallery and Price Update apps',
     notes: [
-      'Created an offline-capable Price Update app to manage the large product list and rapidly-changing prices from a mobile phone.',
+      <>
+        Designed and built a <a href="http://archives.mizbeach.com/v2/" target="_blank">product gallery</a> for customers to browse through mobile phones and their features, instead of travelling to the store or calling to get the info.
+      </>,
+      'Created a webapp to easily manage a large product list and rapidly-changing prices from a mobile phone.',
+      <>
+        Used <a href="https://web.dev/appcache-beginner/" target="_blank">appcache</a> to make product update app work offline. Ask me about data-syncing or <a href="https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type" target="_blank">CRDTs (conflict-free replicated data types)</a> sometime!
+      </>,
     ],
     technologies: [
       'react',
