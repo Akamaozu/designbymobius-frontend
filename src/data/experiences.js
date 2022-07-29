@@ -36,11 +36,12 @@ const experiences = [
     nutshell: 'Mobile Phone Retailer - Product Gallery and Price Update apps',
     notes: [
       <>
-        Designed and built a <a href="http://archives.mizbeach.com/v2/" target="_blank">product gallery</a> for customers to browse through mobile phones and their features, instead of travelling to the store or calling to get the info.
+        site: <a href="http://archives.mizbeach.com/v2/" target="_blank">Product Gallery</a>
       </>,
-      'Created a webapp to easily manage a large product list and rapidly-changing prices from a mobile phone.',
+      'Designed and built a product gallery for customers to browse through mobile phones and their features instead of travelling to the store or calling to get the info.',
+      'Created a product list webapp to easily manage a large inventory and rapidly-changing prices from a mobile phone.',
       <>
-        Used <a href="https://web.dev/appcache-beginner/" target="_blank">appcache</a> to make product update app work offline. Ask me about data-syncing or <a href="https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type" target="_blank">CRDTs (conflict-free replicated data types)</a> sometime!
+        Used React and <a href="https://web.dev/appcache-beginner/" target="_blank">appcache</a> to make a product update app work offline. Ask me about data-syncing or <a href="https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type" target="_blank">CRDTs (conflict-free replicated data types)</a> sometime!
       </>,
     ],
     technologies: [
@@ -59,6 +60,9 @@ const experiences = [
     ],
     nutshell: 'Built novel interfaces and controls for interactive Lifestyle Blog',
     notes: [
+      <>
+        site: <a href="http://yknightlights.designbymobi.us/" target="_blank">YKNightlights</a>
+      </>,
       'Was commissioned to build a unique theme for a lifestyle blog. We focused on building little details that created a delightful experience for the readers.',
       'When your mouse hovered on a preview card, other page elements dimmed to create more emphasis.',
       'Keyboard arrow keys were augmented to scroll through the post preview cards.',
