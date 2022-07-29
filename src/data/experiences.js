@@ -112,7 +112,12 @@ const experiences = [
     nutshell: 'Supported small groups learning to setup WordPress locally for the first time',
     technologies: [
       'wordpress',
-    ]
+    ],
+    notes: [
+      <>
+        site: <a href="https://www.canadalearningcode.ca/">Canada Learning Code</a>. <i>(formerly Ladies Learn Code. <a href="https://en.wikipedia.org/wiki/Ladies_Learning_Code" target="_blank">see wikipedia for more details</a>)</i>.
+      </>
+    ],
   },
   {
     slug: 'tour-d-afrique',
