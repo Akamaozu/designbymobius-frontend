@@ -115,8 +115,10 @@ const experiences = [
     ],
     notes: [
       <>
-        site: <a href="https://www.canadalearningcode.ca/">Canada Learning Code</a>. <i>(formerly Ladies Learn Code. <a href="https://en.wikipedia.org/wiki/Ladies_Learning_Code" target="_blank">see wikipedia for more details</a>)</i>.
-      </>
+        site: <a href="https://www.canadalearningcode.ca/">Canada Learning Code</a> formerly <a href="https://en.wikipedia.org/wiki/Ladies_Learning_Code" target="_blank">Ladies Learn Code</a>)
+      </>,
+      'Guided students through setting up a WordPress development environment on their computer (Mac / Windows).',
+      '',
     ],
   },
   {

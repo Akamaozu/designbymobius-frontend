@@ -1,164 +1,19 @@
 import { useEffect, useState } from 'react'
 import ViewTitle from '../../components/ViewTitle'
 import ViewSubtitle from '../../components/ViewSubtitle'
+import ExperiencesFilterOption from './components/ExperiencesFilterOption'
+import ExperiencesList from './components/ExperiencesList'
 import data from '../../data'
+import utils from '../../utils'
 import './style.css'
 
-const ExperienceNotesViewToggler = props => {
-  const { showNotes, toggleViewState } = props
-  return (
-    <span onClick={ toggleViewState }>
-      {
-        showNotes
-          ? 'Hide Notes'
-          : 'Show Notes'
-      }
-    </span>
-  )
-}
-
-const getDependentTechnologies = (technologies, technologyMap) => {
-  const dependentTechnologies = []
-  const queue = [...technologies]
-
-  while (queue.length > 0) {
-    const technologySlug = queue.shift()
-    dependentTechnologies.push(technologySlug)
-
-    const technology = technologyMap[technologySlug]
-    if (technology.dependencies) technology.dependencies.forEach(dependencySlug => {
-      if (!queue.includes(dependencySlug) && !dependentTechnologies.includes(dependencySlug)) queue.push(dependencySlug)
-    })
-  }
-
-  return dependentTechnologies
-}
-
-const Experience = props => {
-  const experience = props.data ?? {}
-  const experienceType = data?.experiences?.types?.find(type => type.slug === experience.type) ?? {}
-  const duration = experience.start === experience.end
-                    ? experience.start
-                    : `${experience.start} - ${experience.end}`
-  const technologyMap = data.technologies.items.reduce((technologyMap, technology) => {
-    technologyMap[technology.slug] = technology
-    return technologyMap
-  }, {})
-  const expandedExperienceTechnologies = getDependentTechnologies(experience.technologies, technologyMap)
-  const initialShowNotes = props.showNotes
-  const [ showNotes, setShowNotes ] = useState(initialShowNotes ?? false)
-  const [ experienceFilters, setExperienceFilters ] = useState({})
-
-  return (
-    <div className={ `Experience Experience-type-${experience.type}` }>
-      <div className="Experience-header">
-        <div className="Experience-title">{ experience.label }</div>
-        <div className="Experience-type">{ experienceType.label }</div>
-      </div>
-      <div className="Experience-when">{ duration }</div>
-      {
-        experience.technologies
-          ? (
-              <div className="Experience-technologies">
-                {
-                  expandedExperienceTechnologies
-                    .sort((a,b) => {
-                      const aTech = technologyMap[a].label
-                      const bTech = technologyMap[b].label
-
-                      if (aTech > bTech) return 1
-                      if (aTech < bTech) return -1
-
-                      return 0
-                    })
-                    .map(technologySlug => {
-                      const technologyDisplayName = technologyMap[technologySlug].label
-                      return (
-                        <div className={ `Experience-technology Experience-technology-${technologySlug}` }>{ technologyDisplayName }</div>
-                      )
-                    })
-                }
-              </div>
-            )
-          : null
-      }
-      {
-        experience.nutshell
-          ? <div className="Experience-nutshell">{ experience.nutshell }</div>
-          : null
-      }
-      {
-        experience.notes
-          ? (
-              <div className={ `Experience-notes Experience-notes-${showNotes ? 'shown' : 'hidden' }` }>
-                {
-                  experience.notes.map(note => {
-                    return <div className="Experience-note">{ note }</div>
-                  })
-                }
-              </div>
-            )
-          : null
-      }
-      {
-        experience.notes
-          ? (
-              <div className="Experience-notes-view-toggle">
-                <ExperienceNotesViewToggler
-                  showNotes={ showNotes }
-                  toggleViewState={ () => setShowNotes(!showNotes) }
-                />
-              </div>
-            )
-          : null
-      }
-    </div>
-  )
-}
-
-const ExperiencesList = props => {
-  const experiences = props?.experiences ?? []
-
-  return (
-    <div className="Experiences">
-      {
-        experiences.length > 0
-          ? experiences.map(experience => {
-              return <Experience data={experience} key={experience.slug} />
-            })
-          : <span>No Experience Found</span>
-      }
-    </div>
-  )
-}
-
-const ExperiencesFilterOption = props => {
-  const { active, children, onClick, slug } = props
-  const baseClass = 'Experiences-filter-option'
-  const classes = [
-    baseClass,
-    `${baseClass}-${slug}`,
-  ]
-
-  if (active) classes.push(`${baseClass}-active`)
-
-  return (
-    <div
-      key={slug}
-      className={classes.join(' ')}
-      onClick={onClick}
-    >
-      { children }
-    </div>
-  )
-}
+const { getDependentTechnologies } = utils
 
 const Resume = () => {
   const experiences = data?.experiences?.items ?? []
   const experienceTypes = data?.experiences?.types ?? []
 
   const technologies = data?.technologies?.items ?? []
-  const technologyTypes = data?.technologies?.types
   const technologyMap = data?.technologies?.items.reduce((technologyMap, technology) => {
     technologyMap[technology.slug] = technology
     return technologyMap
@@ -294,6 +149,7 @@ const Resume = () => {
                 return (
                   <ExperiencesFilterOption
                     active={experienceFilters.types?.includes(experienceType.slug)}
+                    key={experienceType.slug}
                     slug={experienceType.slug}
                     onClick={() => {
                       if (!experienceFilters.types) return typeFilter.add(experienceType.slug)
