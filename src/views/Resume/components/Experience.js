@@ -20,7 +20,7 @@ const Experience = props => {
   const [ showNotes, setShowNotes ] = useState(initialShowNotes ?? false)
 
   return (
-    <div className={ `Experience Experience-type-${experience.type}` }>
+    <div className={ `Experience Experience-type-${experience.type}` } key={experience.slug}>
       <div className="Experience-header">
         <div className="Experience-title">{ experience.label }</div>
         <div className="Experience-type">{ experienceType.label }</div>
@@ -44,7 +44,9 @@ const Experience = props => {
                     .map(technologySlug => {
                       const technologyDisplayName = technologyMap[technologySlug].label
                       return (
-                        <div className={ `Experience-technology Experience-technology-${technologySlug}` } key={technologySlug}>{ technologyDisplayName }</div>
+                        <div className={ `Experience-technology Experience-technology-${technologySlug}` } key={technologySlug}>
+                          { technologyDisplayName }
+                        </div>
                       )
                     })
                 }
@@ -62,8 +64,8 @@ const Experience = props => {
           ? (
               <div className={ `Experience-notes Experience-notes-${showNotes ? 'shown' : 'hidden' }` }>
                 {
-                  experience.notes.map(note => {
-                    return <div className="Experience-note">{ note }</div>
+                  experience.notes.map((note, index) => {
+                    return <div className="Experience-note" key={index + 1}>{ note }</div>
                   })
                 }
               </div>
