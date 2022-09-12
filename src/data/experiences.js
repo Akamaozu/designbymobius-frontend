@@ -287,8 +287,9 @@ const experiences = [
       <>
         Site: <a href="https://robotsandpencils.com" target="_blank">robotsandpencils.com</a>
       </>,
-      'item one',
-      'item two',
+      'Backend edTech',
+      'Frontend banking',
+      'Backend medTech',
     ],
     technologies: [
       'nodejs',
