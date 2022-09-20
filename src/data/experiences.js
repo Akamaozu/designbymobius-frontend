@@ -36,12 +36,12 @@ const experiences = [
     nutshell: 'Mobile Phone Retailer - Product Gallery and Price Update apps',
     notes: [
       <>
-        site: <a href="http://archives.mizbeach.com/v2/" target="_blank">Product Gallery</a>
+        site: <a href="http://archives.mizbeach.com/v2/" target="_blank" rel="noreferrer">Product Gallery</a>
       </>,
       'Designed and built a product gallery for customers to browse through mobile phones and their features instead of travelling to the store or calling to get the info.',
       'Created a product list webapp to easily manage a large inventory and rapidly-changing prices from a mobile phone.',
       <>
-        Used React and <a href="https://web.dev/appcache-beginner/" target="_blank">appcache</a> to make a product update app work offline. Ask me about data-syncing or <a href="https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type" target="_blank">CRDTs (conflict-free replicated data types)</a> sometime!
+        Used React and <a href="https://web.dev/appcache-beginner/" target="_blank" rel="noreferrer">appcache</a> to make a product update app work offline. Ask me about data-syncing or <a href="https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type" target="_blank" rel="noreferrer">CRDTs (conflict-free replicated data types)</a> sometime!
       </>,
     ],
     technologies: [
@@ -61,7 +61,7 @@ const experiences = [
     nutshell: 'Built novel interfaces and controls for interactive Lifestyle Blog',
     notes: [
       <>
-        site: <a href="http://yknightlights.designbymobi.us/" target="_blank">YKNightlights</a>
+        site: <a href="http://yknightlights.designbymobi.us/" target="_blank" rel="noreferrer">YKNightlights</a>
       </>,
       'Was commissioned to build a unique theme for a lifestyle blog. We focused on building little details that created a delightful experience for the readers.',
       'When your mouse hovered on a preview card, other page elements dimmed to create more emphasis.',
@@ -81,7 +81,7 @@ const experiences = [
     nutshell: 'Restored Marine Magnetics hacked website with no available backups and patched vulnerability',
     notes: [
       <>
-        Referrer: <a href="https://hypenotic.com/" target="_blank">Hypenotic</a>
+        Referrer: <a href="https://hypenotic.com/" target="_blank" rel="noreferrer">Hypenotic</a>
       </>,
       'The theme files were corrupted beyond recovery and there were no backups. I had to rebuild the site using a previous view from the Wayback Machine.',
       'I analyzed the WordPress installation, found the source of the malware and removed it.',
@@ -100,7 +100,7 @@ const experiences = [
     nutshell: 'Streamline creation of custom admin interface components in WordPress',
     notes: [
       'Leveraged hooks and enqueue system to make it easy to create a metabox (custom admin interface component) with a few lines of code.',
-      <a href="https://github.com/Akamaozu/dxm-wp-metabox" target="_blank">View Repository</a>
+      <a href="https://github.com/Akamaozu/dxm-wp-metabox" target="_blank" rel="noreferrer">View Repository</a>
     ],
   },
   {
@@ -115,7 +115,7 @@ const experiences = [
     ],
     notes: [
       <>
-        site: <a href="https://www.canadalearningcode.ca/">Canada Learning Code</a> (formerly <a href="https://en.wikipedia.org/wiki/Ladies_Learning_Code" target="_blank">Ladies Learn Code</a>)
+        site: <a href="https://www.canadalearningcode.ca/">Canada Learning Code</a> (formerly <a href="https://en.wikipedia.org/wiki/Ladies_Learning_Code" target="_blank" rel="noreferrer">Ladies Learn Code</a>)
       </>,
       'Guided students through setting up a WordPress development environment on their computer (Mac / Windows).',
       '',
@@ -133,7 +133,7 @@ const experiences = [
     nutshell: 'Interactive Overview of cross-continent Bicycle Tours',
     notes: [
       <>
-        Referrer: <a href="https://catalystworkshop.com" target="_blank">Catalyst Workshop</a>
+        Referrer: <a href="https://catalystworkshop.com" target="_blank" rel="noreferrer">Catalyst Workshop</a>
       </>,
       'Catalyst Workshop was making huge upgrades to a client\'s site and I was responsible for bringing many of the designs to life. My primary responsibility was implementing the design and behavior of Tour Overview section.',
       'My favorite part of was the strategies employed to keep the Tour Section page behavior very fast. The redesign was beautiful, but the experience would have been subpar if the section was sluggish.',
@@ -150,7 +150,7 @@ const experiences = [
     nutshell: 'Student-Counsellor Relationship Manager - Invite System, Admin Interfaces and Reports',
     notes: [
       <>
-        Referrer: <a href="http://blueportsoftware.com" target="_blank">Blueport Software</a>
+        Referrer: <a href="http://blueportsoftware.com" target="_blank" rel="noreferrer">Blueport Software</a>
       </>,
       'Student-Counsellor Relationship Managers connect university students with their counsellors, making it easier for students to get the help needed for optimal academic and social success.',
       'Automated report generation of CyclusBreak\'s business objectives. The reports were exported as Excel documents and emailed to appropriate stakeholders on a schedule.',
@@ -169,7 +169,7 @@ const experiences = [
     nutshell: 'Point of Sale desktop application with customizable Invoice Layout',
     notes: [
       <>
-        Referrer: <a href="https://18techs.com" target="_blank">18Techs</a>
+        Referrer: <a href="https://18techs.com" target="_blank" rel="noreferrer">18Techs</a>
       </>,
       'With a few clicks in the POS interface, users can select which printer the receipt would be sent to.',
       'Proudest accomplishment was selecting printers and printing receipts without triggering Windows print prompt. Resulted in a much smoother user experience in the app.',
@@ -201,7 +201,7 @@ const experiences = [
     nutshell: 'School Communication Software - Messaging, Groups, Events and Billing',
     notes: [
       <>
-        Site: <a href="https://hubbli.com" target="_blank">hubbli.com</a>
+        Site: <a href="https://hubbli.com" target="_blank" rel="noreferrer">hubbli.com</a>
       </>,
       'Built system to enable schools accept debit and credit cards on invoices issued. Tuition was deposited in the school\'s bank account in 72 hours.',
       'Improved server reliability and performance by switching certain types of requests from on-demand to message queues and scheduled bulk processing.',
@@ -223,7 +223,7 @@ const experiences = [
     nutshell: 'Improved File Manager extension\'s usability',
     notes: [
       'Replaced hard-coded path to dependency with user-configurable path. Fails intelligently if path doesn\'t exist on disk.',
-      <a href="https://github.com/oskretc/fman-sublimehelper/pull/1" target="_blank">View Pull Request</a>,
+      <a href="https://github.com/oskretc/fman-sublimehelper/pull/1" target="_blank" rel="noreferrer">View Pull Request</a>,
     ],
     technologies: [
       'python',
@@ -257,17 +257,17 @@ const experiences = [
       <>
         Fixed race condition with emitted event in critical API call <code>queue.consume</code>
         <br />
-        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/40" target="_blank">View Pull Request</a>
+        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/40" target="_blank" rel="noreferrer">View Pull Request</a>
       </>,
       <>
         Fixed race condition with hoisted variable in critical API call <code>queue.consume</code>
         <br />
-        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/88" target="_blank">View Pull Request</a>
+        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/88" target="_blank" rel="noreferrer">View Pull Request</a>
       </>,
       <>
         Added option to opt out of creating a reply queue for every exchange
         <br />
-        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/74" target="_blank">View Pull Request
+        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/74" target="_blank" rel="noreferrer">View Pull Request
         </a>
       </>
     ],
@@ -285,7 +285,7 @@ const experiences = [
     nutshell: 'Client apps, servers and third-party integrations for Banking, Education and Medical projects',
     notes: [
       <>
-        Site: <a href="https://robotsandpencils.com" target="_blank">robotsandpencils.com</a>
+        Site: <a href="https://robotsandpencils.com" target="_blank" rel="noreferrer">robotsandpencils.com</a>
       </>,
       'Backend edTech',
       'Frontend banking',

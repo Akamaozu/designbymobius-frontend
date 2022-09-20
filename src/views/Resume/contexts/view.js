@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 import data from '../../../data'
 import utils from '../../../utils'
 
@@ -29,20 +29,16 @@ const ViewProvider = props => {
   }, {})
 
   const [state, updateState] = useState(initialState)
-  // const memoized = useMemo(() => [state, updateState], [state])
   const technologyMap = state.technologies.map
   const experienceFilters = state.experiences.filters
 
-  // filter experiences
-  const [ isFiltered, updateIsFiltered ] = useState(false)
-  const [ filteredExperiences, updateFilteredExperiences ] = useState([])
   useEffect(() => {
     let filtered = false
     const updatedFilteredExperiences = [...experiences].filter(experience => {
 
       if (experienceFilters.types && experienceFilters.types.length > 0) {
         filtered = true
-        if (experienceFilters.types.indexOf(experience.type) == -1) return false
+        if (experienceFilters.types.indexOf(experience.type) === -1) return false
       }
 
       if (experienceFilters.technologies && experienceFilters.technologies.length > 0) {
@@ -65,11 +61,19 @@ const ViewProvider = props => {
     const updatedState = { ...state }
     updatedState.experiences.isFiltered = filtered ?? false
     updatedState.experiences.filteredExperiences = updatedFilteredExperiences ?? []
-    updateState(updatedState)
 
-    updateIsFiltered(filtered)
-    updateFilteredExperiences(updatedFilteredExperiences)
-  }, [ state, isFiltered, filteredExperiences, experienceFilters, technologyMap ])
+    const stateString = JSON.stringify(state)
+    const updatedStateString = JSON.stringify(updatedState)
+    if (stateString !== updatedStateString) {
+      console.log({
+        action: 'log-state-update',
+        current: state,
+        next: updatedState,
+      })
+
+      updateState(updatedState)
+    }
+  }, [ state, experienceFilters, technologyMap, ])
 
   return <ViewContext.Provider value={[ state, updateState ]} {...props} />
 }

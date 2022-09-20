@@ -9,7 +9,6 @@ const ExperienceFilters = props => {
   const experienceTypes = state?.experiences?.types ?? []
   const experienceFilters = state?.experiences?.filters ?? {}
   const technologies = state?.technologies?.items ?? []
-  const technologyTypes = state?.technologies?.types ?? []
 
   const typeFilter = {
     add: type => {
@@ -18,15 +17,16 @@ const ExperienceFilters = props => {
       let updated = false
       let updates = { ...state }
 
-      console.log({ src: 'type-filter', type, updates })
-
       if (!updates.experiences.filters.types) updates.experiences.filters.types = []
       if (updates.experiences.filters.types.indexOf(type) === -1) {
         updates.experiences.filters.types.push(type)
         updated = true
       }
 
-      if (updated) updateState(updates)
+      if (updated) {
+        updateState(updates)
+        console.log({ action: 'add-type-filter', type, filters: updates.experiences.filters })
+      }
     },
     del: type => {
       if (!state?.experiences?.filters) throw new Error('experience filters data-struct not found')
@@ -41,12 +41,14 @@ const ExperienceFilters = props => {
         updated = true
       }
 
-      if (updated) updateState(updates)
+      if (updated) {
+        updateState(updates)
+        console.log({ action: 'remove-type-filter', type, filters: updates.experiences.filters })
+      }
     }
   }
   const technologyFilter = {
     add: technology => {
-      console.log( 'started attempt to filter tech' )
       if (!state?.experiences?.filters) throw new Error('experience filters data-struct not found')
 
       let updated = false
@@ -59,12 +61,12 @@ const ExperienceFilters = props => {
         updated = true
       }
 
-      if (updated) updateState(updates)
-      console.log( 'ended attempt to filter tech' )
+      if (updated) {
+        updateState(updates)
+        console.log({ action: 'add-technology-filter', technology, filters: updates.experiences.filters })
+      }
     },
     del: technology => {
-      if (!state?.experiences?.filters) throw new Error('experience filters data-struct not found')
-
       let updated = false
       let updates = { ...state }
       let experienceFilters = state.experiences.filters
@@ -76,7 +78,10 @@ const ExperienceFilters = props => {
         updated = true
       }
 
-      if (updated) updateState(updates)
+      if (updated) {
+        updateState(updates)
+        console.log({ action: 'remove-technology-filter', technology, filters: updates.experiences.filters })
+      }
     }
   }
 
@@ -127,6 +132,7 @@ const ExperienceFilters = props => {
                 return (
                   <ExperiencesFilterOption
                     active={experienceFilters.technologies?.indexOf(technology.slug) > -1}
+                    key={technology.slug}
                     slug={technology.slug}
                     onClick={() => {
                       if (!experienceFilters.technologies) return technologyFilter.add(technology.slug)
