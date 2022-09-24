@@ -237,8 +237,9 @@ const experiences = [
     type: 'entrepreneur',
     nutshell: 'Automated exam availability search and registration for Medical Students',
     notes: [
-      'Spotgetter is process automation software for USMLE Step 2 CS medical exams.',
-      'Instead of manually refreshing webpages looking for an availability that meets their requirements, Spotgetter automated the process of searching and getting a spot.',
+      'Designed and implemented automation for searching and claiming USMLE Step 2 CS exam spots.',
+      'Optimized operation costs using in-memory data indexes, message queues and inter-service communication.',
+      'Developed analytic tools to identify which customer spots would be key to increasing liquidity at no risk to the client.',
     ],
     technologies: [
       'puppeteer',
