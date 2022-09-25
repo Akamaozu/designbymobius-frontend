@@ -126,6 +126,16 @@
         border-radius: .5em;
       }
 
+      .Experiences > .Experience > .Experience-technologies.Experience-technologies-filtered > .Experience-technology {
+        color: #ccc;
+        border-color: #ccc;
+      }
+
+      .Experiences > .Experience > .Experience-technologies.Experience-technologies-filtered > .Experience-technology.Experience-technologies-filter-match {
+        color: #888;
+        border-color: #888;
+      }
+
     .Experiences > .Experience > .Experience-nutshell {
       margin: 1em;
       color: #555;

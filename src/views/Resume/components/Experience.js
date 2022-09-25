@@ -1,23 +1,27 @@
 import { useState } from 'react'
 import ExperienceNotesViewToggler from './ExperienceNotesViewToggler'
-import data from '../../../data'
+import viewContext from '../contexts/view'
 import utils from '../../../utils'
 
+const { useView } = viewContext
 const { getDependentTechnologies } = utils
 
 const Experience = props => {
+  const [ state ] = useView()
   const experience = props.data ?? {}
-  const experienceType = data?.experiences?.types?.find(type => type.slug === experience.type) ?? {}
+  const experienceType = state?.experiences?.types?.find(type => type.slug === experience.type) ?? {}
+  const experienceFilters = state?.experiences?.filters
+  const experienceFilteredByTechnologies = experienceFilters?.technologies?.length > 0
   const duration = experience.start === experience.end
                     ? experience.start
                     : `${experience.start} - ${experience.end}`
-  const technologyMap = data.technologies.items.reduce((technologyMap, technology) => {
-    technologyMap[technology.slug] = technology
-    return technologyMap
-  }, {})
+  const technologyMap = state?.technologies?.map ?? {}
   const expandedExperienceTechnologies = getDependentTechnologies(experience.technologies, technologyMap)
   const initialShowNotes = props.showNotes
   const [ showNotes, setShowNotes ] = useState(initialShowNotes ?? false)
+
+  let experienceTechnologiesClassName = 'Experience-technologies'
+  if (experienceFilteredByTechnologies) experienceTechnologiesClassName += ' Experience-technologies-filtered'
 
   return (
     <div className={ `Experience Experience-type-${experience.type}` } key={experience.slug}>
@@ -29,7 +33,7 @@ const Experience = props => {
       {
         experience.technologies
           ? (
-              <div className="Experience-technologies">
+              <div className={experienceTechnologiesClassName}>
                 {
                   expandedExperienceTechnologies
                     .sort((a,b) => {
@@ -43,8 +47,16 @@ const Experience = props => {
                     })
                     .map(technologySlug => {
                       const technologyDisplayName = technologyMap[technologySlug].label
+                      const experienceTechnologiesFilterMatch = experienceFilters?.technologies?.indexOf?.(technologySlug) > -1
+
+                      let className = 'Experience-technology Experience-technology-'+ technologySlug
+                      if (experienceTechnologiesFilterMatch) className += ' Experience-technologies-filter-match'
+
                       return (
-                        <div className={ `Experience-technology Experience-technology-${technologySlug}` } key={technologySlug}>
+                        <div
+                          className={className}
+                          key={technologySlug}
+                        >
                           { technologyDisplayName }
                         </div>
                       )
