@@ -295,7 +295,7 @@ const experiences = [
       'Optimized data access patterns to reduce required network calls.',
       'Created a pluggable system to gate access to the app using partner institutions\' auth service.',
       <>
-        <b>Transformed banking frontend designs from mockups to fully-integrated web interfaces</b>
+        <b>Transformed Banking frontend designs from mockups to fully-integrated web interfaces</b>
       </>,
       'Reduced time to develop new views and components by leveraging React hooks (built-in and custom) with Redux to create easily-reusable UI elements and behaviors.',
       'Activated core banking functionalities in the UI by integrating multiple third-party providers for essential services like authorization and money movements.',

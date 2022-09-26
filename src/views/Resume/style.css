@@ -126,6 +126,10 @@
         border-radius: .5em;
       }
 
+      .Experiences > .Experience > .Experience-technologies > .Experience-technology:hover {
+        background-color: palegoldenrod;
+      }
+
       .Experiences > .Experience > .Experience-technologies.Experience-technologies-filtered > .Experience-technology {
         color: #ccc;
         border-color: #ccc;
@@ -135,6 +139,23 @@
         color: #888;
         border-color: #888;
       }
+
+        .Experiences > .Experience > .Experience-technologies > .Experience-technology > .Experience-technology-type {
+          display: none;
+          position: absolute;
+          border-radius: .5em;
+          margin-top: -3.5em;
+          margin-left: -1.75em;
+          padding: .35em .55em;
+          background-color: palegoldenrod;
+          color: #989;
+          text-align: center;
+          opacity: .82;
+        }
+
+        .Experiences > .Experience > .Experience-technologies > .Experience-technology:hover > .Experience-technology-type {
+          display: block;
+        }
 
     .Experiences > .Experience > .Experience-nutshell {
       margin: 1em;

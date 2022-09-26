@@ -28,6 +28,11 @@ const ViewProvider = props => {
     return technologyMap
   }, {})
 
+  initialState.technologies.typeMap = initialState.technologies.types.reduce((technologyTypeMap, technologyType) => {
+    technologyTypeMap[technologyType.slug] = technologyType
+    return technologyTypeMap
+  }, {})
+
   const [state, updateState] = useState(initialState)
   const technologyMap = state.technologies.map
   const experienceFilters = state.experiences.filters

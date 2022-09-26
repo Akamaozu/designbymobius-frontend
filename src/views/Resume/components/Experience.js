@@ -16,6 +16,7 @@ const Experience = props => {
                     ? experience.start
                     : `${experience.start} - ${experience.end}`
   const technologyMap = state?.technologies?.map ?? {}
+  const technologyTypeMap = state?.technologies?.typeMap ?? {}
   const expandedExperienceTechnologies = getDependentTechnologies(experience.technologies, technologyMap)
   const initialShowNotes = props.showNotes
   const [ showNotes, setShowNotes ] = useState(initialShowNotes ?? false)
@@ -46,18 +47,23 @@ const Experience = props => {
                       return 0
                     })
                     .map(technologySlug => {
-                      const technologyDisplayName = technologyMap[technologySlug].label
-                      const experienceTechnologiesFilterMatch = experienceFilters?.technologies?.indexOf?.(technologySlug) > -1
+                      const technology = technologyMap[technologySlug]
+                      const technologyDisplayName = technology.label
+                      const technologyTypeDisplayName = technologyTypeMap[technology.type]?.label
+                      const experienceTechnologiesFilterMatch = experienceFilters?.technologies?.indexOf?.(technology.slug) > -1
 
-                      let className = 'Experience-technology Experience-technology-'+ technologySlug
+                      let className = 'Experience-technology Experience-technology-'+ technology.slug
                       if (experienceTechnologiesFilterMatch) className += ' Experience-technologies-filter-match'
 
                       return (
                         <div
                           className={className}
-                          key={technologySlug}
+                          key={technology.slug}
                         >
                           { technologyDisplayName }
+                          <div className='Experience-technology-type'>
+                            { technologyTypeDisplayName }
+                          </div>
                         </div>
                       )
                     })
