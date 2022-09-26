@@ -144,13 +144,13 @@
           display: none;
           position: absolute;
           border-radius: .5em;
-          margin-top: -3.5em;
+          margin-top: -3.55em;
           margin-left: -1.75em;
           padding: .35em .55em;
           background-color: palegoldenrod;
-          color: #989;
+          color: #9a9;
           text-align: center;
-          opacity: .82;
+          opacity: .87;
         }
 
         .Experiences > .Experience > .Experience-technologies > .Experience-technology:hover > .Experience-technology-type {
