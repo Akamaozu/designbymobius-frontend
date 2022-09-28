@@ -215,6 +215,33 @@ const experiences = [
     ],
   },
   {
+    slug: 'torontojs',
+    label: 'TorontoJS',
+    start: '2017',
+    end: '2017',
+    type: 'volunteer',
+    nutshell: 'Created a workshop about creating Fault-Tolerant software in Node.js',
+    notes: [
+      <>
+        Announcement: <a href="https://twitter.com/torontojs/status/874771829780623360" target="_blank" rel="noreferrer">TorontoJS</a>
+        <br />
+        Satellite: <a href="https://github.com/Akamaozu/workshop-satellite/tree/dc70637704e601d00308e8e5a7f731e571d4ac93" target="_blank" rel="noreferrer">Github</a>
+        <br />
+        Base Station: <a href="https://github.com/Akamaozu/workshop-satellite/tree/dc70637704e601d00308e8e5a7f731e571d4ac93" target="_blank" rel="noreferrer">Github</a>
+      </>,
+      <b>Presents software design that works when hardware components fail</b>,
+      'Given the premise of code running on a satellite in space, where code updates may require a rocket launch, the workshop led participants through a way to design software that was useful even if some hardware components on the satellite fails.',
+      <b>Encouraged participants to configure, modify or disrupt software operations to test design</b>,
+      'Software operations were configurable via environment variables, making it easy for participants to tweak satellite without writing code.',
+      'Each component was driven by a discrete Node.js process, making it easy for more adventurous participants to crash components and observe how the software handles unexpected errors.',
+      <b>Introduced realistic constraints to force participants to address potential failure modes</b>,
+      'Hard-coded a narrow window of time for communication between satellites and the base station to guide participants to consider resources like internet connection as a potential source of fault and design software accordingly.',
+    ],
+    technologies: [
+      'nodejs',
+    ]
+  },
+  {
     slug: 'fman-sublimehelper',
     label: 'fman-sublimehelper',
     start: '2018',
