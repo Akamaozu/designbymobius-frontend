@@ -220,7 +220,7 @@ const experiences = [
     start: '2017',
     end: '2017',
     type: 'volunteer',
-    nutshell: 'Created a workshop about creating Fault-Tolerant software in Node.js',
+    nutshell: 'Created a space-themed workshop on writing Fault-Tolerant software in Node.js',
     notes: [
       <>
         Announcement: <a href="https://twitter.com/torontojs/status/874771829780623360" target="_blank" rel="noreferrer">TorontoJS</a>
