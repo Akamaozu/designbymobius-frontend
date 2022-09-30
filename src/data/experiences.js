@@ -189,7 +189,18 @@ const experiences = [
     ],
     nutshell: 'Erlang-inspired process supervision library for Node.js',
     notes: [
-      '',
+      <>
+        Repository: <a href="https://github.com/akamaozu/node-supe" target="_blank" rel="noreferrer">Github</a>
+      </>,
+      <>
+        Utilized Node.js <code>childProcess</code> APIs to create a simple way to start and stop child processes, with convenient hooks into lifecycle events.
+      </>,
+      <>
+        Created message-passing primitives like <a href="https://github.com/Akamaozu/node-supe/blob/master/docs/core-components/signal.md" target="_blank" rel="noreferrer">signals</a>, <a href="https://github.com/Akamaozu/node-supe/blob/master/docs/core-components/mail.md" target="_blank" rel="noreferrer">mail and mailboxes</a> on Node.js default inter-process communication.
+      </>,
+      <>
+        Designed supe's engine to be modular, and built core functionality as a <a href="https://github.com/Akamaozu/node-supe/blob/master/docs/core-components.md">collection of modules</a>.
+      </>,
     ]
   },
   {
@@ -264,7 +275,7 @@ const experiences = [
     type: 'entrepreneur',
     nutshell: 'Automated exam availability search and registration for Medical Students',
     notes: [
-      'Designed and implemented automation for searching and claiming USMLE Step 2 CS exam spots.',
+      'Designed and implemented automation for searching for and securing USMLE Step 2 CS exam spots.',
       'Optimized operation costs using in-memory data indexes, message queues and inter-service communication.',
       'Developed analytic tools to identify which customer spots would be key to increasing liquidity at no risk to the client.',
     ],
