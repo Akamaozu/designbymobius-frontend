@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 import ViewTitle from '../../components/ViewTitle'
 import ViewSubtitle from '../../components/ViewSubtitle'
 import ExperiencesList from './components/ExperiencesList'
@@ -9,9 +11,39 @@ import './style.css'
 const { ViewProvider } = viewContext
 
 const Resume = () => {
+  const [ initialState, setInitialState ] = useState()
+
+  useEffect(() => {
+    if (typeof (window?.location?.search) !== 'string') return
+
+    const queryStringIterable = new URLSearchParams(window.location.search)
+    const queryStringArray = [ ...queryStringIterable ]
+    const queryStringMap = queryStringArray.reduce((map, tuple) => {
+      map[tuple[0]] = tuple[1]
+      return map
+    }, {})
+
+    const queryStringState = {}
+
+    if (queryStringMap.types) {
+      const types = queryStringMap.types.split(',').map(type => type.trim())
+      queryStringState.types = types
+    }
+
+    if (queryStringMap.technologies) {
+      const technologies = queryStringMap.technologies.split(',').map(tech => tech.trim())
+      queryStringState.technologies = technologies
+    }
+
+    setInitialState(queryStringState)
+  }, [ window?.location?.search, ])
+
+  // IMPORTANT: updating initialState does not update ViewProvider
+  //            do *NOT* load initialState before fully constructing it
+  if (Object.prototype.toString.call(initialState) !== '[object Object]') return null
 
   return (
-    <ViewProvider>
+    <ViewProvider initialState={initialState}>
       <ViewTitle>Resume</ViewTitle>
       <ViewSubtitle>
         Curated experience from <span className="emphasis">10+ years writing code</span>

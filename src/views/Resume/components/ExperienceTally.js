@@ -6,14 +6,14 @@ const { useView } = viewContext
 const ExperienceTally = () => {
   const [ state ] = useView()
 
-  const [ experiences, updateExperiences ] = useState(state?.experiences?.items ?? [])
-  const [ experienceFilters, updateExperienceFilters ] = useState(state?.experiences?.filters ?? {})
-  const [ experienceTypesMap, updateExperienceTypesMap ] = useState(state?.experiences?.typeMap ?? {})
+  const [ experiences, updateExperiences ] = useState()
+  const [ experienceFilters, updateExperienceFilters ] = useState()
+  const [ experienceTypesMap, updateExperienceTypesMap ] = useState()
 
-  const [ technologyMap, updateTechnologyMap ] = useState(state?.technologies?.map ?? {})
+  const [ technologyMap, updateTechnologyMap ] = useState()
 
-  const [ isFiltered, updateIsFiltered ] = useState(state?.experiences?.isFiltered ?? false)
-  const [ filteredExperiences, updateFilteredExperiences ] = useState(state?.experiences?.filteredExperiences ?? [])
+  const [ isFiltered, updateIsFiltered ] = useState()
+  const [ filteredExperiences, updateFilteredExperiences ] = useState()
 
   useEffect(() => {
     if (!state?.experiences || !state?.technologies) return
@@ -53,29 +53,11 @@ const ExperienceTally = () => {
   }
 
   return (
-    <div
-      style={{
-        margin: '2em',
-        fontWeight: 900,
-        lineHeight: '1.1em',
-        letterSpacing: '-1px',
-      }}
-    >
-      <div
-        style={{
-          fontSize: '125%',
-        }}
-      >
-        { experiences.length } Experiences
-      </div>
+    <div className='Experiences-tally'>
+      <div className='Experiences-tally-unfiltered'>{ experiences.length } Experiences</div>
       {
         isFiltered && (
-          <div
-            style={{
-              fontSize: '125%',
-              color: 'limegreen',
-            }}
-          >
+          <div className='Experiences-tally-filtered'>
             { filteredExperiences.length }
             {
               experienceFilters.types?.length > 0

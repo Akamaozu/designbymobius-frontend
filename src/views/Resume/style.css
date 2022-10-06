@@ -53,6 +53,22 @@
     font-size: .85em;
   }
 
+.Experiences-tally {
+  margin: 2em;
+  font-weight: 900;
+  line-height: 1.1em;
+  letter-spacing: -1px;
+}
+
+  .Experiences-tally > .Experiences-tally-filtered,
+  .Experiences-tally > .Experiences-tally-unfiltered {
+    font-size: 125%;
+  }
+
+  .Experiences-tally > .Experiences-tally-filtered {
+    color: limegreen;
+  }
+
 .Experiences {
   margin: 2em;
 }

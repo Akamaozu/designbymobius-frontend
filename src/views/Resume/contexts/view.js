@@ -38,6 +38,9 @@ const ViewProvider = props => {
     return technologyTypeMap
   }, {})
 
+  if (props?.initialState?.types) initialState.experiences.filters.types = props.initialState.types.filter(type => initialState.experiences.typeMap.hasOwnProperty(type))
+  if (props?.initialState?.technologies) initialState.experiences.filters.technologies = props.initialState.technologies.filter(tech => initialState.technologies.map.hasOwnProperty(tech))
+
   const [state, updateState] = useState(initialState)
   const technologyMap = state.technologies.map
   const experienceFilters = state.experiences.filters
