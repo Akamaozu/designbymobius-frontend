@@ -16,7 +16,7 @@ const start = async () => {
     res.setHeader('content-type', 'text/html')
     res.send(html)
   })
-  console.log(`action=setup-cactchall-route payload=app-html`)
+  console.log(`action=setup-catchall-route payload=app-html`)
 
   server.listen(PORT, ()=> {
     console.log(`action=server-listen port=${ PORT }`)

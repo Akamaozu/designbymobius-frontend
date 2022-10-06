@@ -23,6 +23,11 @@ const ViewProvider = props => {
   initialState = createStore(initialState, 'experiences', { items: experiences, types: experienceTypes, filters: {} })
   initialState = createStore(initialState, 'technologies', { items: technologies, types: technologyTypes })
 
+  initialState.experiences.typeMap = initialState.experiences.types.reduce((experienceTypeMap, experienceType) => {
+    experienceTypeMap[experienceType.slug] = experienceType
+    return experienceTypeMap
+  }, {})
+
   initialState.technologies.map = initialState.technologies.items.reduce((technologyMap, technology) => {
     technologyMap[technology.slug] = technology
     return technologyMap
