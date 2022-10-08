@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import ViewTitle from '../../components/ViewTitle'
 import ViewSubtitle from '../../components/ViewSubtitle'
@@ -11,12 +12,14 @@ import './style.css'
 const { ViewProvider } = viewContext
 
 const Resume = () => {
+  const location = useLocation()
   const [ initialState, setInitialState ] = useState()
 
+  // create initial state from url querystring
   useEffect(() => {
-    if (typeof (window?.location?.search) !== 'string') return
+    if (typeof (location?.search) !== 'string') return
 
-    const queryStringIterable = new URLSearchParams(window.location.search)
+    const queryStringIterable = new URLSearchParams(location.search)
     const queryStringArray = [ ...queryStringIterable ]
     const queryStringMap = queryStringArray.reduce((map, tuple) => {
       map[tuple[0]] = tuple[1]
@@ -35,8 +38,9 @@ const Resume = () => {
       queryStringState.technologies = technologies
     }
 
+    window?.history?.replaceState?.(queryStringState, '', window.location.pathname)
     setInitialState(queryStringState)
-  }, [ window?.location?.search, ])
+  }, [])
 
   // IMPORTANT: updating initialState does not update ViewProvider
   //            do *NOT* load initialState before fully constructing it
