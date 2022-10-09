@@ -182,13 +182,14 @@
 
     .Experiences > .Experience > .Experience-notes {
       margin:  1em 1em 0 1em;
-      transition: max-height .125s ease;
-      overflow:  hidden;
-      max-height: 500px;
+      transition: max-height .375s cubic-bezier(0, 1, 0, 1);
+      overflow: hidden;
+      max-height: 9999px;
     }
 
     .Experiences > .Experience > .Experience-notes.Experience-notes-hidden {
-      max-height: 0px;
+      max-height: 0;
+      transition: max-height .1s cubic-bezier(1, 0, 1, 0);
     }
 
       .Experiences > .Experience > .Experience-notes > .Experience-note {
@@ -242,4 +243,3 @@
         cursor: pointer;
         color: #aaa;
       }
-
