@@ -123,9 +123,8 @@ const ExperienceFilters = props => {
       {
         showFilters && (
           <div className="Experiences-filters">
-            <div className="Experiences-filters-title">Filter Experiences</div>
             <div className="Experiences-filter Experiences-filter-type">
-              <div className="Experiences-filter-title">Type</div>
+              <div className="Experiences-filter-title">Filter by Experience Type</div>
               {
                 experienceTypes
                   .sort((a,b) => {
@@ -154,7 +153,7 @@ const ExperienceFilters = props => {
               }
             </div>
             <div className="Experiences-filter Experiences-filter-technology">
-              <div className="Experiences-filter-title">technology</div>
+              <div className="Experiences-filter-title">Filter by Technologies Used</div>
               {
                 technologies
                   .sort((a,b) => {
