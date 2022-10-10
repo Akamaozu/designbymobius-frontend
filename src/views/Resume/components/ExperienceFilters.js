@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 import ExperiencesFilterOption from './ExperiencesFilterOption'
 import viewContext from '../contexts/view'
 
@@ -5,6 +7,7 @@ const { useView } = viewContext
 
 const ExperienceFilters = props => {
   const [ state, updateState ] = useView()
+  const [ showFilters, setShowFilters ] = useState(false)
 
   const experienceTypes = state?.experiences?.types ?? []
   const experienceFilters = state?.experiences?.filters ?? {}
@@ -85,69 +88,103 @@ const ExperienceFilters = props => {
     }
   }
 
+  const clearFilters = () => {
+    const updates = { ...state }
+    updates.experiences.filters = {}
+
+    updateState(updates)
+    console.log({ action: 'clear-all-experience-filters' })
+  }
+
   return (
     <>
-      <div className="Experiences-filters">
-        <div className="Experiences-filters-title">Filter Experiences</div>
-        <div className="Experiences-filter Experiences-filter-type">
-          <div className="Experiences-filter-title">Type</div>
+      <div className="Experiences-filters-controls">
+        <div
+          className="toggle-filters-view"
+          onClick={ () => setShowFilters(!showFilters) }
+        >
           {
-            experienceTypes
-              .sort((a,b) => {
-                // label, alphabetically
-                if (a.label > b.label) return 1
-                if (a.label < b.label) return -1
-                return 0
-              })
-              .map(experienceType => {
-                return (
-                  <ExperiencesFilterOption
-                    active={experienceFilters.types?.indexOf(experienceType.slug) > -1}
-                    key={experienceType.slug}
-                    slug={experienceType.slug}
-                    onClick={() => {
-                      if (!experienceFilters.types) return typeFilter.add(experienceType.slug)
-
-                      if (experienceFilters.types.indexOf(experienceType.slug) > -1) typeFilter.del(experienceType.slug)
-                      else typeFilter.add(experienceType.slug)
-                    }}
-                  >
-                    { experienceType.label }
-                  </ExperiencesFilterOption>
-                )
-              })
+            showFilters
+              ? 'Hide Filters'
+              : 'Show Filters'
           }
         </div>
-        <div className="Experiences-filter Experiences-filter-technology">
-          <div className="Experiences-filter-title">technology</div>
-          {
-            technologies
-              .sort((a,b) => {
-                // label, alphabetically
-                if (a.label > b.label) return 1
-                if (a.label < b.label) return -1
-                return 0
-              })
-              .map(technology => {
-                return (
-                  <ExperiencesFilterOption
-                    active={experienceFilters.technologies?.indexOf(technology.slug) > -1}
-                    key={technology.slug}
-                    slug={technology.slug}
-                    onClick={() => {
-                      if (!experienceFilters.technologies) return technologyFilter.add(technology.slug)
-
-                      if (experienceFilters.technologies.indexOf(technology.slug) > -1) technologyFilter.del(technology.slug)
-                      else technologyFilter.add(technology.slug)
-                    }}
-                  >
-                    { technology.label }
-                  </ExperiencesFilterOption>
-                )
-              })
-          }
-        </div>
+        {
+          state?.experiences?.isFiltered && (
+            <div
+              className="clear-filters"
+              onClick={clearFilters}
+            >
+              Clear Filters
+            </div>
+          )
+        }
       </div>
+      {
+        showFilters && (
+          <div className="Experiences-filters">
+            <div className="Experiences-filters-title">Filter Experiences</div>
+            <div className="Experiences-filter Experiences-filter-type">
+              <div className="Experiences-filter-title">Type</div>
+              {
+                experienceTypes
+                  .sort((a,b) => {
+                    // label, alphabetically
+                    if (a.label > b.label) return 1
+                    if (a.label < b.label) return -1
+                    return 0
+                  })
+                  .map(experienceType => {
+                    return (
+                      <ExperiencesFilterOption
+                        active={experienceFilters.types?.indexOf(experienceType.slug) > -1}
+                        key={experienceType.slug}
+                        slug={experienceType.slug}
+                        onClick={() => {
+                          if (!experienceFilters.types) return typeFilter.add(experienceType.slug)
+
+                          if (experienceFilters.types.indexOf(experienceType.slug) > -1) typeFilter.del(experienceType.slug)
+                          else typeFilter.add(experienceType.slug)
+                        }}
+                      >
+                        { experienceType.label }
+                      </ExperiencesFilterOption>
+                    )
+                  })
+              }
+            </div>
+            <div className="Experiences-filter Experiences-filter-technology">
+              <div className="Experiences-filter-title">technology</div>
+              {
+                technologies
+                  .sort((a,b) => {
+                    // label, alphabetically
+                    if (a.label > b.label) return 1
+                    if (a.label < b.label) return -1
+                    return 0
+                  })
+                  .map(technology => {
+                    return (
+                      <ExperiencesFilterOption
+                        active={experienceFilters.technologies?.indexOf(technology.slug) > -1}
+                        key={technology.slug}
+                        slug={technology.slug}
+                        onClick={() => {
+                          if (!experienceFilters.technologies) return technologyFilter.add(technology.slug)
+
+                          if (experienceFilters.technologies.indexOf(technology.slug) > -1) technologyFilter.del(technology.slug)
+                          else technologyFilter.add(technology.slug)
+                        }}
+                      >
+                        { technology.label }
+                      </ExperiencesFilterOption>
+                    )
+                  })
+              }
+            </div>
+          </div>
+        )
+      }
     </>
   )
 }

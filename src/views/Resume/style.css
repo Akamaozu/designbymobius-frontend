@@ -2,6 +2,21 @@
   margin-top: -0.35em;
 }
 
+.Experiences-filters-controls {
+  margin: 2em;
+}
+
+  .Experiences-filters-controls > .toggle-filters-view,
+  .Experiences-filters-controls > .clear-filters {
+    display:  inline-block;
+    cursor: pointer;
+    margin-right: 1em;
+    padding: .25em .75em;
+    border-radius: .75em;
+    border: 1px solid #aaa;
+    color: #aaa;
+  }
+
 .Experiences-filters {
   margin: 2em;
 }

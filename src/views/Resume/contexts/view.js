@@ -47,14 +47,14 @@ const ViewProvider = props => {
 
   useEffect(() => {
     let filtered = false
-    const updatedFilteredExperiences = [...experiences].filter(experience => {
+    const updatedFilteredExperiences = experiences.filter(experience => {
 
-      if (experienceFilters.types && experienceFilters.types.length > 0) {
+      if (state?.experiences?.filters?.types && state?.experiences?.filters?.types.length > 0) {
         filtered = true
-        if (experienceFilters.types.indexOf(experience.type) === -1) return false
+        if (state?.experiences?.filters?.types.indexOf(experience.type) === -1) return false
       }
 
-      if (experienceFilters.technologies && experienceFilters.technologies.length > 0) {
+      if (state?.experiences?.filters?.technologies && state?.experiences?.filters?.technologies.length > 0) {
         filtered = true
 
         // check expanded technologies for filtered techs
@@ -62,7 +62,7 @@ const ViewProvider = props => {
         let match = false
         allExperienceTechnologies.forEach(technologySlug => {
           if (match) return
-          if (experienceFilters.technologies.indexOf(technologySlug) > -1) match = true
+          if (state?.experiences?.filters?.technologies.indexOf(technologySlug) > -1) match = true
         })
 
         return match
@@ -75,18 +75,15 @@ const ViewProvider = props => {
     updatedState.experiences.isFiltered = filtered ?? false
     updatedState.experiences.filteredExperiences = updatedFilteredExperiences ?? []
 
-    const stateString = JSON.stringify(state)
-    const updatedStateString = JSON.stringify(updatedState)
-    if (stateString !== updatedStateString) {
-      console.log({
-        action: 'log-state-update',
-        current: state,
-        next: updatedState,
-      })
-
-      updateState(updatedState)
-    }
-  }, [ state, experienceFilters, technologyMap, ])
+    updateState(updatedState)
+  }, [
+    state?.experiences?.items,
+    state?.experiences?.types,
+    state?.experiences?.isFiltered,
+    JSON.stringify(state?.experiences?.filters?.types),
+    JSON.stringify(state?.experiences?.filters?.technologies),
+    state?.technologies?.map,
+  ])
 
   return <ViewContext.Provider value={[ state, updateState ]} {...props} />
 }

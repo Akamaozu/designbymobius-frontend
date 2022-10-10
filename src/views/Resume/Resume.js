@@ -40,7 +40,7 @@ const Resume = () => {
 
     window?.history?.replaceState?.(queryStringState, '', window.location.pathname)
     setInitialState(queryStringState)
-  }, [])
+  }, [ location?.search ])
 
   // IMPORTANT: updating initialState does not update ViewProvider
   //            do *NOT* load initialState before fully constructing it
