@@ -37,11 +37,9 @@ const ExperiencesList = () => {
     )
   },
   [
-    state,
-    state?.experiences,
-    state?.experiences?.items,
+    JSON.stringify(state?.experiences?.items),
     state?.experiences?.isFiltered,
-    state?.experiences?.filteredExperiences,
+    JSON.stringify(state?.experiences?.filteredExperiences),
   ])
 
   return (
@@ -52,7 +50,7 @@ const ExperiencesList = () => {
           : (
               sortedExperiences.length > 0
                 ? sortedExperiences.map(experience => {
-                    return <Experience data={experience} key={experience.slug} />
+                    return <Experience data={experience} key={experience.slug} showNotes={state?.experiences?.showNotes} />
                   })
                 : <span>No Experience Found</span>
             )

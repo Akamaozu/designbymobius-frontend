@@ -20,7 +20,7 @@ const createStore = ( state = {}, storeName, storeState ) => {
 
 const ViewProvider = props => {
   let initialState = {}
-  initialState = createStore(initialState, 'experiences', { items: experiences, types: experienceTypes, filters: {} })
+  initialState = createStore(initialState, 'experiences', { items: experiences, types: experienceTypes, filters: {}, showNotes: props?.initialState?.notes?.trim() === 'open' })
   initialState = createStore(initialState, 'technologies', { items: technologies, types: technologyTypes })
 
   initialState.experiences.typeMap = initialState.experiences.types.reduce((experienceTypeMap, experienceType) => {

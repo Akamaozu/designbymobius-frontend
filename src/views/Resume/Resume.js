@@ -38,6 +38,10 @@ const Resume = () => {
       queryStringState.technologies = technologies
     }
 
+    if (queryStringMap.notes) {
+      queryStringState.notes = queryStringMap.notes
+    }
+
     window?.history?.replaceState?.(queryStringState, '', window.location.pathname)
     setInitialState(queryStringState)
   }, [ location?.search ])

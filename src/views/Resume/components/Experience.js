@@ -18,8 +18,7 @@ const Experience = props => {
   const technologyMap = state?.technologies?.map ?? {}
   const technologyTypeMap = state?.technologies?.typeMap ?? {}
   const expandedExperienceTechnologies = getDependentTechnologies(experience.technologies, technologyMap)
-  const initialShowNotes = props.showNotes
-  const [ showNotes, setShowNotes ] = useState(initialShowNotes ?? false)
+  const [ showNotes, setShowNotes ] = useState(props?.showNotes ?? false)
 
   let experienceTechnologiesClassName = 'Experience-technologies'
   if (experienceFilteredByTechnologies) experienceTechnologiesClassName += ' Experience-technologies-filtered'
