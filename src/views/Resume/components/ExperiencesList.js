@@ -7,6 +7,8 @@ const { useView } = viewContext
 const ExperiencesList = () => {
   const [ state ] = useView()
   const [ sortedExperiences, updateSortedExperiences ] = useState()
+  const stringifiedExperiences = JSON.stringify(state?.experiences?.items)
+  const stringifiedFilteredExperiences = JSON.stringify(state?.experiences?.filteredExperiences)
 
   useEffect(() => {
     if (!state?.experiences) return
@@ -37,9 +39,10 @@ const ExperiencesList = () => {
     )
   },
   [
-    JSON.stringify(state?.experiences?.items),
+    state?.experiences,
     state?.experiences?.isFiltered,
-    JSON.stringify(state?.experiences?.filteredExperiences),
+    stringifiedExperiences,
+    stringifiedFilteredExperiences,
   ])
 
   return (

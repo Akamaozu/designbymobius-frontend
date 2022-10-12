@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import ExperiencesFilterOption from './ExperiencesFilterOption'
 import viewContext from '../contexts/view'

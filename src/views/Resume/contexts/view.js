@@ -42,12 +42,12 @@ const ViewProvider = props => {
   if (props?.initialState?.technologies) initialState.experiences.filters.technologies = props.initialState.technologies.filter(tech => initialState.technologies.map.hasOwnProperty(tech))
 
   const [state, updateState] = useState(initialState)
-  const technologyMap = state.technologies.map
-  const experienceFilters = state.experiences.filters
+  const stringifiedTypeFilters = JSON.stringify(state?.experiences?.filters?.types)
+  const stringifiedTechnologyFilters = JSON.stringify(state?.experiences?.filters?.technologies)
 
   useEffect(() => {
     let filtered = false
-    const updatedFilteredExperiences = experiences.filter(experience => {
+    const updatedFilteredExperiences = state?.experiences?.items?.filter(experience => {
 
       if (state?.experiences?.filters?.types && state?.experiences?.filters?.types.length > 0) {
         filtered = true
@@ -58,7 +58,7 @@ const ViewProvider = props => {
         filtered = true
 
         // check expanded technologies for filtered techs
-        const allExperienceTechnologies = getDependentTechnologies(experience.technologies, technologyMap)
+        const allExperienceTechnologies = getDependentTechnologies(experience.technologies, state?.technologies?.map)
         let match = false
         allExperienceTechnologies.forEach(technologySlug => {
           if (match) return
@@ -77,12 +77,13 @@ const ViewProvider = props => {
 
     updateState(updatedState)
   }, [
+    state,
     state?.experiences?.items,
     state?.experiences?.types,
     state?.experiences?.isFiltered,
-    JSON.stringify(state?.experiences?.filters?.types),
-    JSON.stringify(state?.experiences?.filters?.technologies),
     state?.technologies?.map,
+    stringifiedTypeFilters,
+    stringifiedTechnologyFilters,
   ])
 
   return <ViewContext.Provider value={[ state, updateState ]} {...props} />
