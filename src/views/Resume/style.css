@@ -2,8 +2,24 @@
   margin-top: -0.35em;
 }
 
+@media print {
+
+  .AppHeader,
+  .ViewTitle,
+  .ViewSubtitle {
+    display: none;
+  }
+}
+
 .Experiences-filters-controls {
   margin: 2em;
+}
+
+@media print {
+
+  .Experiences-filters-controls {
+    display: none;
+  }
 }
 
   .Experiences-filters-controls > .toggle-filters-view,
@@ -89,6 +105,13 @@
 
   .Experiences > .Experience {
     margin-bottom: 1.5em;
+  }
+
+  @media print {
+
+    .Experiences > .Experience {
+      page-break-inside: avoid;
+    }
   }
 
     .Experiences > .Experience > .Experience-header {
@@ -249,6 +272,13 @@
 
     .Experiences > .Experience > .Experience-notes-view-toggle {
       margin: 0 .85em;
+    }
+
+    @media print {
+
+      .Experiences > .Experience > .Experience-notes-view-toggle {
+        display: none;
+      }
     }
 
       .Experiences > .Experience > .Experience-notes-view-toggle > span {
