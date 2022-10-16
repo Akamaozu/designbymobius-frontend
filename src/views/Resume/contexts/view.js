@@ -42,6 +42,8 @@ const ViewProvider = props => {
   if (props?.initialState?.technologies) initialState.experiences.filters.technologies = props.initialState.technologies.filter(tech => initialState.technologies.map.hasOwnProperty(tech))
 
   const [state, updateState] = useState(initialState)
+  const stringifiedExperiences = JSON.stringify(state?.experiences?.items)
+  const stringifiedExperienceTypes = JSON.stringify(state?.experiences?.types)
   const stringifiedTypeFilters = JSON.stringify(state?.experiences?.filters?.types)
   const stringifiedTechnologyFilters = JSON.stringify(state?.experiences?.filters?.technologies)
 
@@ -77,9 +79,8 @@ const ViewProvider = props => {
 
     updateState(updatedState)
   }, [
-    state,
-    state?.experiences?.items,
-    state?.experiences?.types,
+    stringifiedExperiences,
+    stringifiedExperienceTypes,
     state?.experiences?.isFiltered,
     state?.technologies?.map,
     stringifiedTypeFilters,
