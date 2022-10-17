@@ -5,7 +5,7 @@ const fs = require('fs')
 
 let server,
     port,
-    build_dir_exists,
+    build_exists,
     app_html,
     reload_html,
     inflight = {}
@@ -31,14 +31,14 @@ function start_server() {
     if (app_html) return next()
     else {
       const build_app_and_load_html = async () => {
-        if (typeof build_dir_exists === 'undefined') {
+        if (typeof build_exists === 'undefined') {
           console.log('action=verify-app-build-exists')
-          inflight.build_dir_exists = app_build_exists()
-          build_dir_exists = await inflight.build_dir_exists
-          delete inflight.build_dir_exists
+          inflight.build_exists = app_build_exists()
+          build_exists = await inflight.build_exists
+          delete inflight.build_exists
         }
 
-        if (!build_dir_exists) {
+        if (!build_exists) {
           if (!inflight.build_app) {
             console.log('action=build-app')
             inflight.build_app = build_app()
@@ -46,7 +46,7 @@ function start_server() {
 
           await inflight.build_app
           delete inflight.build_app
-          build_dir_exists = true
+          build_exists = true
         }
 
         if (!inflight.get_app_html) {
