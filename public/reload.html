@@ -7,10 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta charset="utf-8" />
-    <title>reloading in a few seconds ...</title>
+    <title>loading designbymobius</title>
+    <style>
+      @keyframes logo-spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
-  <body>
-    <p>You requested the app before the server was done building it.</p>
-    <p>If there isn't an automatic retry in 5 seconds, please reload this page.</p>
+  <body style="margin: 0; padding: 0;">
+    <div style="width: 100vw; height: 100vh; background-color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <img src="/logo192.png" style="animation: logo-spin infinite 5s; width: 64px; margin-top: -32px;" />
+    </div>
   </body>
 </html>
