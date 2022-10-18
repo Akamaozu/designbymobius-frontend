@@ -103,7 +103,7 @@ const Resume = () => {
 
             }}
           >
-            🍁 Live in <a href="https://en.wikipedia.org/wiki/Mississauga" target="_blank" rel="noreferrer">Mississauga, Canada</a>
+            🍁 Lives in <a href="https://en.wikipedia.org/wiki/Mississauga" target="_blank" rel="noreferrer">Mississauga, Canada</a>
           </div>
           <div
             style={{
