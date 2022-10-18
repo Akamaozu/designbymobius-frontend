@@ -54,7 +54,7 @@ const Resume = () => {
     <ViewProvider initialState={initialState}>
       <ViewTitle>Resume</ViewTitle>
       <ViewSubtitle>
-        Curated experience from <span className="emphasis">10+ years writing code</span>
+        Curated experiences as a <span className="emphasis">Software Engineer</span>
       </ViewSubtitle>
       <div
         style={{
@@ -75,21 +75,35 @@ const Resume = () => {
 
           }}
         >
-          👶 Born in Nigeria
+          👶 Born in <a href="https://en.wikipedia.org/wiki/Lagos" target="_blank" rel="noreferrer">Lagos, Nigeria</a>
         </div>
         <div
           style={{
 
           }}
         >
-          🍁 Live in Canada
+          🍁 Live in <a href="https://en.wikipedia.org/wiki/Mississauga" target="_blank" rel="noreferrer">Mississauga, Canada</a>
         </div>
         <div
           style={{
 
           }}
         >
-          👨‍💻 Software Engineer with {(new Date()).getFullYear() - 2010 }+ years experience
+          👨‍💻 Software Engineer since 2010
+        </div>
+        <div
+          style={{
+
+          }}
+        >
+          📧 <a href="mailto:uzo@designbymobius.ca">uzo@designbymobius.ca</a>
+        </div>
+        <div
+          style={{
+
+          }}
+        >
+          👀 <a href="https://github.com/akamaozu" target="_blank" rel="noreferrer">github</a>, <a href="https://www.linkedin.com/in/uzo-olisemeka-a6a56519/" target="_blank" rel="noreferrer">linkedin</a>
         </div>
       </div>
       <ExperienceTally />
