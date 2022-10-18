@@ -63,47 +63,69 @@ const Resume = () => {
       >
         <div
           style={{
-            fontSize: '1.75em',
-            fontWeight: 900,
-            letterSpacing: '-1px',
+            display: 'inline-block',
+            backgroundImage: 'url(/profile-pic.jpg)',
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            borderRadius: '12.5vw',
+            width: '25vw',
+            height: '25vw',
+            maxWidth: '8em',
+            maxHeight: '8em',
+            marginRight: '2em',
+            border: '6px solid #000',
           }}
         >
-          Uzo Olisemeka
         </div>
         <div
           style={{
-
+            display: 'inline-block',
           }}
         >
-          👶 Born in <a href="https://en.wikipedia.org/wiki/Lagos" target="_blank" rel="noreferrer">Lagos, Nigeria</a>
-        </div>
-        <div
-          style={{
+          <div
+            style={{
+              fontSize: '1.75em',
+              fontWeight: 900,
+              letterSpacing: '-1px',
+            }}
+          >
+            Uzo Olisemeka
+          </div>
+          <div
+            style={{
 
-          }}
-        >
-          🍁 Live in <a href="https://en.wikipedia.org/wiki/Mississauga" target="_blank" rel="noreferrer">Mississauga, Canada</a>
-        </div>
-        <div
-          style={{
+            }}
+          >
+            👶 Born in <a href="https://en.wikipedia.org/wiki/Lagos" target="_blank" rel="noreferrer">Lagos, Nigeria</a>
+          </div>
+          <div
+            style={{
 
-          }}
-        >
-          👨‍💻 Software Engineer since 2010
-        </div>
-        <div
-          style={{
+            }}
+          >
+            🍁 Live in <a href="https://en.wikipedia.org/wiki/Mississauga" target="_blank" rel="noreferrer">Mississauga, Canada</a>
+          </div>
+          <div
+            style={{
 
-          }}
-        >
-          📧 <a href="mailto:uzo@designbymobius.ca">uzo@designbymobius.ca</a>
-        </div>
-        <div
-          style={{
+            }}
+          >
+            👨‍💻 Software Engineer since 2010
+          </div>
+          <div
+            style={{
 
-          }}
-        >
-          👀 <a href="https://github.com/akamaozu" target="_blank" rel="noreferrer">github</a>, <a href="https://www.linkedin.com/in/uzo-olisemeka-a6a56519/" target="_blank" rel="noreferrer">linkedin</a>
+            }}
+          >
+            📧 <a href="mailto:uzo@designbymobius.ca">uzo@designbymobius.ca</a>
+          </div>
+          <div
+            style={{
+
+            }}
+          >
+            👀 <a href="https://github.com/akamaozu" target="_blank" rel="noreferrer">github</a>, <a href="https://www.linkedin.com/in/uzo-olisemeka-a6a56519/" target="_blank" rel="noreferrer">linkedin</a>
+          </div>
         </div>
       </div>
       <ExperienceTally />
