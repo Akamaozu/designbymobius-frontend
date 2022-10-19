@@ -1,13 +1,13 @@
 const child_process = require('child_process')
 const express = require('express')
+const mime = require('mime-types')
 const dotenv = require('dotenv')
 const fs = require('fs')
 
 let server,
     port,
     build_exists,
-    app_html,
-    reload_html,
+    cache = {},
     inflight = {}
 
 load_env_vars()
@@ -24,16 +24,45 @@ function start_server() {
   server = express()
   port = process.env.PORT ?? 3000
 
+  server.get(
+    [
+      '/favicon.ico',
+      '/logo192.png',
+      '/profile-pic.jpg',
+    ],
+    (req, res) => {
+      const filename = req.path.slice(1)
+      const cache_key = filename.replace('.', '-')
+      if (cache[cache_key]) {
+        res.set('Content-Type', mime.lookup(filename))
+        return res.send(cache[cache_key])
+      }
+
+      if (!inflight[cache_key]) inflight[cache_key] = get_file('./public' + req.path, { encoding: null })
+
+      const get_and_send_file = async () => {
+        cache[cache_key] = await inflight[cache_key]
+        delete inflight[cache_key]
+
+        res.set('Content-Type', mime.lookup(filename))
+        res.send(cache[cache_key])
+      }
+
+      get_and_send_file()
+    }
+  )
+
   server.use(express.static('build'))
   console.log(`action=map-build-dir-to-server-routes`)
 
+  // handle requests when app build hasn't started / isn't done
   server.use((req, res, next) => {
-    if (app_html) return next()
+    if (cache.app_html) return next()
     else {
       const build_app_and_load_html = async () => {
         if (typeof build_exists === 'undefined') {
           console.log('action=verify-app-build-exists')
-          inflight.build_exists = app_build_exists()
+          inflight.build_exists = file_exists('./build/index.html')
           build_exists = await inflight.build_exists
           delete inflight.build_exists
         }
@@ -49,53 +78,44 @@ function start_server() {
           build_exists = true
         }
 
-        if (!inflight.get_app_html) {
-          console.log('action=get-app-html')
-          inflight.get_app_html = get_app_html()
-        }
+        if (!inflight.get_app_html) inflight.get_app_html = get_file('./build/index.html')
 
-        app_html = await inflight.get_app_html
+        cache.app_html = await inflight.get_app_html
         delete inflight.get_app_html
       }
 
       build_app_and_load_html()
     }
 
-    if (reload_html) return res.send(reload_html)
+    if (cache.reload_html) return res.send(cache.reload_html)
     else {
-      const load_and_send_reload_html = async () => {
-        if (!inflight.get_reload_html) {
-          console.log('action=get-reload-html')
-          inflight.get_reload_html = get_reload_html()
-        }
+      const get_and_send_reload_html = async () => {
+        if (!inflight.get_reload_html) inflight.get_reload_html = get_file('./public/reload.html')
 
-        reload_html = await inflight.get_reload_html
+        cache.reload_html = await inflight.get_reload_html
         delete inflight.get_reload_html
 
-        res.send(reload_html)
+        res.send(cache.reload_html)
       }
 
-      load_and_send_reload_html()
+      get_and_send_reload_html()
     }
+  })
+
+  server.get('/resume', (req, res, next) => {
+    if (req.query.download !== 'true') return next()
+
+    res.send(JSON.stringify(req.query, null, 2))
   })
 
   server.get('/*', (req, res) => {
     res.setHeader('content-type', 'text/html')
-    res.send(app_html)
+    res.send(cache.app_html)
   })
-  console.log(`action=setup-catchall-route payload=app-html`)
+  console.log('action=setup-catchall-route payload=app-html')
 
   server.listen(port, ()=> {
     console.log(`action=server-listen port=${ port }`)
-  })
-}
-
-async function app_build_exists() {
-  return new Promise( (resolve, reject) => {
-    fs.access('./build/index.html', error => {
-      if (error) resolve(false)
-      else resolve(true)
-    })
   })
 }
 
@@ -108,18 +128,23 @@ async function build_app() {
   })
 }
 
-async function get_app_html() {
+async function file_exists(path_to_file) {
   return new Promise( (resolve, reject) => {
-    fs.readFile('./build/index.html', { encoding: 'utf8' }, (error, data) => {
-      if (error) reject(error)
-      else resolve(data)
+    fs.access(path_to_file, error => {
+      if (error) resolve(false)
+      else resolve(true)
     })
   })
 }
 
-async function get_reload_html() {
+async function get_file(path_to_file, config = {}) {
+  const default_get_file_config = { encoding: 'utf8' }
+
   return new Promise( (resolve, reject) => {
-    fs.readFile('./public/reload.html', { encoding: 'utf8' }, (error, data) => {
+    const fs_config = { ...default_get_file_config, ...config }
+
+    console.log( 'action=get-file-from-disk path="'+ path_to_file +'"' )
+    fs.readFile( path_to_file, fs_config, (error, data) => {
       if (error) reject(error)
       else resolve(data)
     })
