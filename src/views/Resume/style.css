@@ -34,6 +34,12 @@
     color: #aaa;
   }
 
+  .Experiences-filters-controls > .download-pdf {
+    transition-property: color, border-color;
+    transition-duration: .33s;
+    transition-timing-function: ease-in-out;
+  }
+
   .Experiences-filters-controls > .download-pdf.is-downloading {
     border-color: orange;
     color: orange;
