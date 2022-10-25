@@ -230,6 +230,17 @@ function generate_pdf(config = {}, callback) {
     const page = await browser.newPage();
 
     for (let i = 0; i < generate_pdf_requests.length; i += 1) {
+      const sorted_valid_config_inflight_key = generate_pdf_requests[i].key
+      if (cache[sorted_valid_config_inflight_key]) return callback(null, cache[sorted_valid_config_inflight_key])
+      if (inflight[sorted_valid_config_inflight_key]) {
+        const wait_for_inflight = async () => {
+          await inflight[sorted_valid_config_inflight_key]
+          callback(null, inflight[sorted_valid_config_inflight_key])
+        }
+
+        return wait_for_inflight()
+      }
+
       const sorted_valid_config = generate_pdf_requests[i].config
       const sorted_valid_config_querystring = Object.keys(sorted_valid_config)
         .map((config_key) => {
