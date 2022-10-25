@@ -36,7 +36,7 @@
 
   .Experiences-filters-controls > .download-pdf {
     transition-property: color, border-color;
-    transition-duration: .33s;
+    transition-duration: .15s;
     transition-timing-function: ease-in-out;
   }
 
