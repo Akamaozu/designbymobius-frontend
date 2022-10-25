@@ -1,21 +1,4 @@
-const technologyTypes = [
-  {
-    slug: 'database',
-    label: 'Database',
-  },
-  {
-    slug: 'framework',
-    label: 'Framework or Runtime',
-  },
-  {
-    slug: 'language',
-    label: 'Programming Language',
-  },
-  {
-    slug: 'message-queue',
-    label: 'Message Queue',
-  }
-]
+import technologyTypes from './technology-types.json'
 
 const technologies = [
   {

@@ -8,6 +8,7 @@ const { useView } = viewContext
 const ExperienceFilters = props => {
   const [ state, updateState ] = useView()
   const [ showFilters, setShowFilters ] = useState(false)
+  const [ downloadingPdf, setDownloadingPdf ] = useState(false)
 
   const experienceTypes = state?.experiences?.types ?? []
   const experienceFilters = state?.experiences?.filters ?? {}
@@ -119,6 +120,53 @@ const ExperienceFilters = props => {
             </div>
           )
         }
+        <div
+          className={`download-pdf ${downloadingPdf ? 'is-downloading' : ''}`}
+          onClick={() => {
+            if (downloadingPdf) return
+
+            setDownloadingPdf(true)
+
+            const download_querystring_struct = { ...(state?.experiences?.filters ?? {}) }
+            download_querystring_struct.download = 'true'
+
+            const download_querystring = Object
+              .keys(download_querystring_struct)
+              .map(key => {
+                return (
+                  Object.prototype.toString.call(download_querystring_struct[key]) === '[object Array]'
+                    ? encodeURIComponent(key) +'='+ encodeURIComponent(download_querystring_struct[key].join(','))
+                    : encodeURIComponent(key) +'='+ encodeURIComponent(download_querystring_struct[key])
+                )
+              })
+              .join('&')
+
+            fetch('?'+ download_querystring)
+              .then(res => res.blob())
+              .then(pdf => {
+                let tempUrl = URL.createObjectURL(pdf);
+                const aTag = document.createElement("a");
+                aTag.href = tempUrl;
+                aTag.download = 'uzo-olisemeka-resume.pdf';
+
+                document.body.appendChild(aTag);
+                aTag.click();
+
+                URL.revokeObjectURL(tempUrl);
+                aTag.remove();
+
+                console.log({ action: 'download-resume-pdf success=true' })
+                setDownloadingPdf(false)
+              })
+              .catch(error => {
+                console.log({ action: 'download-resume-pdf success=false', error })
+                alert('Downloading resume PDF failed. Please try again later.')
+                setDownloadingPdf(false)
+              })
+          }}
+        >
+          Download{downloadingPdf ? 'ing' : ''} {state?.experiences?.isFiltered ? 'Filtered' : ''} PDF
+        </div>
       </div>
       {
         showFilters && (

@@ -23,7 +23,8 @@
 }
 
   .Experiences-filters-controls > .toggle-filters-view,
-  .Experiences-filters-controls > .clear-filters {
+  .Experiences-filters-controls > .clear-filters,
+  .Experiences-filters-controls > .download-pdf {
     display:  inline-block;
     cursor: pointer;
     margin-right: 1em;
@@ -31,6 +32,12 @@
     border-radius: .75em;
     border: 1px solid #aaa;
     color: #aaa;
+  }
+
+  .Experiences-filters-controls > .download-pdf.is-downloading {
+    border-color: orange;
+    color: orange;
+    cursor: default;
   }
 
 .Experiences-filters {

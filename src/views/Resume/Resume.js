@@ -62,6 +62,7 @@ const Resume = () => {
         }}
       >
         <div
+          className='ProfilePic'
           style={{
             display: 'inline-block',
             backgroundImage: 'url(/profile-pic.jpg)',

@@ -1,30 +1,4 @@
-const experienceTypes = [
-  {
-    slug: 'employment',
-    label: 'Employment',
-    description: 'Full-time Employment',
-  },
-  {
-    slug: 'contract',
-    label: 'Contract',
-    description: 'Contract or Part-time Employment',
-  },
-  {
-    slug: 'entrepreneur',
-    label: 'Entrepreneur',
-    description: 'Business Owner / Operator',
-  },
-  {
-    slug: 'open-source',
-    label: 'Open Source',
-    description: 'Open Source Contributions',
-  },
-  {
-    slug: 'volunteer',
-    label: 'Volunteer',
-    description: 'Non-code Contributions',
-  }
-]
+import experienceTypes from './experience-types.json'
 
 const experiences = [
   {
