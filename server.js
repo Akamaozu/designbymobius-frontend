@@ -224,7 +224,7 @@ function generate_pdf(config = {}, callback) {
     const scriptStartTime = Date.now()
 
     let opStartTime = Date.now()
-    const browser = await puppeteer.launch({ headless: true, args: '--no-sandbox' });
+    const browser = await puppeteer.launch({ headless: true, args: [ '--no-sandbox' ] });
     console.log(`action=launch-puppeteer success=true duration=${ Date.now() - opStartTime }ms`)
 
     const page = await browser.newPage();
