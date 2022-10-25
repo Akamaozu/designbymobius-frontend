@@ -28,6 +28,7 @@
     display:  inline-block;
     cursor: pointer;
     margin-right: 1em;
+    margin-bottom: .5em;
     padding: .25em .75em;
     border-radius: .75em;
     border: 1px solid #aaa;
