@@ -155,11 +155,11 @@ const ExperienceFilters = props => {
                 URL.revokeObjectURL(tempUrl);
                 aTag.remove();
 
-                console.log({ action: 'download-resume-pdf success=true' })
+                console.log({ action: 'download-resume-pdf' })
                 setDownloadingPdf(false)
               })
               .catch(error => {
-                console.log({ action: 'download-resume-pdf success=false', error })
+                console.log({ action: 'download-resume-pdf', success: false, error })
                 alert('Downloading resume PDF failed. Please try again later.')
                 setDownloadingPdf(false)
               })
