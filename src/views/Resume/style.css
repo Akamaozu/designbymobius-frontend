@@ -191,6 +191,7 @@
         line-height: 1.2em;
         color: #888;
         border-radius: .5em;
+        cursor: default;
       }
 
       .Experiences > .Experience > .Experience-technologies > .Experience-technology:hover {
@@ -217,7 +218,6 @@
           background-color: palegoldenrod;
           color: #9a9;
           text-align: center;
-          opacity: .87;
         }
 
         .Experiences > .Experience > .Experience-technologies > .Experience-technology:hover > .Experience-technology-type {
