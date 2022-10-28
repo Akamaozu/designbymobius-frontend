@@ -46,6 +46,12 @@ function start_server() {
   port = process.env.PORT ?? 3000
 
   server.get('*', (req, res, next) => {
+    const filename = req.path.split('/').pop()
+    if (!filename) return next()
+
+    const file_extension = filename.split('.').pop()
+    if (!file_extension) return next()
+
     const path_md5 = md5(req.path)
     const get_file_key = 'get-file-'+ path_md5
     const file_exists_key = 'file-exists-'+ path_md5
