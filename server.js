@@ -80,7 +80,9 @@ function start_server() {
               const file_exists_struct = { exists }
               if (exists) file_exists_struct.path = file_path_on_disk
 
-              console.log(`action=check-disk-for-file req_path=${ req.path} exists=${ exists } file_path="${ file_path_on_disk }"`)
+              let log_entry = `action=check-disk-for-file req_path=${ req.path} exists=${ exists }`
+              if (exists) log_entry += ` file_path="${ file_path_on_disk }"`
+              console.log(log_entry)
 
               cache[file_exists_key] = file_exists_struct
               delete inflight[file_exists_key]
