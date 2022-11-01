@@ -1,4 +1,5 @@
 const child_process = require('child_process')
+const compression = require('compression')
 const puppeteer = require('puppeteer')
 const express = require('express')
 const mime = require('mime-types')
@@ -44,6 +45,8 @@ function load_data() {
 function start_server() {
   server = express()
   port = process.env.PORT ?? 3000
+
+  server.use(compression())
 
   server.get('*', (req, res, next) => {
     const filename = req.path.split('/').pop()
