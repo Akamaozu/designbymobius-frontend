@@ -371,8 +371,7 @@ function generate_pdf(config = {}, callback) {
       console.log(`action=wait-for-experiences-to-render success=true duration=${ Date.now() - opStartTime }ms`)
 
       opStartTime = Date.now()
-      await page.pdf({
-        path: 'uzo-olisemeka-resume.pdf',
+      const pdf = await page.pdf({
         printBackground: true,
         format: 'a4',
         margin: {
@@ -383,7 +382,6 @@ function generate_pdf(config = {}, callback) {
         }
       });
       console.log(`action=convert-resume-to-pdf success=true duration=${ Date.now() - opStartTime }ms`)
-      const pdf = await get_file('./uzo-olisemeka-resume.pdf', { encoding: null })
 
       cache[inflight_key] = pdf
       delete inflight[inflight_key]
