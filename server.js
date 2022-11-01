@@ -159,6 +159,7 @@ function start_server() {
             ? res.sendStatus(500)
             : (() => {
                 res.set('content-type', cache[get_file_key].mimetype)
+                res.set('cache-control', 'public, max-age=31536000')
                 res.send(cache[get_file_key].content)
               })()
         }
@@ -166,6 +167,7 @@ function start_server() {
 
       else {
         res.set('content-type', cache[get_file_key].mimetype)
+        res.set('cache-control', 'public, max-age=31536000')
         res.send(cache[get_file_key].content)
       }
     }
