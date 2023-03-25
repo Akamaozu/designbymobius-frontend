@@ -48,6 +48,7 @@ function start_server() {
 
   server.use(compression())
 
+  // serve file requests, cache results in-memory
   server.get('*', (req, res, next) => {
     const filename = req.path.split('/').pop()
     if (!filename) return next()
