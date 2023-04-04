@@ -1,5 +1,4 @@
 const child_process = require('child_process')
-const body_parser = require('body-parser')
 const compression = require('compression')
 const puppeteer = require('puppeteer')
 const express = require('express')
@@ -46,9 +45,6 @@ function load_data() {
 function start_server() {
   server = express()
   port = process.env.PORT ?? 3000
-
-  const json_parser = body_parser.json()
-  const url_encoded_parser = body_parser.urlencoded({ extended: false })
 
   server.use(compression())
 
@@ -250,11 +246,6 @@ function start_server() {
     res.send(cache.app_html)
   })
   console.log('action=setup-catchall-route payload=app-html')
-
-  server.post('/ss-litify-intake-tests', [ url_encoded_parser, json_parser ], (req, res) => {
-    console.log( 'action=log-litify-intake-payload', req.body )
-    res.send( 'okiedokie' )
-  })
 
   server.listen(port, ()=> {
     console.log(`action=server-listen port=${ port }`)
