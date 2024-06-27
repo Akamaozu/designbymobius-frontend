@@ -25,8 +25,7 @@
     "start:prod": "node server",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "echo [info] skip app build during Heroku stack build -- Create React App must rebuild every start-up to pick up env variable changes"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
