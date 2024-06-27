@@ -326,6 +326,24 @@ const experiences = [
       'typescript',
     ],
   },
+  {
+    slug: 'sparkpocketjoy',
+    label: 'sparkpocketjoy',
+    start: '2023',
+    type: 'entrepreneur',
+    technologies: [
+      'nodejs',
+      'react',
+      'redis',
+      'rabbitmq',
+    ],
+    nutshell: 'Suite of simple tools for Mozilla\'s Pocket',
+    notes: [
+      <>
+        Site: <a href="https://www.sparkpocketjoy.com" target="_blank">sparkpocketjoy.com</a>
+      </>,
+    ]
+  }
 ]
 
 const api = {
