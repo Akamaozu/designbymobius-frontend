@@ -14,7 +14,7 @@ const Experience = props => {
   const experienceFilteredByTechnologies = experienceFilters?.technologies?.length > 0
   const duration = experience.start === experience.end
                     ? experience.start
-                    : `${experience.start} - ${experience.end}`
+                    : `${experience.start} - ${experience.end ?? (new Date()).getFullYear()}`
   const technologyMap = state?.technologies?.map ?? {}
   const technologyTypeMap = state?.technologies?.typeMap ?? {}
   const expandedExperienceTechnologies = getDependentTechnologies(experience.technologies, technologyMap)
