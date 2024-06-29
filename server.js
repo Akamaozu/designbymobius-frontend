@@ -3,9 +3,9 @@ const compression = require('compression')
 const puppeteer = require('puppeteer')
 const express = require('express')
 const mime = require('mime-types')
-const dotenv = require('dotenv')
 const md5 = require('md5')
 const fs = require('fs')
+const utils = require('./utils')
 
 let server,
     port,
@@ -20,16 +20,9 @@ let server,
       './public',
     ]
 
-load_env_vars()
+utils.env.load()
 load_data()
 start_server()
-
-function load_env_vars() {
-  dotenv.config()
-
-  const env_keys = Object.keys(process.env)
-  console.log(`action=load-env-vars count=${env_keys.length} keys="${env_keys.join(', ')}"`)
-}
 
 function load_data() {
   data.experiences = {
