@@ -1,11 +1,11 @@
-const utils = require('./utils')
+const utils = require('../utils')
 
-const check_and_build_app = require('./server/middleware/check-and-build-app')
-const load_resume_datasets = require('./server/middleware/load-resume-datasets')
-const serve_if_fs_path = require('./server/middleware/serve-if-fs-path')
+const check_and_build_app = require('./middleware/check-and-build-app')
+const load_resume_datasets = require('./middleware/load-resume-datasets')
+const serve_if_fs_path = require('./middleware/serve-if-fs-path')
 
-const serve_app_or_prebuild = require('./server/routes/serve-app-or-prebuild')
-const serve_resume_in_multiple_formats = require('./server/routes/serve-resume-in-multiple-formats')
+const serve_app_or_prebuild = require('./routes/serve-app-or-prebuild')
+const serve_resume_in_multiple_formats = require('./routes/serve-resume-in-multiple-formats')
 
 utils.env.load()
 
