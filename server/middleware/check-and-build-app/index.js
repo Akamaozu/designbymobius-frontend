@@ -39,7 +39,8 @@ async function async_check_and_maybe_build_app({ server }) {
     if (!was_app_built) {
       server.locals.app_build.building = true
 
-      await utils.app.build()
+      await utils.app.async_build()
+
       server.locals.app_build.built = true
       server.locals.app_build.building = false
     }
