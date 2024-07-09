@@ -336,8 +336,9 @@ const experiences = [
       'react',
       'redis',
       'rabbitmq',
+      'indexeddb',
     ],
-    nutshell: 'Suite of simple tools for Mozilla\'s Pocket',
+    nutshell: 'Data Explorer for Mozilla\'s Pocket',
     notes: [
       <>
         Site: <a href="https://www.sparkpocketjoy.com" target="_blank">sparkpocketjoy.com</a>

@@ -8,6 +8,11 @@
     ]
   },
   {
+    "slug": "indexeddb",
+    "label": "Indexed DB",
+    "type": "database"
+  },
+  {
     "slug": "javascript",
     "label": "JavaScript",
     "type": "language"
