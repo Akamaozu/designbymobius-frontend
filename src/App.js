@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, redirect } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import AppHeader from './components/AppHeader'
 import FacebookChat from './components/FacebookChat'
 import Home from './views/Home'
@@ -17,7 +17,7 @@ function App() {
             <Route path="/" element={ <Home /> } />
             <Route path="/resume" element={ <Resume /> } />
             <Route path="/projects" element={ <Resume /> } />
-            <Route path="/*" loader={ redirect('/') } />
+            <Route path="/*" element={ <Navigate to="/" /> } />
           </Routes>
         </div>
         {
