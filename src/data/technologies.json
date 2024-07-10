@@ -86,6 +86,11 @@
     "type": "database"
   },
   {
+    "slug": "svg",
+    "label": "Scalable Vector Graphics (SVG)",
+    "type": "language"
+  },
+  {
     "slug": "typescript",
     "label": "TypeScript",
     "type": "language",

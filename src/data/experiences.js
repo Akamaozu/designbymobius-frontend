@@ -337,6 +337,7 @@ const experiences = [
       'redis',
       'rabbitmq',
       'indexeddb',
+      'svg',
     ],
     nutshell: 'Data Explorer for Mozilla\'s Pocket',
     notes: [
