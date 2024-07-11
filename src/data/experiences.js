@@ -356,18 +356,17 @@ const experiences = [
           }}
         >
           <li style={{ marginBottom: '.85em' }}>
-            <span style={{ display: 'block' }}>design system architecture</span>
-            <span style={{ display: 'block' }}><i>(prioritize observability, fault-tolerance, performance)</i></span>
+            <span style={{ display: 'block', fontWeight: 900 }}>design system architecture</span>
+            <span style={{ display: 'block' }}><i>prioritize observability, fault-tolerance, performance</i></span>
           </li>
           <li style={{ marginBottom: '.85em' }}>
-            <span style={{ display: 'block' }}>build backend in node.js</span>
-            <span style={{ display: 'block' }}><i>(service-oriented architecture, communication via rabbitmq)</i></span>
+            <span style={{ display: 'block', fontWeight: 900 }}>build backend in node.js</span>
+            <span style={{ display: 'block' }}><i>service-oriented architecture, communication via rabbitmq</i></span>
           </li>
           <li style={{ marginBottom: '.85em' }}>
-            <span style={{ display: 'block' }}>build frontend with react</span>
-            <span style={{ display: 'block' }}><i>(client-side persistence with indexed-db, svg for graphics)</i></span>
+            <span style={{ display: 'block', fontWeight: 900 }}>build frontend with react</span>
+            <span style={{ display: 'block' }}><i>client-side persistence with indexed-db, svg for graphics</i></span>
           </li>
-          <li style={{ marginBottom: '.85em' }}>setup system observability, monitor operations and optimize performance</li>
         </ul>
       </span>,
     ]
