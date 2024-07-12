@@ -322,12 +322,8 @@ const experiences = [
       >
         <ul>
           <ExperienceNoteSectionListItem
-            title='improved local development experience'
-            description='built cli tool to locally run and test a configurable cluster of services'
-          />
-          <ExperienceNoteSectionListItem
-            title='saved weeks of developer time during major subsystem upgrade'
-            description='backwards-compatible api implementation avoided the need to update dependent subsystems'
+            title='design saved weeks of work during major subsystem upgrade'
+            description='backwards-compatible api avoided time needed to update all dependent subsystems'
           />
         </ul>
       </ExperienceNoteSection>,
