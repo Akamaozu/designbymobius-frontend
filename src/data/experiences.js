@@ -298,7 +298,7 @@ const experiences = [
     start: '2021',
     end: '2022',
     type: 'employment',
-    nutshell: 'Client apps, servers and third-party integrations for Banking, Education and Medical projects',
+    nutshell: 'Full-Stack Developer for Banking, Education and Medical projects',
     notes: [
       <>
         Site: <a href="https://robotsandpencils.com" target="_blank" rel="noreferrer">robotsandpencils.com</a>
@@ -308,12 +308,8 @@ const experiences = [
       >
         <ul>
           <ExperienceNoteSectionListItem
-            title='design system architecture'
-            description='optimized data access patterns to reduce network calls required on critical code paths'
-          />
-          <ExperienceNoteSectionListItem
             title='build backends in node.js'
-            description='salesforce and other third-party integrations, multi-lingual multi-provider notification engine'
+            description='integrated salesforce and other third-party services, built multi-lingual multi-provider notification engine'
           />
           <ExperienceNoteSectionListItem
             title='build frontend with react'
@@ -326,12 +322,12 @@ const experiences = [
       >
         <ul>
           <ExperienceNoteSectionListItem
-            title='dramatically reduced local development friction'
-            description='created cli to locally run and test a configurable cluster of services'
+            title='improved local development experience'
+            description='built cli tool to locally run and test a configurable cluster of services'
           />
           <ExperienceNoteSectionListItem
-            title='avoided significant delays deploying major subsystem upgrade'
-            description='backwards-compatible api design choice saved weeks of development time upgrading all dependent subsystems'
+            title='saved weeks of developer time during major subsystem upgrade'
+            description='backwards-compatible api implementation avoided the need to update dependent subsystems'
           />
         </ul>
       </ExperienceNoteSection>,
