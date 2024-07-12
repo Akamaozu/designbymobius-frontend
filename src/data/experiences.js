@@ -303,24 +303,38 @@ const experiences = [
       <>
         Site: <a href="https://robotsandpencils.com" target="_blank" rel="noreferrer">robotsandpencils.com</a>
       </>,
-      <>
-        <b>Designed and implemented backend systems for Higher Education mobile app</b>
-      </>,
-      'Integrated third-party Salesforce systems as the app\'s "source of truth".',
-      'Optimized data access patterns to reduce required network calls.',
-      'Created a pluggable system to gate access to the app using partner institutions\' auth service.',
-      <>
-        <b>Transformed Banking frontend designs from mockups to fully-integrated web interfaces</b>
-      </>,
-      'Reduced time to develop new views and components by leveraging React hooks (built-in and custom) with Redux to create easily-reusable UI elements and behaviors.',
-      'Activated core banking functionalities in the UI by integrating multiple third-party providers for essential services like authorization and money movements.',
-      'Improved reliability of notification engine and ensured notification controls in the UI were intuitive to end-users.',
-      <>
-        <b>Designed and implemented multi-lingual notification systems for Telemedicine Service Provider</b>
-      </>,
-      'Converted hard-coded template ids to a modular engine that mapped requests to template service provider and resource calls.',
-      'Ensured safe upgrade to template mapping engine by making its API backwards-compatible and gating new behavior behind feature flags.',
-      'Created CLI tool to locally start a configurable cluster of notification services locally. (Ask me about the CLI doing what Kubernetes couldn\'t do locally)',
+      <ExperienceNoteSection
+        title='Responsibilities'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='design system architecture'
+            description='optimized data access patterns to reduce network calls required on critical code paths'
+          />
+          <ExperienceNoteSectionListItem
+            title='build backends in node.js'
+            description='salesforce and other third-party integrations, multi-lingual multi-provider notification engine'
+          />
+          <ExperienceNoteSectionListItem
+            title='build frontend with react'
+            description='integrated multiple third-party services into a secure digital banking client'
+          />
+        </ul>
+      </ExperienceNoteSection>,
+      <ExperienceNoteSection
+        title='Accomplishments'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='dramatically reduced local development friction'
+            description='created cli to locally run and test a configurable cluster of services'
+          />
+          <ExperienceNoteSectionListItem
+            title='avoided significant delays deploying major subsystem upgrade'
+            description='backwards-compatible api design choice saved weeks of development time upgrading all dependent subsystems'
+          />
+        </ul>
+      </ExperienceNoteSection>,
     ],
     technologies: [
       'nodejs',
