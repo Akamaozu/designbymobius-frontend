@@ -368,6 +368,17 @@ const experiences = [
             <span style={{ display: 'block' }}><i>client-side persistence with indexed-db, svg for graphics</i></span>
           </li>
         </ul>
+        <b>Accomplishments</b>
+        <ul
+          style={{
+            marginTop: '.25em',
+          }}
+        >
+          <li style={{ marginBottom: '.85em' }}>
+            <span style={{ display: 'block', fontWeight: 900 }}>faster query than official pocket clients</span>
+            <span style={{ display: 'block' }}><i>queries complete in nanoseconds due to pre-computed indexes and in-memory query design</i></span>
+          </li>
+        </ul>
       </span>,
     ]
   }
