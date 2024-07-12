@@ -1,3 +1,6 @@
+import ExperienceNoteSection from '../components/ExperienceNoteSection'
+import ExperienceNoteSectionListItem from '../components/ExperienceNoteSection/components/ListItem'
+
 import experienceTypes from './experience-types.json'
 
 const experiences = [
@@ -344,42 +347,34 @@ const experiences = [
       <>
         Site: <a href="https://www.sparkpocketjoy.com" target="_blank">sparkpocketjoy.com</a>
       </>,
-      <span
-        style={{
-          lineHeight: '1.1em',
-        }}
+      <ExperienceNoteSection
+        title='Responsibilities'
       >
-        <b>Responsibilities</b>
-        <ul
-          style={{
-            marginTop: '.25em',
-          }}
-        >
-          <li style={{ marginBottom: '.85em' }}>
-            <span style={{ display: 'block', fontWeight: 900 }}>design system architecture</span>
-            <span style={{ display: 'block' }}><i>prioritize observability, fault-tolerance, performance</i></span>
-          </li>
-          <li style={{ marginBottom: '.85em' }}>
-            <span style={{ display: 'block', fontWeight: 900 }}>build backend in node.js</span>
-            <span style={{ display: 'block' }}><i>service-oriented architecture, communication via rabbitmq</i></span>
-          </li>
-          <li style={{ marginBottom: '.85em' }}>
-            <span style={{ display: 'block', fontWeight: 900 }}>build frontend with react</span>
-            <span style={{ display: 'block' }}><i>client-side persistence with indexed-db, svg for graphics</i></span>
-          </li>
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='design system architecture'
+            description='prioritize observability, fault-tolerance, performance'
+          />
+          <ExperienceNoteSectionListItem
+            title='build backend in node.js'
+            description='service-oriented architecture, communication via rabbitmq'
+          />
+          <ExperienceNoteSectionListItem
+            title='build frontend with react'
+            description='client-side persistence with indexed-db, svg for graphics'
+          />
         </ul>
-        <b>Accomplishments</b>
-        <ul
-          style={{
-            marginTop: '.25em',
-          }}
-        >
-          <li style={{ marginBottom: '.85em' }}>
-            <span style={{ display: 'block', fontWeight: 900 }}>faster query than official pocket clients</span>
-            <span style={{ display: 'block' }}><i>queries complete in nanoseconds due to pre-computed indexes and in-memory query design</i></span>
-          </li>
+      </ExperienceNoteSection>,
+      <ExperienceNoteSection
+        title='Accomplishments'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='faster query than official pocket clients'
+            description='queries complete in nanoseconds due to pre-computed indexes and in-memory query design'
+          />
         </ul>
-      </span>,
+      </ExperienceNoteSection>,
     ]
   }
 ]

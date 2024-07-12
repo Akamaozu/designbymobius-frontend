@@ -1,0 +1,8 @@
+.ExperienceNoteSection {
+  line-height: '1.1em';
+}
+
+	.ExperienceNoteSection > .Title {
+    font-weight: 900;
+    margin-bottom: '.25em';
+	}

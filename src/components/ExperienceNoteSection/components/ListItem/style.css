@@ -1,0 +1,16 @@
+.ExperienceNoteSection .ListItem {
+  margin-bottom: 0.85em;
+}
+
+	.ExperienceNoteSection .ListItem > .Title,
+  .ExperienceNoteSection .ListItem > .Description {
+    display: block;
+  }
+
+  .ExperienceNoteSection .ListItem > .Title {
+		font-weight: 900;
+	}
+
+  .ExperienceNoteSection .ListItem > .Description {
+    font-style: italic;
+  }
