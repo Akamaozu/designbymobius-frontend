@@ -270,22 +270,39 @@ const experiences = [
     type: 'open-source',
     nutshell: 'Critical bug-fixes and improvements to Node.js drivers for RabbitMQ',
     notes: [
-      <>
-        Fixed race condition with emitted event in critical API call <code>queue.consume</code>
-        <br />
-        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/40" target="_blank" rel="noreferrer">View Pull Request</a>
-      </>,
-      <>
-        Fixed race condition with hoisted variable in critical API call <code>queue.consume</code>
-        <br />
-        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/88" target="_blank" rel="noreferrer">View Pull Request</a>
-      </>,
-      <>
-        Added option to opt out of creating a reply queue for every exchange
-        <br />
-        <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/74" target="_blank" rel="noreferrer">View Pull Request
-        </a>
-      </>
+      <ExperienceNoteSection
+        title='Accomplishments'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='diagnosed and fixed multiple race conditions'
+            description={
+              <p>
+                { '1. pull request: ' }
+                <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/40" target="_blank" rel="noreferrer">
+                  fix "ready" event race-condition
+                </a>
+                <br />
+                { '2. pull request: ' }
+                <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/88" target="_blank" rel="noreferrer">
+                  fix hoisted callback race-condition
+                </a>
+              </p>
+            }
+          />
+          <ExperienceNoteSectionListItem
+            title='enabled resource-efficient exchange creation'
+            description={
+              <p>
+                { 'pull request: ' }
+                <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/74" target="_blank" rel="noreferrer">
+                  skip reply queue creation if not needed
+                </a>
+              </p>
+            }
+          />
+        </ul>
+      </ExperienceNoteSection>
     ],
     technologies: [
       'nodejs',
@@ -348,7 +365,7 @@ const experiences = [
       'indexeddb',
       'svg',
     ],
-    nutshell: 'Data Explorer for Mozilla\'s Pocket',
+    nutshell: 'Building a Data Explorer for Mozilla\'s Pocket',
     notes: [
       <>
         Site: <a href="https://www.sparkpocketjoy.com" target="_blank">sparkpocketjoy.com</a>

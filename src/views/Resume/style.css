@@ -249,31 +249,31 @@
         color: #777;
       }
 
-        .Experiences > .Experience.Experience-type-employment > .Experience-notes > .Experience-note > a {
+        .Experiences > .Experience.Experience-type-employment > .Experience-notes > .Experience-note a {
           color: #c130a2;
         }
 
-        .Experiences > .Experience.Experience-type-contract > .Experience-notes > .Experience-note > a {
+        .Experiences > .Experience.Experience-type-contract > .Experience-notes > .Experience-note a {
           color: purple;
         }
 
-        .Experiences > .Experience.Experience-type-entrepreneur > .Experience-notes > .Experience-note > a {
+        .Experiences > .Experience.Experience-type-entrepreneur > .Experience-notes > .Experience-note a {
           color: darkorchid;
         }
 
-        .Experiences > .Experience.Experience-type-open-source > .Experience-notes > .Experience-note > a {
+        .Experiences > .Experience.Experience-type-open-source > .Experience-notes > .Experience-note a {
           color: mediumaquamarine;
         }
 
-        .Experiences > .Experience.Experience-type-volunteer > .Experience-notes > .Experience-note > a {
+        .Experiences > .Experience.Experience-type-volunteer > .Experience-notes > .Experience-note a {
           color: darkorange;
         }
 
-        .Experiences > .Experience > .Experience-notes > .Experience-note > a.inline-block {
+        .Experiences > .Experience > .Experience-notes > .Experience-note a.inline-block {
           display: inline-block;
         }
 
-        .Experiences > .Experience > .Experience-notes > .Experience-note > code {
+        .Experiences > .Experience > .Experience-notes > .Experience-note code {
           background-color: #ddd;
           border: 1px solid #aaa;
           color: darkgoldenrod;
