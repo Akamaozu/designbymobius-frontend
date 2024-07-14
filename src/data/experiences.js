@@ -277,7 +277,7 @@ const experiences = [
           <ExperienceNoteSectionListItem
             title='diagnosed and fixed multiple race conditions'
             description={
-              <p>
+              <span>
                 { '1. pull request: ' }
                 <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/40" target="_blank" rel="noreferrer">
                   fix "ready" event race-condition
@@ -287,18 +287,18 @@ const experiences = [
                 <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/88" target="_blank" rel="noreferrer">
                   fix hoisted callback race-condition
                 </a>
-              </p>
+              </span>
             }
           />
           <ExperienceNoteSectionListItem
             title='enabled resource-efficient exchange creation'
             description={
-              <p>
+              <span>
                 { 'pull request: ' }
                 <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/74" target="_blank" rel="noreferrer">
                   skip reply queue creation if not needed
                 </a>
-              </p>
+              </span>
             }
           />
         </ul>
