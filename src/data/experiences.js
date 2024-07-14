@@ -268,7 +268,7 @@ const experiences = [
     start: '2019',
     end: '2019',
     type: 'open-source',
-    nutshell: 'Critical bug-fixes and improvements to Node.js drivers for RabbitMQ',
+    nutshell: 'Open-Source Contributions to Node.js RabbitMQ Library',
     notes: [
       <ExperienceNoteSection
         title='Accomplishments'
@@ -291,7 +291,7 @@ const experiences = [
             }
           />
           <ExperienceNoteSectionListItem
-            title='enabled resource-efficient exchange creation'
+            title='made core action "create exchange" more resource-efficient'
             description={
               <span>
                 { 'pull request: ' }
@@ -365,7 +365,7 @@ const experiences = [
       'indexeddb',
       'svg',
     ],
-    nutshell: 'Building a Data Explorer for Mozilla\'s Pocket',
+    nutshell: 'Built a Data Explorer for Mozilla\'s Pocket',
     notes: [
       <>
         Site: <a href="https://www.sparkpocketjoy.com" target="_blank">sparkpocketjoy.com</a>
