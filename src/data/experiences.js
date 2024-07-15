@@ -250,7 +250,7 @@ const experiences = [
     start: '2018',
     end: '2020',
     type: 'entrepreneur',
-    nutshell: 'Built an Automated Exam Registration service for Medical Students',
+    nutshell: 'Ran an Automated Exam Registration service for Medical Students',
     notes: [
       'Designed and implemented automation for searching for and securing USMLE Step 2 CS exam spots.',
       'Optimized operation costs using in-memory data indexes, message queues and inter-service communication.',
@@ -268,7 +268,7 @@ const experiences = [
     start: '2019',
     end: '2019',
     type: 'open-source',
-    nutshell: 'Contributed to Open-Source Node.js RabbitMQ Library',
+    nutshell: 'Multiple Contributions to an Open-Source Node.js RabbitMQ Library',
     notes: [
       <ExperienceNoteSection
         title='Accomplishments'
@@ -315,7 +315,7 @@ const experiences = [
     start: '2021',
     end: '2022',
     type: 'employment',
-    nutshell: 'Full-Stack Developer for Banking, Education and Medical projects',
+    nutshell: 'Employed at agency as Full-Stack Developer - worked on Banking, Education and Medical projects',
     notes: [
       <>
         Site: <a href="https://robotsandpencils.com" target="_blank" rel="noreferrer">robotsandpencils.com</a>
@@ -365,7 +365,7 @@ const experiences = [
       'indexeddb',
       'svg',
     ],
-    nutshell: 'Built a Data Explorer for Mozilla\'s Pocket',
+    nutshell: 'Ran a Data Explorer service for Mozilla Pocket\'s users',
     notes: [
       <>
         Site: <a href="https://www.sparkpocketjoy.com" target="_blank">sparkpocketjoy.com</a>
