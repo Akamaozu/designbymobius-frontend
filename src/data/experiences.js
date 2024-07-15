@@ -252,9 +252,24 @@ const experiences = [
     type: 'entrepreneur',
     nutshell: 'Ran an Automated Exam Registration service for Medical Students',
     notes: [
-      'Designed and implemented automation for searching for and securing USMLE Step 2 CS exam spots.',
-      'Optimized operation costs using in-memory data indexes, message queues and inter-service communication.',
-      'Developed analytic tools to identify which customer spots would be key to increasing liquidity at no risk to the client.',
+      <ExperienceNoteSection
+        title='Responsibilities'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='built scheduling automation in node.js'
+            description={
+              'programmed puppeteer to login, check for availability, claim spot, solve captcha, take screenshot and send emails'
+            }
+          />
+          <ExperienceNoteSectionListItem
+            title='designed system architecture'
+            description={
+              'design prioritized ease-of-operation, fault tolerance and low operations cost'
+            }
+          />
+        </ul>
+      </ExperienceNoteSection>,
     ],
     technologies: [
       'puppeteer',
@@ -268,7 +283,7 @@ const experiences = [
     start: '2019',
     end: '2019',
     type: 'open-source',
-    nutshell: 'Multiple Contributions to an Open-Source Node.js RabbitMQ Library',
+    nutshell: 'Contributed to an Open-Source Node.js RabbitMQ Library',
     notes: [
       <ExperienceNoteSection
         title='Accomplishments'
@@ -315,7 +330,7 @@ const experiences = [
     start: '2021',
     end: '2022',
     type: 'employment',
-    nutshell: 'Employed at agency as Full-Stack Developer - worked on Banking, Education and Medical projects',
+    nutshell: 'Employed as Full-Stack Developer for Banking, Education and Medical projects',
     notes: [
       <>
         Site: <a href="https://robotsandpencils.com" target="_blank" rel="noreferrer">robotsandpencils.com</a>
