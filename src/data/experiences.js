@@ -250,7 +250,7 @@ const experiences = [
     start: '2018',
     end: '2020',
     type: 'entrepreneur',
-    nutshell: 'Automated exam availability search and registration for Medical Students',
+    nutshell: 'Built an Automated Exam Registration service for Medical Students',
     notes: [
       'Designed and implemented automation for searching for and securing USMLE Step 2 CS exam spots.',
       'Optimized operation costs using in-memory data indexes, message queues and inter-service communication.',
