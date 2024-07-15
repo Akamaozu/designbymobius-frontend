@@ -268,7 +268,7 @@ const experiences = [
     start: '2019',
     end: '2019',
     type: 'open-source',
-    nutshell: 'Open-Source Contributions to Node.js RabbitMQ Library',
+    nutshell: 'Contributed to Open-Source Node.js RabbitMQ Library',
     notes: [
       <ExperienceNoteSection
         title='Accomplishments'
