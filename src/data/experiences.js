@@ -265,7 +265,19 @@ const experiences = [
           <ExperienceNoteSectionListItem
             title='designed system architecture'
             description={
-              'design prioritized ease-of-operation, fault tolerance and low operations cost'
+              'prioritized fault-tolerance and low operations cost'
+            }
+          />
+        </ul>
+      </ExperienceNoteSection>,
+      <ExperienceNoteSection
+        title='Accomplishments'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='sucessfully scheduled 1500+ USMLE Step 2 CS spots'
+            description={
+              'roughly 2.5% of all spots available in 2020'
             }
           />
         </ul>
