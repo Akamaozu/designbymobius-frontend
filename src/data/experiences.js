@@ -268,6 +268,13 @@ const experiences = [
     type: 'entrepreneur',
     nutshell: 'Ran an Automated Exam Registration service for Medical Students',
     notes: [
+      <>
+        Sites:
+        {' '}
+        <a href="https://www.indiehackers.com/product/spotgetter/revenue" target="_blank">Revenue on Indiehackers</a>
+        {', '}
+        <a href="https://www.facebook.com/spotgetter/reviews" target="_blank">Reviews on Facebook</a>
+      </>,
       <ExperienceNoteSection
         title='Responsibilities'
       >
