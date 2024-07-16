@@ -235,10 +235,26 @@ const experiences = [
     start: '2018',
     end: '2018',
     type: 'open-source',
-    nutshell: 'Improved File Manager extension\'s usability',
+    nutshell: 'Contributed to an Open-Source Windows app',
     notes: [
-      'Replaced hard-coded path to dependency with user-configurable path. Fails intelligently if path doesn\'t exist on disk.',
-      <a href="https://github.com/oskretc/fman-sublimehelper/pull/1" target="_blank" rel="noreferrer">View Pull Request</a>,
+      <ExperienceNoteSection
+        title='Accomplishments'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='built workflows in python'
+            description={
+              <span>
+                pull request:
+                {' '}
+                <a href="https://github.com/oskretc/fman-sublimehelper/pull/1" target="_blank" rel="noreferrer">
+                  enable configurable path to sublime text
+                </a>
+              </span>
+            }
+          />
+        </ul>
+      </ExperienceNoteSection>,
     ],
     technologies: [
       'python',
