@@ -186,14 +186,47 @@ const experiences = [
     start: '2016',
     end: '2018',
     type: 'employment',
-    nutshell: 'School Communication Software - Messaging, Groups, Events and Billing',
+    nutshell: 'Employed as a Full-Stack Developer for Education projects',
     notes: [
       <>
         Site: <a href="https://hubbli.com" target="_blank" rel="noreferrer">hubbli.com</a>
       </>,
-      'Built system to enable schools accept debit and credit cards on invoices issued. Tuition was deposited in the school\'s bank account in 72 hours.',
-      'Improved server reliability and performance by switching certain types of requests from on-demand to message queues and scheduled bulk processing.',
-      'Created Slack integrations to notify support, engineers and management about lifecycle events and errors.',
+      <ExperienceNoteSection
+        title='Responsibilities'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='build backends with wordpress and node.js'
+            description={
+              'integrated payment processors and other essential third-party services'
+            }
+          />
+          <ExperienceNoteSectionListItem
+            title='build frontends with jquery'
+            description={
+              'created or modified customer-facing and internal workflows'
+            }
+          />
+        </ul>
+      </ExperienceNoteSection>,
+      <ExperienceNoteSection
+        title='Accomplishments'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='designed and built component that reduced server costs by more than 50%'
+            description={
+              'additionally, new design improved reliability of third-party webhook integrations'
+            }
+          />
+          <ExperienceNoteSectionListItem
+            title='built tuition management system that processed over $1,000,000'
+            description={
+              'integrated with slack to notify support, engineers and management about key payment events'
+            }
+          />
+        </ul>
+      </ExperienceNoteSection>,
     ],
     technologies: [
       'nodejs',
