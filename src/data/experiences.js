@@ -164,11 +164,29 @@ const experiences = [
     technologies: [
       'nodejs',
     ],
-    nutshell: 'Erlang-inspired process supervision library for Node.js',
+    nutshell: 'Authored an Open-Source Node.js library for Fault Tolerance',
     notes: [
       <>
-        Repository: <a href="https://github.com/akamaozu/node-supe" target="_blank" rel="noreferrer">Github</a>
+        Site: <a href="https://github.com/akamaozu/node-supe" target="_blank" rel="noreferrer">github repository</a>
       </>,
+      <ExperienceNoteSection
+        title='Responsibilities'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='design core components and module system'
+            description={
+              'pluggable module api made it easy to create new functionality and modify existing ones'
+            }
+          />
+          <ExperienceNoteSectionListItem
+            title='design inter-process communication s'
+            description={
+              'pluggable module api made it easy to create new functionality and modify existing ones'
+            }
+          />
+        </ul>
+      </ExperienceNoteSection>,
       <>
         Utilized Node.js <code>childProcess</code> APIs to create a simple way to start and stop child processes, with convenient hooks into lifecycle events.
       </>,
@@ -336,9 +354,9 @@ const experiences = [
       >
         <ul>
           <ExperienceNoteSectionListItem
-            title='sucessfully scheduled 1500+ USMLE Step 2 CS spots'
+            title='successfully scheduled 1500+ USMLE Step 2 CS spots'
             description={
-              'roughly 2.5% of all spots available in 2020'
+              '4% of all spots available in 2020 (35,000)'
             }
           />
         </ul>
