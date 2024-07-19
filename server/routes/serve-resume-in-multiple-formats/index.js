@@ -181,8 +181,8 @@ function serve_resume_in_multiple_formats( req, res, next ) {
           printBackground: true,
           format: 'a4',
           margin: {
-            top: '1.75cm',
-            bottom: '1.75cm',
+            top: '1.25cm',
+            bottom: '1.25cm',
             left: '.75cm',
             right: '.75cm',
           }
