@@ -28,6 +28,8 @@ const GHOSTSCRIPT_EXEC_NAME =
     .filter( exec_name_to_test => shelljs.which( exec_name_to_test ) )
     .shift()
 
+if (!GHOSTSCRIPT_EXEC_NAME) console.log( `action=log-missing-optional-dependency dep=ghostscript platform=${ process.platform }` )
+
 const GHOSTSCRIPT_COMPRESS_FLAGS = '-sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH'
 
 let is_generating_pdfs
