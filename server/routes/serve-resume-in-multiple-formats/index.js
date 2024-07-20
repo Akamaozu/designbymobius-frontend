@@ -1,5 +1,34 @@
 const puppeteer = require('puppeteer')
+const shelljs = require('shelljs')
+const path = require('path')
 const md5 = require('md5')
+const fs = require('fs')
+
+const utils = require('../../../utils')
+
+const PATH_TO_SERVER_ROOT = path.join( __dirname, '../../' )
+
+const GHOSTSCRIPT_DEFAULT_PLATFORM_EXEC_NAME = 'gs'
+const GHOSTSCRIPT_PLATFORM_EXEC_NAMES = {
+  win32: [
+    'gswin64c',
+    'gswin32c',
+  ],
+}
+
+const GHOSTSCRIPT_EXEC_NAME =
+  [
+    ...(
+      process.platform === 'win32'
+        ? GHOSTSCRIPT_PLATFORM_EXEC_NAMES.win32
+        : []
+    ),
+    GHOSTSCRIPT_DEFAULT_PLATFORM_EXEC_NAME,
+  ]
+    .filter( exec_name_to_test => shelljs.which( exec_name_to_test ) )
+    .shift()
+
+const GHOSTSCRIPT_COMPRESS_FLAGS = '-sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH'
 
 let is_generating_pdfs
 let generate_pdf_requests = []
@@ -181,18 +210,66 @@ function serve_resume_in_multiple_formats( req, res, next ) {
           printBackground: true,
           format: 'a4',
           margin: {
-            top: '1.25cm',
-            bottom: '1.25cm',
-            left: '.75cm',
-            right: '.75cm',
+            top: '1.28cm',
+            bottom: '1.28cm',
+            left: '.64cm',
+            right: '.64cm',
           }
         });
         console.log(`action=convert-resume-to-pdf success=true duration=${ Date.now() - opStartTime }ms`)
 
-        cache[inflight_key] = pdf
+        let compressed_pdf
+        if (GHOSTSCRIPT_EXEC_NAME && GHOSTSCRIPT_COMPRESS_FLAGS) {
+          try {
+            const path_to_uncompressed_pdf = path
+              .join(
+                PATH_TO_SERVER_ROOT,
+                `./resume-${ sorted_valid_config_md5 }-uncompressed.pdf`
+              )
+            const path_to_compressed_pdf = path
+              .join(
+                  PATH_TO_SERVER_ROOT,
+                  `./resume-${ sorted_valid_config_md5 }.pdf`
+              )
+
+            // save uncompressed pdf to disk
+            await new Promise(( resolve, reject ) => {
+              fs.writeFile( path_to_uncompressed_pdf, pdf, { encoding: null }, error => {
+                if (error) reject(error)
+                else resolve()
+              })
+            })
+
+            // compress with ghostscript
+            await new Promise(( resolve, reject ) => {
+              shelljs.exec(
+                `${ GHOSTSCRIPT_EXEC_NAME } ${ GHOSTSCRIPT_COMPRESS_FLAGS } -sOutputFile="${ path_to_compressed_pdf }" ${ path_to_uncompressed_pdf }`,
+                { async: true },
+                code => {
+                  code === 0
+                    ? resolve()
+                    : reject( new Error( `ghostscript process exit code: ${ code }` ) )
+                }
+              )
+            })
+
+            // read compressed file into memory
+            compressed_pdf = await utils.fs.async_get_file( path_to_compressed_pdf, { encoding: null })
+
+            // cleanup files from disk
+            fs.unlink( path_to_uncompressed_pdf, error => error && console.log( `action=log-cleanup-error file=uncompressed-resume-pdf path="${ path_to_uncompressed_pdf }"` ) )
+            fs.unlink( path_to_compressed_pdf, error => error && console.log( `action=log-cleanup-error file=compressed-resume-pdf path="${ path_to_compressed_pdf }"` ) )
+          }
+
+          catch (compression_error) {
+            console.log( `action=log-pdf-compression-error error="${ compression_error.stack ?? compression_error.message ?? 'unspecified error' }"` )
+          }
+        }
+
+        cache[inflight_key] = compressed_pdf ?? pdf
         delete inflight[inflight_key]
 
-        generate_pdf_requests[i].callback(null, pdf)
+        generate_pdf_requests[i].callback(null, cache[inflight_key])
       }
 
       console.log('action=shutdown-puppeteer')
@@ -205,4 +282,3 @@ function serve_resume_in_multiple_formats( req, res, next ) {
     generate_pdf_with_puppeteer()
   }
 }
-
