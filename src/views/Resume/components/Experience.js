@@ -79,25 +79,21 @@ const Experience = props => {
       {
         experience.notes
           ? (
-              <div className={ `Experience-notes Experience-notes-${showNotes ? 'shown' : 'hidden' }` }>
-                {
-                  experience.notes.map((note, index) => {
-                    return <div className="Experience-note" key={index + 1}>{ note }</div>
-                  })
-                }
-              </div>
-            )
-          : null
-      }
-      {
-        experience.notes
-          ? (
-              <div className="Experience-notes-view-toggle">
-                <ExperienceNotesViewToggler
-                  showNotes={ showNotes }
-                  toggleViewState={ () => setShowNotes(!showNotes) }
-                />
-              </div>
+              <>
+                <div className={ `Experience-notes Experience-notes-${showNotes ? 'shown' : 'hidden' }` }>
+                  {
+                    experience.notes.map((note, index) => {
+                      return <div className="Experience-note" key={index + 1}>{ note }</div>
+                    })
+                  }
+                </div>
+                <div className="Experience-notes-view-toggle">
+                  <ExperienceNotesViewToggler
+                    showNotes={ showNotes }
+                    toggleViewState={ () => setShowNotes(!showNotes) }
+                  />
+                </div>
+              </>
             )
           : null
       }
