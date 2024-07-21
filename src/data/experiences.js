@@ -174,28 +174,25 @@ const experiences = [
       >
         <ul>
           <ExperienceNoteSectionListItem
-            title='design core components and module system'
+            title='design core components, messaging primitives and lifecycle events'
             description={
-              'pluggable module api made it easy to create new functionality and modify existing ones'
-            }
-          />
-          <ExperienceNoteSectionListItem
-            title='design inter-process communication s'
-            description={
-              'pluggable module api made it easy to create new functionality and modify existing ones'
+              'module pattern made it easy to add/modify/override functionality'
             }
           />
         </ul>
       </ExperienceNoteSection>,
-      <>
-        Utilized Node.js <code>childProcess</code> APIs to create a simple way to start and stop child processes, with convenient hooks into lifecycle events.
-      </>,
-      <>
-        Created message-passing primitives like <a href="https://github.com/Akamaozu/node-supe/blob/master/docs/core-components/signal.md" target="_blank" rel="noreferrer">signals</a>, <a href="https://github.com/Akamaozu/node-supe/blob/master/docs/core-components/mail.md" target="_blank" rel="noreferrer">mail and mailboxes</a> on Node.js default inter-process communication.
-      </>,
-      <>
-        Designed supe's engine to be modular, and built core functionality as a <a href="https://github.com/Akamaozu/node-supe/blob/master/docs/core-components.md">collection of modules</a>.
-      </>,
+      <ExperienceNoteSection
+        title='Accomplishments'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='built a simple api to monitor, manage and communicate with node.js processes'
+            description={
+              'reduced the work needed to setup system failure recovery processes'
+            }
+          />
+        </ul>
+      </ExperienceNoteSection>,
     ]
   },
   {
@@ -298,7 +295,7 @@ const experiences = [
       >
         <ul>
           <ExperienceNoteSectionListItem
-            title='built workflows in python'
+            title='built workflow to activate key user-customization'
             description={
               <span>
                 pull request:
@@ -326,9 +323,9 @@ const experiences = [
     notes: [
       <>
         Sites:
-        {' '}
+        <br />
         <a href="https://www.indiehackers.com/product/spotgetter/revenue" target="_blank">revenue on indiehackers</a>
-        {', '}
+        <br />
         <a href="https://www.facebook.com/spotgetter/reviews" target="_blank">facebook reviews</a>
       </>,
       <ExperienceNoteSection
@@ -336,13 +333,13 @@ const experiences = [
       >
         <ul>
           <ExperienceNoteSectionListItem
-            title='built scheduling automation in node.js'
+            title='build scheduling automation in node.js'
             description={
               'programmed puppeteer to login, check for availability, claim spot, solve captcha, take screenshot and send emails'
             }
           />
           <ExperienceNoteSectionListItem
-            title='designed system architecture'
+            title='design system architecture'
             description={
               'prioritized fault-tolerance and low operations cost'
             }
@@ -445,8 +442,8 @@ const experiences = [
       >
         <ul>
           <ExperienceNoteSectionListItem
-            title='design saved weeks of work during major subsystem upgrade'
-            description='backwards-compatible api avoided time needed to update all dependent subsystems'
+            title='fast-tracked medical software system upgrade by weeks'
+            description='built a backwards-compatible api, avoiding the need to update all dependent subsystems'
           />
         </ul>
       </ExperienceNoteSection>,
@@ -471,7 +468,7 @@ const experiences = [
       'indexeddb',
       'svg',
     ],
-    nutshell: 'Ran a Data Explorer service for Mozilla Pocket\'s users',
+    nutshell: 'Running a Data Explorer service for Mozilla Pocket\'s users',
     notes: [
       <>
         Site: <a href="https://www.sparkpocketjoy.com" target="_blank">sparkpocketjoy.com</a>
