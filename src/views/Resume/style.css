@@ -113,6 +113,18 @@
     color: limegreen;
   }
 
+  .Experiences-tally > .Experiences-tally-filtered-caveat {
+    display: none;
+    font-weight: 400;
+    color: #888;
+  }
+
+  @media print {
+    .Experiences-tally > .Experiences-tally-filtered-caveat {
+      display: block;
+    }
+  }
+
 .Experiences {
   margin: 2em;
 }
