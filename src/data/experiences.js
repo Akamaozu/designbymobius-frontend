@@ -167,7 +167,7 @@ const experiences = [
     nutshell: 'Authored an Open-Source Node.js library for Fault Tolerance',
     notes: [
       <>
-        Site: <a href="https://github.com/akamaozu/node-supe" target="_blank" rel="noreferrer">github repository</a>
+        Site: <a href="https://github.com/akamaozu/node-supe" target="_blank" rel="noreferrer">github.com/akamaozu/node-supe</a>
       </>,
       <ExperienceNoteSection
         title='Responsibilities'
@@ -262,7 +262,7 @@ const experiences = [
         Site:
         {' '}
         <a href="https://twitter.com/torontojs/status/874771829780623360" target="_blank" rel="noreferrer">
-          torontojs twitter
+          twitter.com/torontojs/status/874771829780623360
         </a>
       </>,
       <ExperienceNoteSection
@@ -295,13 +295,13 @@ const experiences = [
       >
         <ul>
           <ExperienceNoteSectionListItem
-            title='built workflow to activate key user-customization'
+            title='built workflow for modifying hard-coded path to dependency'
             description={
               <span>
-                pull request:
-                {' '}
+                allow user to override default path to executable
+                {' - '}
                 <a href="https://github.com/oskretc/fman-sublimehelper/pull/1" target="_blank" rel="noreferrer">
-                  enable configurable path to sublime text
+                  github.com/oskretc/fman-sublimehelper/pull/1
                 </a>
               </span>
             }
@@ -323,10 +323,18 @@ const experiences = [
     notes: [
       <>
         Sites:
-        <br />
-        <a href="https://www.indiehackers.com/product/spotgetter/revenue" target="_blank">revenue on indiehackers</a>
-        <br />
-        <a href="https://www.facebook.com/spotgetter/reviews" target="_blank">facebook reviews</a>
+        <ul
+          style={{
+            margin: 0
+          }}
+        >
+          <li>
+            <a href="https://www.indiehackers.com/product/spotgetter/revenue" target="_blank">indiehackers.com/product/spotgetter/revenue</a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/spotgetter/reviews" target="_blank">facebook.com/spotgetter/reviews</a>
+          </li>
+        </ul>
       </>,
       <ExperienceNoteSection
         title='Responsibilities'
@@ -381,14 +389,14 @@ const experiences = [
             title='diagnosed and fixed multiple race conditions'
             description={
               <span>
-                { '1. pull request: ' }
+                { '1. fix "ready" event race-condition - ' }
                 <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/40" target="_blank" rel="noreferrer">
-                  fix "ready" event race-condition
+                  github.com/pagerinc/jackrabbit/pull/40
                 </a>
                 <br />
-                { '2. pull request: ' }
+                { '2. fix hoisted callback race-condition - ' }
                 <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/88" target="_blank" rel="noreferrer">
-                  fix hoisted callback race-condition
+                  github.com/pagerinc/jackrabbit/pull/88
                 </a>
               </span>
             }
@@ -397,9 +405,9 @@ const experiences = [
             title='made core action "create exchange" more resource-efficient'
             description={
               <span>
-                { 'pull request: ' }
+                { 'skip reply queue creation if not needed - ' }
                 <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/74" target="_blank" rel="noreferrer">
-                  skip reply queue creation if not needed
+                  github.com/pagerinc/jackrabbit/pull/74
                 </a>
               </span>
             }
