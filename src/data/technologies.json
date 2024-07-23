@@ -88,7 +88,7 @@
   {
     "slug": "svg",
     "label": "Scalable Vector Graphics (SVG)",
-    "type": "language"
+    "type": "framework"
   },
   {
     "slug": "typescript",
