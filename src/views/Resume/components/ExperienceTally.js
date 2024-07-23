@@ -65,8 +65,6 @@ const ExperienceTally = () => {
     {}
   )
 
-  console.log({ state, technology_type_map })
-
   useEffect(() => {
     if (!state?.experiences || !state?.technologies) return
 
@@ -108,11 +106,29 @@ const ExperienceTally = () => {
     <div className='Experiences-tally'>
       <div className='Experiences-tally-unfiltered'>
         { years_of_experience } { years_of_experience === 1 ? 'Year' : 'Years' } of Experience.
-        {' '}
+        <br />
         { technology_type_map[ 'language' ].length } { technology_type_map[ 'language' ].length === 1 ? 'Language' : 'Languages' }.
         {' '}
+        <span
+          style={{
+            color: '#888',
+            fontSize: '85%',
+          }}
+        >
+          { technology_type_map[ 'language' ].map( id => state.technologies.map[ id ].label ).join(', ') }
+        </span>
+        <br />
         { technology_type_map[ 'database' ].length } { technology_type_map[ 'database' ].length === 1 ? 'Database' : 'Databases' }.
         {' '}
+        <span
+          style={{
+            color: '#888',
+            fontSize: '85%',
+          }}
+        >
+          { technology_type_map[ 'database' ].map( id => state.technologies.map[ id ].label ).join(', ') }
+        </span>
+        <br />
         { experiences.length } { experiences.length === 1 ? 'Experience' : 'Experiences' }.
       </div>
       {
