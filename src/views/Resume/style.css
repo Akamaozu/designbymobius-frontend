@@ -111,6 +111,7 @@
 
   .Experiences-tally > .Experiences-tally-filtered {
     color: limegreen;
+    margin-top: 1em;
   }
 
   .Experiences-tally > .Experiences-tally-filtered-caveat {
