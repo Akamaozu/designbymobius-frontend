@@ -1,3 +1,12 @@
+# designbymobius frontend
+
+## environment variables
+
+```
+REACT_APP_PUBLIC_URL 				// required=false
+REACT_APP_FACEBOOK_PAGE_ID			// required=false
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

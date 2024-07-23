@@ -146,9 +146,14 @@ const ExperienceTally = () => {
 
               }
             </div>
-            <div className='Experiences-tally-filtered-caveat'>
-              <i>(view full list of experiences at: <a href={ `${ window.location.origin }/resume` } target="_blank" >{ window.location.origin }/resume</a>)</i>
-            </div>
+            {
+              process.env.REACT_APP_PUBLIC_URL
+              && <>
+                <div className='Experiences-tally-filtered-caveat'>
+                  <i>(view full list of experiences at: <a href={ `${ process.env.REACT_APP_PUBLIC_URL }/resume` } target="_blank" >{ process.env.REACT_APP_PUBLIC_URL }/resume</a>)</i>
+                </div>
+              </>
+            }
           </>
         )
       }
