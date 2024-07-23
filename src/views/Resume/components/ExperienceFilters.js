@@ -147,7 +147,7 @@ const ExperienceFilters = props => {
                 let tempUrl = URL.createObjectURL(pdf);
                 const aTag = document.createElement("a");
                 aTag.href = tempUrl;
-                aTag.download = 'uzo-olisemeka-resume.pdf';
+                aTag.download = 'uzo-olisemeka-software-engineer-resume.pdf';
 
                 document.body.appendChild(aTag);
                 aTag.click();
