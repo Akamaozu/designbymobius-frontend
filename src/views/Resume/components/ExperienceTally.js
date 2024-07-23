@@ -48,6 +48,7 @@ const ExperienceTally = () => {
   const years_of_experience = Object
     .keys( experience_year_map )
     .length
+    - 1
 
   const technology_type_map = state?.technologies?.items?.reduce(
     ( map, technology ) => {
