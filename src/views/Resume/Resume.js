@@ -8,6 +8,7 @@ import ExperienceFilters from './components/ExperienceFilters'
 import ExperienceTally from './components/ExperienceTally'
 import viewContext from './contexts/view'
 
+import { ReactComponent as EmailNotificationSVG } from '../../svgs/email-notification.svg'
 import { ReactComponent as GithubOctocatSVG } from '../../svgs/github-octocat.svg'
 import { ReactComponent as NigeriaFlagSVG } from '../../svgs/nigeria-flag.svg'
 import { ReactComponent as CanadaFlagSVG } from '../../svgs/canada-flag.svg'
@@ -124,12 +125,15 @@ const Resume = () => {
           >
             👨‍💻 Software Engineer since 2010
           </div>
-          <div
-            style={{
-
-            }}
-          >
-            📧 <a href="mailto:uzo@designbymobius.ca">uzo@designbymobius.ca</a>
+          <div>
+            <EmailNotificationSVG
+              width='1.2em'
+              style={{
+                marginRight: '.33em',
+                verticalAlign: '-0.22em',
+              }}
+            />
+            <a href="mailto:uzo@designbymobius.ca">uzo@designbymobius.ca</a>
           </div>
           <div>
             <GithubOctocatSVG
