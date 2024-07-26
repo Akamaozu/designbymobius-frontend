@@ -7,6 +7,9 @@ import ExperiencesList from './components/ExperiencesList'
 import ExperienceFilters from './components/ExperienceFilters'
 import ExperienceTally from './components/ExperienceTally'
 import viewContext from './contexts/view'
+
+import { ReactComponent as GithubOctocatSVG } from '../../svgs/github-octocat.svg'
+
 import './style.css'
 
 const { ViewProvider } = viewContext
@@ -120,12 +123,15 @@ const Resume = () => {
           >
             📧 <a href="mailto:uzo@designbymobius.ca">uzo@designbymobius.ca</a>
           </div>
-          <div
-            style={{
-
-            }}
-          >
-            👀 <a href="https://github.com/akamaozu" target="_blank" rel="noreferrer">github.com/akamaozu</a>
+          <div>
+            <GithubOctocatSVG
+              width='1.2em'
+              style={{
+                marginRight: '.33em',
+                verticalAlign: '-0.22em',
+              }}
+            />
+            <a href="https://github.com/akamaozu" target="_blank" rel="noreferrer">github.com/akamaozu</a>
           </div>
         </div>
       </div>
