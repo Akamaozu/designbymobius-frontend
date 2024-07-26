@@ -10,6 +10,7 @@ import viewContext from './contexts/view'
 
 import { ReactComponent as EmailNotificationSVG } from '../../svgs/email-notification.svg'
 import { ReactComponent as GithubOctocatSVG } from '../../svgs/github-octocat.svg'
+import { ReactComponent as ProgrammingSVG } from '../../svgs/programming.svg'
 import { ReactComponent as NigeriaFlagSVG } from '../../svgs/nigeria-flag.svg'
 import { ReactComponent as CanadaFlagSVG } from '../../svgs/canada-flag.svg'
 
@@ -118,12 +119,15 @@ const Resume = () => {
             />
             Lives in <a href="https://en.wikipedia.org/wiki/Mississauga" target="_blank" rel="noreferrer">Mississauga, Canada</a>
           </div>
-          <div
-            style={{
-
-            }}
-          >
-            👨‍💻 Software Engineer since 2010
+          <div>
+            <ProgrammingSVG
+              width='1.2em'
+              style={{
+                marginRight: '.33em',
+                verticalAlign: '-0.22em',
+              }}
+            />
+            Software Engineer since 2010
           </div>
           <div>
             <EmailNotificationSVG
