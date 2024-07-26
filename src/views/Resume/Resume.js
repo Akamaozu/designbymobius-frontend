@@ -125,7 +125,7 @@ const Resume = () => {
 
             }}
           >
-            👀 <a href="https://github.com/akamaozu" target="_blank" rel="noreferrer">github</a>, <a href="https://www.linkedin.com/in/uzo-olisemeka-a6a56519/" target="_blank" rel="noreferrer">linkedin</a>
+            👀 <a href="https://github.com/akamaozu" target="_blank" rel="noreferrer">github.com/akamaozu</a>
           </div>
         </div>
       </div>
