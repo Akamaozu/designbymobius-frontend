@@ -9,6 +9,8 @@ import ExperienceTally from './components/ExperienceTally'
 import viewContext from './contexts/view'
 
 import { ReactComponent as GithubOctocatSVG } from '../../svgs/github-octocat.svg'
+import { ReactComponent as NigeriaFlagSVG } from '../../svgs/nigeria-flag.svg'
+import { ReactComponent as CanadaFlagSVG } from '../../svgs/canada-flag.svg'
 
 import './style.css'
 
@@ -95,19 +97,25 @@ const Resume = () => {
           >
             Uzo Olisemeka
           </div>
-          <div
-            style={{
-
-            }}
-          >
-            👶 Born in <a href="https://en.wikipedia.org/wiki/Lagos" target="_blank" rel="noreferrer">Lagos, Nigeria</a>
+          <div>
+            <NigeriaFlagSVG
+              width='1.1em'
+              style={{
+                marginRight: '.33em',
+                verticalAlign: '-0.22em',
+              }}
+            />
+            Born in <a href="https://en.wikipedia.org/wiki/Lagos" target="_blank" rel="noreferrer">Lagos, Nigeria</a>
           </div>
-          <div
-            style={{
-
-            }}
-          >
-            🍁 Lives in <a href="https://en.wikipedia.org/wiki/Mississauga" target="_blank" rel="noreferrer">Mississauga, Canada</a>
+          <div>
+            <CanadaFlagSVG
+              width='1.1em'
+              style={{
+                marginRight: '.33em',
+                verticalAlign: '-0.22em',
+              }}
+            />
+            Lives in <a href="https://en.wikipedia.org/wiki/Mississauga" target="_blank" rel="noreferrer">Mississauga, Canada</a>
           </div>
           <div
             style={{
