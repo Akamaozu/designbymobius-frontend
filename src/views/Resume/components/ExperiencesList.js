@@ -2,11 +2,20 @@ import { useEffect, useState } from 'react'
 import Experience from './Experience'
 import viewContext from '../contexts/view'
 
+
+const PROFESSIONAL_EXPERIENCE_TYPE_MAP = {
+  entrepreneur: 'entrepreneur',
+  employment: 'employment',
+  contract: 'contract',
+}
+
 const { useView } = viewContext
 
 const ExperiencesList = () => {
   const [ state ] = useView()
   const [ sortedExperiences, updateSortedExperiences ] = useState()
+  const [ experienceTypeGroups, setExperienceTypeGroups ] = useState()
+
   const stringifiedExperiences = JSON.stringify(state?.experiences?.items)
   const stringifiedFilteredExperiences = JSON.stringify(state?.experiences?.filteredExperiences)
 
@@ -23,8 +32,13 @@ const ExperiencesList = () => {
       return
     }
 
-    updateSortedExperiences(
-      [...(state.experiences.isFiltered ? state.experiences.filteredExperiences : state.experiences.items)]
+    const recalculatedSortedExperiences = [
+        ...(
+          state.experiences.isFiltered
+            ? state.experiences.filteredExperiences
+            : state.experiences.items
+        )
+      ]
         .sort((a,b) => {
           // sort newer start date higher
           if (a.start > b.start) return -1
@@ -36,7 +50,22 @@ const ExperiencesList = () => {
 
           return 0
         })
-    )
+
+    updateSortedExperiences( recalculatedSortedExperiences )
+
+    const experience_type_group_map = {}
+
+    recalculatedSortedExperiences.forEach( experience => {
+      const experience_type_group = PROFESSIONAL_EXPERIENCE_TYPE_MAP.hasOwnProperty( experience.type )
+        ? 'professional'
+        : 'other'
+
+      if (!experience_type_group_map[ experience_type_group ]) experience_type_group_map[ experience_type_group ] = []
+
+      experience_type_group_map[ experience_type_group ].push( experience )
+    })
+
+    setExperienceTypeGroups( experience_type_group_map )
   },
   [
     state?.experiences,
@@ -51,11 +80,53 @@ const ExperiencesList = () => {
         !sortedExperiences
           ? <span>loading...</span>
           : (
-              sortedExperiences.length > 0
-                ? sortedExperiences.map(experience => {
-                    return <Experience data={experience} key={experience.slug} showNotes={state?.experiences?.showNotes} />
-                  })
-                : <span>No Experience Found</span>
+              sortedExperiences.length === 0
+                ? <span>No Experience Found</span>
+                : <>
+                    {
+                      !experienceTypeGroups?.[ 'professional' ] || experienceTypeGroups[ 'professional' ].length === 0
+                        ? null
+                        : <>
+                            <div
+                              style={{
+                                color: '#888',
+                                fontWeight: 900,
+                                paddingBottom: '1em',
+                                letterSpacing: '-1px',
+                              }}
+                            >
+                              { experienceTypeGroups[ 'professional' ].length } Work { experienceTypeGroups[ 'professional' ].length === 1 ? 'Experience' : 'Experiences' }
+                            </div>
+                            {
+                              experienceTypeGroups[ 'professional' ].map(experience => {
+                                return <Experience data={experience} key={experience.slug} showNotes={state?.experiences?.showNotes} />
+                              })
+                            }
+                          </>
+                    }
+                    {
+                      !experienceTypeGroups?.[ 'other' ] || experienceTypeGroups[ 'other' ].length === 0
+                        ? null
+                        : <>
+                            <div
+                              style={{
+                                color: '#888',
+                                fontWeight: 900,
+                                paddingTop: '4em',
+                                paddingBottom: '1em',
+                                letterSpacing: '-1px',
+                              }}
+                            >
+                              { experienceTypeGroups[ 'other' ].length } Related { experienceTypeGroups[ 'other' ].length === 1 ? 'Experience' : 'Experiences' }
+                            </div>
+                            {
+                              experienceTypeGroups[ 'other' ].map(experience => {
+                                return <Experience data={experience} key={experience.slug} showNotes={state?.experiences?.showNotes} />
+                              })
+                            }
+                          </>
+                    }
+                  </>
             )
       }
     </div>
