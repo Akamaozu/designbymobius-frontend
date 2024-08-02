@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import ExperiencesFilterOption from './ExperiencesFilterOption'
 import viewContext from '../contexts/view'
@@ -6,6 +7,8 @@ import viewContext from '../contexts/view'
 const { useView } = viewContext
 
 const ExperienceFilters = props => {
+  const location = useLocation()
+
   const [ state, updateState ] = useView()
   const [ showFilters, setShowFilters ] = useState(false)
   const [ downloadingPdf, setDownloadingPdf ] = useState(false)
@@ -96,6 +99,61 @@ const ExperienceFilters = props => {
     updateState(updates)
     console.log({ action: 'clear-all-experience-filters' })
   }
+
+  // create initial state from url querystring
+  useEffect(() => {
+    if (typeof (location?.search) !== 'string') return
+
+    const queryStringIterable = new URLSearchParams(location.search)
+    const queryStringArray = [ ...queryStringIterable ]
+    const queryStringMap = queryStringArray.reduce((map, tuple) => {
+      map[tuple[0]] = tuple[1]
+      return map
+    }, {})
+
+    const queryStringState = {}
+
+    if (queryStringMap.types) {
+      const types = queryStringMap.types.split(',').map(type => type.trim())
+      types.forEach( type_slug => typeFilter.add(type_slug) )
+    }
+
+    if (queryStringMap.technologies) {
+      const technologies = queryStringMap.technologies.split(',').map(tech => tech.trim())
+      technologies.forEach( tech_slug => technologyFilter.add(tech_slug) )
+    }
+
+    if (queryStringMap.notes) {
+      queryStringState.notes = queryStringMap.notes
+    }
+  }, [])
+
+  // sync querystring with filter state
+  useEffect(() => {
+    const next_querystring_builder = new URLSearchParams()
+
+    if (experienceFilters?.types?.length > 0) {
+      next_querystring_builder.set( 'types', 'FILTERED_EXPERIENCE_TYPES' )
+    }
+
+    if (experienceFilters?.technologies?.length > 0) {
+      next_querystring_builder.set( 'technologies', 'FILTERED_TECHNOLOGY_TYPES' )
+    }
+
+    const next_querystring_template = next_querystring_builder
+      .toString()
+      .replace( 'FILTERED_EXPERIENCE_TYPES', experienceFilters?.types?.join(',') )
+      .replace( 'FILTERED_TECHNOLOGY_TYPES', experienceFilters?.technologies?.join(',') )
+
+    const next_querystring = next_querystring_template.length > 0
+        ? `?${ next_querystring_template }`
+        : ''
+
+    window?.history?.replaceState( null, null, `${ window?.location?.pathname }${ next_querystring }` )
+  }, [
+    JSON.stringify( experienceFilters?.types ),
+    JSON.stringify( experienceFilters?.technologies ),
+  ])
 
   return (
     <>
