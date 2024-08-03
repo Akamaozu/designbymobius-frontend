@@ -143,13 +143,40 @@ const experiences = [
     start: '2016',
     end: '2016',
     type: 'contract',
-    nutshell: 'Point of Sale desktop application with customizable Invoice Layout',
+    nutshell: 'Contracted to build Point of Sale integration with Receipt Printer',
     notes: [
       <>
-        Referrer: <a href="https://18techs.com" target="_blank" rel="noreferrer">18Techs</a>
+        Site: <a href="https://18techs.com" target="_blank" rel="noreferrer">18techs.com</a>
       </>,
-      'With a few clicks in the POS interface, users can select which printer the receipt would be sent to.',
-      'Proudest accomplishment was selecting printers and printing receipts without triggering Windows print prompt. Resulted in a much smoother user experience in the app.',
+      <ExperienceNoteSection
+        title='Responsibilities'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='build windows app with electron'
+            description={
+              <>
+                <div>key features:</div>
+                <ul>
+                  <li>detect printers on local network</li>
+                  <li>create receipt print job using Point of Sale transaction data</li>
+                  <li>send receipt to any networked printer</li>
+                </ul>
+              </>
+            }
+          />
+        </ul>
+      </ExperienceNoteSection>,
+      <ExperienceNoteSection
+        title='Accomplishments'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='seamless PoS-to-printer interactions'
+            description='printed receipts without triggering windows print dialog box'
+          />
+        </ul>
+      </ExperienceNoteSection>,
     ],
     technologies: [
       'electron',
