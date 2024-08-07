@@ -86,15 +86,26 @@ const experiences = [
     start: '2012',
     end: '2012',
     type: 'volunteer',
-    nutshell: 'Supported small groups learning to setup WordPress locally for the first time',
+    nutshell: 'Volunteered to Support new WordPress Developers',
     technologies: [
       'wordpress',
     ],
     notes: [
       <>
-        site: <a href="https://www.canadalearningcode.ca/">Canada Learning Code</a> (formerly <a href="https://en.wikipedia.org/wiki/Ladies_Learning_Code" target="_blank" rel="noreferrer">Ladies Learning Code</a>)
+        Site: <a href="https://www.canadalearningcode.ca">canadalearningcode.ca</a>
+        <br />
+        <br />
+        <i>formerly Ladies Learning Code - see <a href="https://en.wikipedia.org/wiki/Ladies_Learning_Code" target="_blank" rel="noreferrer">wikipedia.org/wiki/ladies_learning_code</a></i>
       </>,
-      'Guided students through setting up a WordPress development environment on their computer (Mac / Windows).',
+      <ExperienceNoteSection
+        title='Responsibilities'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='Guided students through setting up a WordPress development environment on their computer (Mac / Windows)'
+          />
+        </ul>
+      </ExperienceNoteSection>,
       '',
     ],
   },
@@ -117,7 +128,7 @@ const experiences = [
       >
         <ul>
           <ExperienceNoteSectionListItem
-            title='build features with wordpress'
+            title='build with wordpress'
             description={
               <ul>
                 <li>convert static mockups into custom wordpress theme</li>
