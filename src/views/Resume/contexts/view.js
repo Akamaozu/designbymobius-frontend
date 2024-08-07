@@ -77,7 +77,23 @@ const ViewProvider = props => {
     updatedState.experiences.isFiltered = filtered ?? false
     updatedState.experiences.filteredExperiences = updatedFilteredExperiences ?? []
 
-    updateState(updatedState)
+
+    updateState( latest_state => {
+      const {
+        experiences: latest_state_experiences,
+      } = latest_state
+
+      const state_to_use = {
+        ...latest_state,
+        experiences: {
+          ...latest_state_experiences,
+          isFiltered: filtered ?? false,
+          filteredExperiences: updatedFilteredExperiences ?? []
+        }
+      }
+
+      return state_to_use
+    })
   }, [
     stringifiedExperiences,
     stringifiedExperienceTypes,

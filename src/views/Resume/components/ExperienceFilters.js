@@ -123,9 +123,31 @@ const ExperienceFilters = props => {
       technologies.forEach( tech_slug => technologyFilter.add(tech_slug) )
     }
 
-    if (queryStringMap.notes) {
-      queryStringState.notes = queryStringMap.notes
+    if (queryStringMap.notes === 'open') {
+      updateState( latest_state => {
+        const {
+          experiences,
+          ...rest_of_latest_state
+        } = latest_state ?? {}
+
+        const state_to_use = {
+          ...rest_of_latest_state,
+          experiences: {
+            ...experiences,
+            showNotes: true,
+          }
+        }
+
+        return state_to_use
+      })
     }
+
+    updateState( latest_state => {
+      return {
+        ...latest_state,
+        url_parsed: true,
+      }
+    })
   }, [])
 
   // sync querystring with filter state
