@@ -133,7 +133,7 @@ const experiences = [
       >
         <ul>
           <ExperienceNoteSectionListItem
-            title='reduced key user interaction from 3s to 100ms'
+            title='reduced key user interaction from 3s to 10ms'
             description='used in-memory cache instead of repeated api requests'
           />
         </ul>
