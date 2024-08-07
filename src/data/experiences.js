@@ -99,23 +99,45 @@ const experiences = [
     ],
   },
   {
-    slug: 'tour-d-afrique',
-    label: 'Tour D\'Afrique',
+    slug: 'catalyst-workshop',
+    label: 'Catalyst Workshop',
     start: '2013',
     end: '2013',
     type: 'contract',
     technologies: [
       'wordpress',
     ],
-    nutshell: 'Interactive Overview of cross-continent Bicycle Tours',
+    nutshell: 'Contracted as a Full-Stack Developer for Tourism project',
     notes: [
       <>
-        Referrer: <a href="https://catalystworkshop.com" target="_blank" rel="noreferrer">Catalyst Workshop</a>
+        Site: <a href="https://catalystworkshop.com" target="_blank" rel="noreferrer">catalystworkshop.com</a>
       </>,
-      'Catalyst Workshop was making huge upgrades to a client\'s site and I was responsible for bringing many of the designs to life. My primary responsibility was implementing the design and behavior of Tour Overview section.',
-      'My favorite part of was the strategies employed to keep the Tour Section page behavior very fast. The redesign was beautiful, but the experience would have been subpar if the section was sluggish.',
-      'Each tour overview and sections are independent pages with unique URLs, but loaded subsequent sections dynamically.',
-      'Map embeds for each tour section are loaded dynamically to avoid unnecessary downloads of heavy assets. Embeds were also cached to prevent more data and time waste for visiting a section multiple times.',
+      <ExperienceNoteSection
+        title='Responsibilities'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='build features with wordpress'
+            description={
+              <ul>
+                <li>convert static mockups into custom wordpress theme</li>
+                <li>enable interactive experiences with jquery</li>
+                <li>extend wordpress admin with custom metaboxes</li>
+              </ul>
+            }
+          />
+        </ul>
+      </ExperienceNoteSection>,
+      <ExperienceNoteSection
+        title='Accomplishments'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='reduced key user interaction from 3s to 100ms'
+            description='used in-memory cache instead of repeated api requests'
+          />
+        </ul>
+      </ExperienceNoteSection>,
     ],
   },
   {
