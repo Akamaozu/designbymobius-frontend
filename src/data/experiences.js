@@ -35,15 +35,36 @@ const experiences = [
     technologies: [
       'wordpress',
     ],
-    nutshell: 'Built novel interfaces and controls for interactive Lifestyle Blog',
+    nutshell: 'Contracted as a Full-Stack Developer for Entertainment project',
     notes: [
       <>
-        site: <a href="http://yknightlights.designbymobi.us/" target="_blank" rel="noreferrer">YKNightlights</a>
+        Site: <a href="http://yknightlights.designbymobi.us/" target="_blank" rel="noreferrer">yknightlights.designbymobi.us</a>
       </>,
-      'Was commissioned to build a unique theme for a lifestyle blog. We focused on building little details that created a delightful experience for the readers.',
-      'When your mouse hovered on a preview card, other page elements dimmed to create more emphasis.',
-      'Keyboard arrow keys were augmented to scroll through the post preview cards.',
-      'Up and down arrow keys on the keyboard were context-aware, automatically scrolling to sections unless it was in the article body, in which case it behaved normally.',
+      <ExperienceNoteSection
+        title='Responsibilities'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='build with wordpress'
+            description={
+              <ul>
+                <li>convert static mockups to custom wordpress theme</li>
+                <li>customize wordpress admin to streamline workflow</li>
+              </ul>
+            }
+          />
+        </ul>
+      </ExperienceNoteSection>,
+      <ExperienceNoteSection
+        title='Accomplishments'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='built context-aware custom keyboard controls'
+            description='arrow keys jumped between site sections and scrolled sliders'
+          />
+        </ul>
+      </ExperienceNoteSection>
     ],
   },
   {
