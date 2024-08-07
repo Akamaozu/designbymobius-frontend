@@ -10,16 +10,40 @@ const experiences = [
     start: '2010',
     end: '2014',
     type: 'contract',
-    nutshell: 'Mobile Phone Retailer - Product Gallery and Price Update apps',
+    nutshell: 'Contracted as a Full-Stack Developer for Marketing project',
     notes: [
       <>
-        site: <a href="http://archives.mizbeach.com/v2/" target="_blank" rel="noreferrer">Product Gallery</a>
+        Site: <a href="http://archives.mizbeach.com/v2/" target="_blank" rel="noreferrer">archives.mizbeach.com/v2</a>
       </>,
-      'Designed and built a product gallery for customers to browse through mobile phones and their features instead of travelling to the store or calling to get the info.',
-      'Created a product list webapp to easily manage a large inventory and rapidly-changing prices from a mobile phone.',
-      <>
-        Used React and <a href="https://web.dev/appcache-beginner/" target="_blank" rel="noreferrer">appcache</a> to make a product update app work offline. Ask me about data-syncing or <a href="https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type" target="_blank" rel="noreferrer">CRDTs (conflict-free replicated data types)</a> sometime!
-      </>,
+      <ExperienceNoteSection
+        title='Responsibilities'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='build with wordpress'
+            description={
+              <ul>
+                <li>convert static mockups to custom wordpress theme</li>
+                <li>build custom admin interfaces to streamline workflow</li>
+              </ul>
+            }
+          />
+          <ExperienceNoteSectionListItem
+            title='build frontend with react'
+            description='webapp for quickly managing inventory prices'
+          />
+        </ul>
+      </ExperienceNoteSection>,
+      <ExperienceNoteSection
+        title='Accomplishments'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='designed pricing app to work offline'
+            description='offline price updates are stored on device and updated when network connection is detected'
+          />
+        </ul>
+      </ExperienceNoteSection>
     ],
     technologies: [
       'react',
@@ -76,7 +100,7 @@ const experiences = [
     technologies: [
       'wordpress',
     ],
-    nutshell: 'Contracted as a Full-Stack Developer for Agriculture and Journalism projects',
+    nutshell: 'Contracted as a Full-Stack Developer for Marketing projects',
     notes: [
       <>
         Site: <a href="https://hypenotic.com/" target="_blank" rel="noreferrer">hypenotic.com</a>
@@ -172,7 +196,7 @@ const experiences = [
     technologies: [
       'wordpress',
     ],
-    nutshell: 'Contracted as a Full-Stack Developer for Tourism project',
+    nutshell: 'Contracted as a Full-Stack Developer for Marketing projects',
     notes: [
       <>
         Site: <a href="https://catalystworkshop.com" target="_blank" rel="noreferrer">catalystworkshop.com</a>
