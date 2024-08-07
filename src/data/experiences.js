@@ -138,12 +138,12 @@ const experiences = [
     ],
   },
   {
-    slug: 'receipt-printer',
-    label: 'Receipt Printer Software',
+    slug: '18techs',
+    label: '18Techs',
     start: '2016',
     end: '2016',
     type: 'contract',
-    nutshell: 'Contracted to build Point of Sale integration with Receipt Printer',
+    nutshell: 'Contracted to build Windows app for Networked Receipt Printers',
     notes: [
       <>
         Site: <a href="https://18techs.com" target="_blank" rel="noreferrer">18techs.com</a>
@@ -159,8 +159,9 @@ const experiences = [
                 <div>key features:</div>
                 <ul>
                   <li>detect printers on local network</li>
-                  <li>create receipt print job using Point of Sale transaction data</li>
-                  <li>send receipt to any networked printer</li>
+                  <li>user-configurable target printer</li>
+                  <li>populate html receipt template with transaction data</li>
+                  <li>print html receipt on any networked printer</li>
                 </ul>
               </>
             }
@@ -172,8 +173,7 @@ const experiences = [
       >
         <ul>
           <ExperienceNoteSectionListItem
-            title='seamless PoS-to-printer interactions'
-            description='printed receipts without triggering windows print dialog box'
+            title='bypassed windows print dialog while printing receipts'
           />
         </ul>
       </ExperienceNoteSection>,
