@@ -74,10 +74,21 @@ const experiences = [
     technologies: [
       'wordpress',
     ],
-    nutshell: 'Streamline creation of custom admin interface components in WordPress',
+    nutshell: 'Authored an Open-Source Library for Custom WordPress Admin Interfaces',
     notes: [
-      'Leveraged hooks and enqueue system to make it easy to create a metabox (custom admin interface component) with a few lines of code.',
-      <a href="https://github.com/Akamaozu/dxm-wp-metabox" target="_blank" rel="noreferrer">View Repository</a>
+      <>
+        Site: <a href="https://github.com/akamaozu/dxm-wp-metabox" target="_blank" rel="noreferrer">github.com/akamaozu/dxm-wp-metabox</a>
+      </>,
+      <ExperienceNoteSection
+        title='Responsibilities'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='design api for creating admin interfaces'
+            description='wrapped wp-enqueue and wp-hooks, provided simple yet powerful, configurable api'
+          />
+        </ul>
+      </ExperienceNoteSection>,
     ],
   },
   {
