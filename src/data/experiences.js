@@ -47,22 +47,44 @@ const experiences = [
     ],
   },
   {
-    slug: 'marine-magnetics',
-    label: 'Marine Magnetics',
+    slug: 'hypenotic',
+    label: 'Hypenotic',
     start: '2012',
     end: '2012',
     type: 'contract',
     technologies: [
       'wordpress',
     ],
-    nutshell: 'Restored Marine Magnetics hacked website with no available backups and patched vulnerability',
+    nutshell: 'Contracted as a Full-Stack Developer for Agriculture and Journalism projects',
     notes: [
       <>
-        Referrer: <a href="https://hypenotic.com/" target="_blank" rel="noreferrer">Hypenotic</a>
+        Site: <a href="https://hypenotic.com/" target="_blank" rel="noreferrer">hypenotic.com</a>
       </>,
-      'The theme files were corrupted beyond recovery and there were no backups. I had to rebuild the site using a previous view from the Wayback Machine.',
-      'I analyzed the WordPress installation, found the source of the malware and removed it.',
-      'After recovery I noticed there were bugs in the site\'s JavaScript so I cleaned those up as well.',
+      <ExperienceNoteSection
+        title='Responsibilities'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='build with wordpress'
+            description={
+              <ul>
+                <li>debug and fix broken functionality</li>
+                <li>implement new features</li>
+              </ul>
+            }
+          />
+        </ul>
+      </ExperienceNoteSection>,
+      <ExperienceNoteSection
+        title='Accomplishments'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='restored hacked site by recreating from Internet Archives'
+            description='compromised server, no backups, no version control - restored functionality by writing features from scratch'
+          />
+        </ul>
+      </ExperienceNoteSection>,
     ],
   },
   {
