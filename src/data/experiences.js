@@ -408,7 +408,7 @@ const experiences = [
     start: '2017',
     end: '2017',
     type: 'volunteer',
-    nutshell: 'Led a Node.js workshop on Fault Tolerance',
+    nutshell: 'Volunteered to Lead a Node.js Workshop on Fault Tolerance',
     notes: [
       <>
         Site:
