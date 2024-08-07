@@ -119,19 +119,33 @@ const experiences = [
     ],
   },
   {
-    slug: 'cyclusbreak',
-    label: 'CyclusBreak',
+    slug: 'blueport',
+    label: 'Blueport Software',
     start: '2015',
     end: '2015',
     type: 'contract',
-    nutshell: 'Student-Counsellor Relationship Manager - Invite System, Admin Interfaces and Reports',
+    nutshell: 'Contracted as Full-Stack Developer for Education project',
     notes: [
       <>
-        Referrer: <a href="http://blueportsoftware.com" target="_blank" rel="noreferrer">Blueport Software</a>
+        Site: <a href="http://blueportsoftware.com" target="_blank" rel="noreferrer">blueportsoftware.com</a>
       </>,
-      'Student-Counsellor Relationship Managers connect university students with their counsellors, making it easier for students to get the help needed for optimal academic and social success.',
-      'Automated report generation of CyclusBreak\'s business objectives. The reports were exported as Excel documents and emailed to appropriate stakeholders on a schedule.',
-      'Implemented the app\'s invitation system, notifications (in-app and via email) and some admin config interfaces.',
+      <ExperienceNoteSection
+        title='Responsibilities'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='build features with meteor'
+            description={
+              <ul>
+                <li>user invitation system</li>
+                <li>notification engine <i>(in-app, email)</i></li>
+                <li>automatic business report generation</li>
+                <li>excel exports for generated reports</li>
+              </ul>
+            }
+          />
+        </ul>
+      </ExperienceNoteSection>
     ],
     technologies: [
       'meteor',
