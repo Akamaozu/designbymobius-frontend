@@ -3,6 +3,9 @@
 }
 
 @media print {
+  .AppView {
+    font-size: 82%;
+  }
 
   .AppHeader,
   .ViewTitle,
