@@ -10,12 +10,15 @@
   {
     "slug": "indexeddb",
     "label": "Indexed DB",
-    "type": "database"
+    "type": "database",
+    "tags": [
+      "non-relational-db"
+    ]
   },
   {
     "slug": "javascript",
     "label": "JavaScript",
-    "type": "language"
+    "type": "programming-language"
   },
   {
     "slug": "meteor",
@@ -29,35 +32,53 @@
   {
     "slug": "mongodb",
     "label": "MongoDB",
-    "type": "database"
+    "type": "database",
+    "tags": [
+      "non-relational-db"
+    ]
   },
   {
     "slug": "mysql",
     "label": "MySQL",
-    "type": "database"
+    "type": "database",
+    "dependencies": [
+      "sql"
+    ],
+    "tags": [
+      "relational-db"
+    ]
   },
   {
     "slug": "nodejs",
     "label": "Node.js",
-    "type": "framework",
+    "type": "runtime",
     "dependencies": [
       "javascript"
+    ],
+    "tags": [
+      "backend"
     ]
   },
   {
     "slug": "php",
     "label": "PHP",
-    "type": "language"
+    "type": "programming-language"
   },
   {
     "slug": "postgres",
     "label": "PostgreSQL",
-    "type": "database"
+    "type": "database",
+    "dependencies": [
+      "sql"
+    ],
+    "tags": [
+      "relational-db"
+    ]
   },
   {
     "slug": "puppeteer",
     "label": "Puppeteer",
-    "type": "framework",
+    "type": "library",
     "dependencies": [
       "nodejs"
     ]
@@ -65,7 +86,7 @@
   {
     "slug": "python",
     "label": "Python",
-    "type": "language"
+    "type": "programming-language"
   },
   {
     "slug": "rabbitmq",
@@ -75,25 +96,36 @@
   {
     "slug": "react",
     "label": "React",
-    "type": "framework",
+    "type": "library",
     "dependencies": [
       "javascript"
+    ],
+    "tags": [
+      "frontend"
     ]
   },
   {
     "slug": "redis",
     "label": "Redis",
-    "type": "database"
+    "type": "database",
+    "tags": [
+      "non-relational-db"
+    ]
   },
   {
     "slug": "svg",
     "label": "Scalable Vector Graphics (SVG)",
-    "type": "framework"
+    "type": "markup-language"
+  },
+  {
+    "slug": "sql",
+    "label": "Structured Query Language (SQL)",
+    "type": "query-language"
   },
   {
     "slug": "typescript",
     "label": "TypeScript",
-    "type": "language",
+    "type": "programming-language",
     "dependencies": [
       "javascript"
     ]
@@ -101,11 +133,14 @@
   {
     "slug": "wordpress",
     "label": "WordPress",
-    "type": "framework",
+    "type": "content-management-system",
     "dependencies": [
       "javascript",
       "mysql",
       "php"
+    ],
+    "tags": [
+      "backend"
     ]
   }
 ]

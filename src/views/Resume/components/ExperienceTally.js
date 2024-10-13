@@ -66,6 +66,18 @@ const ExperienceTally = () => {
     {}
   )
 
+  const technology_tags = state?.technologies?.items?.reduce(( map, technology ) => {
+    if (!technology?.tags || !technology.tags?.length || technology.tags.length < 1) return map
+
+    technology.tags.forEach( tag => {
+      if (!map.hasOwnProperty( tag )) map[ tag ] = []
+
+      map[ tag ].push( technology.slug )
+    })
+
+    return map
+  }, {})
+
   useEffect(() => {
     if (!state?.experiences || !state?.technologies) return
 
@@ -108,7 +120,7 @@ const ExperienceTally = () => {
       <div className='Experiences-tally-unfiltered'>
         { years_of_experience } { years_of_experience === 1 ? 'Year' : 'Years' } of Experience.
         <br />
-        { technology_type_map[ 'language' ].length } { technology_type_map[ 'language' ].length === 1 ? 'Language' : 'Languages' }.
+        { technology_type_map[ 'programming-language' ].length } { technology_type_map[ 'programming-language' ].length === 1 ? 'Language' : 'Languages' }.
         {' '}
         <span
           style={{
@@ -116,10 +128,10 @@ const ExperienceTally = () => {
             fontSize: '85%',
           }}
         >
-          { technology_type_map[ 'language' ].map( id => state.technologies.map[ id ].label ).join(', ') }
+          { technology_type_map[ 'programming-language' ].map( id => state.technologies.map[ id ].label ).join(', ') }
         </span>
         <br />
-        { technology_type_map[ 'database' ].length } { technology_type_map[ 'database' ].length === 1 ? 'Database' : 'Databases' }.
+        { technology_tags[ 'backend' ].length } Backend.
         {' '}
         <span
           style={{
@@ -127,7 +139,51 @@ const ExperienceTally = () => {
             fontSize: '85%',
           }}
         >
-          { technology_type_map[ 'database' ].map( id => state.technologies.map[ id ].label ).join(', ') }
+          { technology_tags[ 'backend' ].map( id => state.technologies.map[ id ].label ).join(', ') }
+        </span>
+        <br />
+        { technology_tags[ 'frontend' ].length } Frontend.
+        {' '}
+        <span
+          style={{
+            color: '#888',
+            fontSize: '85%',
+          }}
+        >
+          { technology_tags[ 'frontend' ].map( id => state.technologies.map[ id ].label ).join(', ') }
+        </span>
+        <br />
+        { technology_type_map[ 'message-queue' ].length } { technology_type_map[ 'message-queue' ].length === 1 ? 'Message Queue' : 'Message Queues' }.
+        {' '}
+        <span
+          style={{
+            color: '#888',
+            fontSize: '85%',
+          }}
+        >
+          { technology_type_map[ 'message-queue' ].map( id => state.technologies.map[ id ].label ).join(', ') }
+        </span>
+        <br />
+        { technology_tags[ 'relational-db' ].length } { technology_tags[ 'relational-db' ].length === 1 ? 'Relational Database' : 'Relational Databases' }.
+        {' '}
+        <span
+          style={{
+            color: '#888',
+            fontSize: '85%',
+          }}
+        >
+          { technology_tags[ 'relational-db' ].map( id => state.technologies.map[ id ].label ).join(', ') }
+        </span>
+        <br />
+        { technology_tags[ 'non-relational-db' ].length } { technology_tags[ 'non-relational-db' ].length === 1 ? 'Non-Relational Database' : 'Non-Relational Databases' }.
+        {' '}
+        <span
+          style={{
+            color: '#888',
+            fontSize: '85%',
+          }}
+        >
+          { technology_tags[ 'non-relational-db' ].map( id => state.technologies.map[ id ].label ).join(', ') }
         </span>
         <br />
         { experiences.length } { experiences.length === 1 ? 'Experience' : 'Experiences' }.

@@ -1,15 +1,35 @@
 [
   {
+    "slug": "content-management-system",
+    "label": "Content Management System (CMS)"
+  },
+  {
     "slug": "database",
     "label": "Database"
   },
   {
     "slug": "framework",
-    "label": "Framework or Runtime"
+    "label": "Framework"
   },
   {
-    "slug": "language",
+    "slug": "library",
+    "label": "Library"
+  },
+  {
+    "slug": "runtime",
+    "label": "Runtime"
+  },
+  {
+    "slug": "programming-language",
     "label": "Programming Language"
+  },
+  {
+    "slug": "markup-language",
+    "label": "Markup Language"
+  },
+  {
+    "slug": "query-language",
+    "label": "Query Language"
   },
   {
     "slug": "message-queue",
