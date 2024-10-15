@@ -61,14 +61,15 @@ const Resume = () => {
             Uzo Olisemeka
           </div>
           <div>
-            <NigeriaFlagSVG
-              width='1.1em'
+            <KeyboardSVG
+              width='1.2em'
               style={{
                 marginRight: '.33em',
                 verticalAlign: '-0.22em',
+                color: '#888',
               }}
             />
-            Born in <a href="https://en.wikipedia.org/wiki/Lagos" target="_blank" rel="noreferrer">Lagos, Nigeria</a>
+            Software Engineer since 2010
           </div>
           <div>
             <CanadaFlagSVG
@@ -79,17 +80,6 @@ const Resume = () => {
               }}
             />
             Lives in <a href="https://en.wikipedia.org/wiki/Mississauga" target="_blank" rel="noreferrer">Mississauga, Canada</a>
-          </div>
-          <div>
-            <KeyboardSVG
-              width='1.2em'
-              style={{
-                marginRight: '.33em',
-                verticalAlign: '-0.22em',
-                color: '#888',
-              }}
-            />
-            Software Engineer since 2010
           </div>
           <div>
             <EmailNotificationSVG
