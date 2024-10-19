@@ -13,7 +13,7 @@ const experiences = [
     nutshell: 'Contracted as a Full-Stack Developer for Marketing project',
     notes: [
       <>
-        Site: <a href="https://web.archive.org/web/20111008175913/http://www.mizbeach.com/" target="_blank" rel="noreferrer">mizbeach.com (internet archives)</a>
+        Site: <a href="https://web.archive.org/web/20111008175913/http://www.mizbeach.com/" target="_blank" rel="noreferrer">mizbeach.com</a>
       </>,
       <ExperienceNoteSection
         title='Responsibilities'
@@ -543,12 +543,12 @@ const experiences = [
               <span>
                 { '1. fix "ready" event race-condition - ' }
                 <a className="inline-block" href="https://web.archive.org/web/20201013012511/https://github.com/pagerinc/jackrabbit/pull/40" target="_blank" rel="noreferrer">
-                  github.com/pagerinc/jackrabbit/pull/40 (internet archive)
+                  github.com/pagerinc/jackrabbit/pull/40
                 </a>
                 <br />
                 { '2. fix hoisted callback race-condition - ' }
                 <a className="inline-block" href="https://web.archive.org/web/20221224105929/https://github.com/pagerinc/jackrabbit/pull/88" target="_blank" rel="noreferrer">
-                  github.com/pagerinc/jackrabbit/pull/88 (internet archive)
+                  github.com/pagerinc/jackrabbit/pull/88
                 </a>
               </span>
             }
@@ -559,7 +559,7 @@ const experiences = [
               <span>
                 { 'skip reply queue creation if not needed - ' }
                 <a className="inline-block" href="https://web.archive.org/web/20201013012404/https://github.com/pagerinc/jackrabbit/pull/74" target="_blank" rel="noreferrer">
-                  github.com/pagerinc/jackrabbit/pull/74 (internet archive)
+                  github.com/pagerinc/jackrabbit/pull/74
                 </a>
               </span>
             }
