@@ -13,7 +13,7 @@ const experiences = [
     nutshell: 'Contracted as a Full-Stack Developer for Marketing project',
     notes: [
       <>
-        Site: <a href="http://archives.mizbeach.com/v2/" target="_blank" rel="noreferrer">archives.mizbeach.com/v2</a>
+        Site: <a href="https://web.archive.org/web/20111008175913/http://www.mizbeach.com/" target="_blank" rel="noreferrer">mizbeach.com (internet archives)</a>
       </>,
       <ExperienceNoteSection
         title='Responsibilities'
@@ -542,13 +542,13 @@ const experiences = [
             description={
               <span>
                 { '1. fix "ready" event race-condition - ' }
-                <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/40" target="_blank" rel="noreferrer">
-                  github.com/pagerinc/jackrabbit/pull/40
+                <a className="inline-block" href="https://web.archive.org/web/20201013012511/https://github.com/pagerinc/jackrabbit/pull/40" target="_blank" rel="noreferrer">
+                  github.com/pagerinc/jackrabbit/pull/40 (internet archive)
                 </a>
                 <br />
                 { '2. fix hoisted callback race-condition - ' }
-                <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/88" target="_blank" rel="noreferrer">
-                  github.com/pagerinc/jackrabbit/pull/88
+                <a className="inline-block" href="https://web.archive.org/web/20221224105929/https://github.com/pagerinc/jackrabbit/pull/88" target="_blank" rel="noreferrer">
+                  github.com/pagerinc/jackrabbit/pull/88 (internet archive)
                 </a>
               </span>
             }
@@ -558,8 +558,8 @@ const experiences = [
             description={
               <span>
                 { 'skip reply queue creation if not needed - ' }
-                <a className="inline-block" href="https://github.com/pagerinc/jackrabbit/pull/74" target="_blank" rel="noreferrer">
-                  github.com/pagerinc/jackrabbit/pull/74
+                <a className="inline-block" href="https://web.archive.org/web/20201013012404/https://github.com/pagerinc/jackrabbit/pull/74" target="_blank" rel="noreferrer">
+                  github.com/pagerinc/jackrabbit/pull/74 (internet archive)
                 </a>
               </span>
             }
