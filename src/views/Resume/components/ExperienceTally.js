@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import viewContext from '../contexts/view'
 
 const { useView } = viewContext
@@ -6,14 +5,14 @@ const { useView } = viewContext
 const ExperienceTally = () => {
   const [ state ] = useView()
 
-  const [ experiences, updateExperiences ] = useState()
-  const [ experienceFilters, updateExperienceFilters ] = useState()
-  const [ experienceTypesMap, updateExperienceTypesMap ] = useState()
-
-  const [ technologyMap, updateTechnologyMap ] = useState()
-
-  const [ isFiltered, updateIsFiltered ] = useState()
-  const [ filteredExperiences, updateFilteredExperiences ] = useState()
+  const experiences = state?.experiences?.items ?? []
+  const experienceFilters = state?.experiences?.filters ?? {}
+  const experienceTypesMap = state?.experiences?.typeMap ?? {}
+  const technologyMap = state?.technologies?.map ?? {}
+  const isFiltered = state?.experiences?.isFiltered ? true : false
+  const filteredExperiences = isFiltered
+    ? state?.experiences?.filteredExperiences ?? []
+    : state?.experiences?.items ?? []
 
   const experience_year_map = {}
   experiences?.forEach( experience => {
@@ -78,42 +77,7 @@ const ExperienceTally = () => {
     return map
   }, {})
 
-  useEffect(() => {
-    if (!state?.experiences || !state?.technologies) return
-
-    updateExperiences([ ...state.experiences.items ])
-    updateExperienceTypesMap({ ...state.experiences.typeMap })
-    updateExperienceFilters({ ...state.experiences.filters })
-    updateTechnologyMap({ ...state.technologies.map })
-    updateIsFiltered(state.experiences.isFiltered)
-    updateFilteredExperiences(
-      state.experiences.isFiltered
-       ? [ ...state.experiences.filteredExperiences ]
-       : [ ...state.experiences.items ]
-    )
-  },
-  [
-    state,
-    state?.experiences,
-    state?.experiences?.items,
-    state?.experiences?.types,
-    state?.experiences?.typeMap,
-    state?.experiences?.isFiltered,
-    state?.experiences?.filteredExperiences,
-    state?.experiences?.filters,
-    state?.experiences?.filters?.types,
-    state?.experiences?.filters?.technologies,
-    state?.technologies,
-    state?.technologies?.map,
-  ])
-
   experienceFilters?.types?.sort()
-
-  if (!experiences) {
-    return (
-      <span>loading...</span>
-    )
-  }
 
   return (
     <div className='Experiences-tally'>
