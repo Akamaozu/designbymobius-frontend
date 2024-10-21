@@ -33,9 +33,55 @@ const ViewProvider = props => {
     return technologyMap
   }, {})
 
-  initialState.technologies.typeMap = initialState.technologies.types.reduce((technologyTypeMap, technologyType) => {
-    technologyTypeMap[technologyType.slug] = technologyType
+  initialState.technologies.typeMap = initialState.technologies.items.reduce((technologyTypeMap, technology) => {
+    const technologyType = technology.type
+    if (!technologyType) return technologyTypeMap
+
+    if (!technologyTypeMap.hasOwnProperty( technologyType )) technologyTypeMap[ technologyType ] = []
+    technologyTypeMap[ technologyType ].push( technology.slug )
+
     return technologyTypeMap
+  }, {})
+
+  initialState.experiences.yearMap = initialState.experiences.items.reduce(( map, experience ) => {
+    const {
+      slug: experience_slug,
+      start: start_year,
+      end: end_year,
+    } = experience ?? {}
+
+    if (!experience_slug || !start_year) return map
+
+    if (!map.hasOwnProperty( start_year )) map[ start_year ] = []
+
+    map[ start_year ].push( experience_slug )
+    if (start_year === end_year) return map
+
+    const start_year_int = parseInt( start_year )
+    const end_year_int = end_year
+      ? parseInt( end_year )
+      : ( new Date() ).getFullYear()
+
+    if (start_year_int > end_year_int) return map
+
+    for( let experience_year = start_year_int + 1; experience_year <= end_year_int; experience_year += 1 ) {
+      if (!map.hasOwnProperty( experience_year )) map[ experience_year ] = []
+      map[ experience_year ].push( experience_slug )
+    }
+
+    return map
+  }, {})
+
+  initialState.technologies.tagMap = initialState.technologies.items.reduce(( map, technology ) => {
+    if (!technology?.tags || !technology.tags?.length || technology.tags.length < 1) return map
+
+    technology.tags.forEach( tag => {
+      if (!map.hasOwnProperty( tag )) map[ tag ] = []
+
+      map[ tag ].push( technology.slug )
+    })
+
+    return map
   }, {})
 
   if (props?.initialState?.types) initialState.experiences.filters.types = props.initialState.types.filter(type => initialState.experiences.typeMap.hasOwnProperty(type))
