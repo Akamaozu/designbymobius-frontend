@@ -14,70 +14,13 @@ const ExperienceTally = () => {
     ? state?.experiences?.filteredExperiences ?? []
     : state?.experiences?.items ?? []
 
-  const experience_year_map = {}
-  experiences?.forEach( experience => {
-    const {
-      slug,
-      start,
-      end,
-    } = experience ?? {}
-
-    if (!slug || !start) return
-
-    if (!experience_year_map[ start ]) experience_year_map[ start ] = []
-
-    experience_year_map[ start ].push( slug )
-
-    if (start === end) return
-
-    const start_int = parseInt( start )
-    const end_int = end
-      ? parseInt( end )
-      : (new Date()).getFullYear()
-
-    if (start_int > end_int) return
-
-    for (var i = start_int + 1; i <= end_int; i += 1) {
-      if (!experience_year_map[ i ]) experience_year_map[ i ] = []
-
-      experience_year_map[ i ].push( slug )
-    }
-  })
-
   const years_of_experience = Object
-    .keys( experience_year_map )
+    .keys( state?.experiences?.yearMap ?? {} )
     .length
     - 1
 
-  const technology_type_map = state?.technologies?.items?.reduce(
-    ( map, technology ) => {
-      const {
-        slug,
-        type,
-      } = technology ?? {}
-
-      if (!map[ type ]) map[ type ] = []
-
-      map[ type ].push( slug )
-
-      return map
-    },
-    {}
-  )
-
-  const technology_tags = state?.technologies?.items?.reduce(( map, technology ) => {
-    if (!technology?.tags || !technology.tags?.length || technology.tags.length < 1) return map
-
-    technology.tags.forEach( tag => {
-      if (!map.hasOwnProperty( tag )) map[ tag ] = []
-
-      map[ tag ].push( technology.slug )
-    })
-
-    return map
-  }, {})
-
-  experienceFilters?.types?.sort()
+  const technology_type_map = state?.technologies?.typeMap
+  const technology_tags = state?.technologies?.tagMap
 
   return (
     <div className='Experiences-tally'>
