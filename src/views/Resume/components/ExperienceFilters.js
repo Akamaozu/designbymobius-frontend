@@ -16,6 +16,9 @@ const ExperienceFilters = props => {
   const experienceTypes = state?.experiences?.types ?? []
   const experienceFilters = state?.experiences?.filters ?? {}
   const technologies = state?.technologies?.items ?? []
+  const technology_map = state?.technologies?.map ?? {}
+  const technology_tags = state?.technologies?.tagMap ?? {}
+  const technology_type_map = state?.technologies?.typeMap ?? {}
 
   const typeFilter = {
     add: type => {
@@ -251,8 +254,9 @@ const ExperienceFilters = props => {
       {
         showFilters && (
           <div className="Experiences-filters">
+            Filter by:
             <div className="Experiences-filter Experiences-filter-type">
-              <div className="Experiences-filter-title">Filter by Experience Type</div>
+              <div className="Experiences-filter-title">Experience Type</div>
               {
                 experienceTypes
                   .sort((a,b) => {
@@ -281,32 +285,150 @@ const ExperienceFilters = props => {
               }
             </div>
             <div className="Experiences-filter Experiences-filter-technology">
-              <div className="Experiences-filter-title">Filter by Technologies Used</div>
               {
-                technologies
-                  .sort((a,b) => {
-                    // label, alphabetically
-                    if (a.label > b.label) return 1
-                    if (a.label < b.label) return -1
-                    return 0
-                  })
-                  .map(technology => {
-                    return (
-                      <ExperiencesFilterOption
-                        active={experienceFilters.technologies?.indexOf(technology.slug) > -1}
-                        key={technology.slug}
-                        slug={technology.slug}
-                        onClick={() => {
-                          if (!experienceFilters.technologies) return technologyFilter.add(technology.slug)
+                technology_type_map.hasOwnProperty( 'programming-language' )
+                && (
+                  <>
+                    <div style={{ fontSize: '.85em', marginTop: '1.25em' }}>Programming Language</div>
+                    {
+                      technology_type_map[ 'programming-language' ].map( technology_slug => {
+                        const technology = technology_map[ technology_slug ]
 
-                          if (experienceFilters.technologies.indexOf(technology.slug) > -1) technologyFilter.del(technology.slug)
-                          else technologyFilter.add(technology.slug)
-                        }}
-                      >
-                        { technology.label }
-                      </ExperiencesFilterOption>
-                    )
-                  })
+                        return (
+                          <ExperiencesFilterOption
+                            active={experienceFilters.technologies?.indexOf(technology.slug) > -1}
+                            key={technology.slug}
+                            slug={technology.slug}
+                            onClick={() => {
+                              if (!experienceFilters.technologies) return technologyFilter.add(technology.slug)
+
+                              if (experienceFilters.technologies.indexOf(technology.slug) > -1) technologyFilter.del(technology.slug)
+                              else technologyFilter.add(technology.slug)
+                            }}
+                          >
+                            { technology.label }
+                          </ExperiencesFilterOption>
+                        )
+                      })
+                    }
+                  </>
+                )
+              }
+              {
+                technology_tags.hasOwnProperty( 'backend' )
+                && (
+                  <>
+                    <div style={{ fontSize: '.85em', marginTop: '1.25em' }}>Backend</div>
+                    {
+                      technology_tags[ 'backend' ].map( technology_slug => {
+                        const technology = technology_map[ technology_slug ]
+
+                        return (
+                          <ExperiencesFilterOption
+                            active={experienceFilters.technologies?.indexOf(technology.slug) > -1}
+                            key={technology.slug}
+                            slug={technology.slug}
+                            onClick={() => {
+                              if (!experienceFilters.technologies) return technologyFilter.add(technology.slug)
+
+                              if (experienceFilters.technologies.indexOf(technology.slug) > -1) technologyFilter.del(technology.slug)
+                              else technologyFilter.add(technology.slug)
+                            }}
+                          >
+                            { technology.label }
+                          </ExperiencesFilterOption>
+                        )
+                      })
+                    }
+                  </>
+                )
+              }
+              {
+                technology_tags.hasOwnProperty( 'frontend' )
+                && (
+                  <>
+                    <div style={{ fontSize: '.85em', marginTop: '1.25em' }}>Frontend</div>
+                    {
+                      technology_tags[ 'frontend' ].map( technology_slug => {
+                        const technology = technology_map[ technology_slug ]
+
+                        return (
+                          <ExperiencesFilterOption
+                            active={experienceFilters.technologies?.indexOf(technology.slug) > -1}
+                            key={technology.slug}
+                            slug={technology.slug}
+                            onClick={() => {
+                              if (!experienceFilters.technologies) return technologyFilter.add(technology.slug)
+
+                              if (experienceFilters.technologies.indexOf(technology.slug) > -1) technologyFilter.del(technology.slug)
+                              else technologyFilter.add(technology.slug)
+                            }}
+                          >
+                            { technology.label }
+                          </ExperiencesFilterOption>
+                        )
+                      })
+                    }
+                  </>
+                )
+              }
+              {
+                technology_tags.hasOwnProperty( 'relational-db' )
+                && (
+                  <>
+                    <div style={{ fontSize: '.85em', marginTop: '1.25em' }}>Relational Database</div>
+                    {
+                      technology_tags[ 'relational-db' ].map( technology_slug => {
+                        const technology = technology_map[ technology_slug ]
+
+                        return (
+                          <ExperiencesFilterOption
+                            active={experienceFilters.technologies?.indexOf(technology.slug) > -1}
+                            key={technology.slug}
+                            slug={technology.slug}
+                            onClick={() => {
+                              if (!experienceFilters.technologies) return technologyFilter.add(technology.slug)
+
+                              if (experienceFilters.technologies.indexOf(technology.slug) > -1) technologyFilter.del(technology.slug)
+                              else technologyFilter.add(technology.slug)
+                            }}
+                          >
+                            { technology.label }
+                          </ExperiencesFilterOption>
+                        )
+                      })
+                    }
+                  </>
+                )
+              }
+              {
+                technology_tags.hasOwnProperty( 'non-relational-db' )
+                && (
+                  <>
+                    <div style={{ fontSize: '.85em', marginTop: '1.25em' }}>Non-Relational Database</div>
+                    {
+                      technology_tags[ 'non-relational-db' ].map( technology_slug => {
+                        const technology = technology_map[ technology_slug ]
+
+                        return (
+                          <ExperiencesFilterOption
+                            active={experienceFilters.technologies?.indexOf(technology.slug) > -1}
+                            key={technology.slug}
+                            slug={technology.slug}
+                            onClick={() => {
+                              if (!experienceFilters.technologies) return technologyFilter.add(technology.slug)
+
+                              if (experienceFilters.technologies.indexOf(technology.slug) > -1) technologyFilter.del(technology.slug)
+                              else technologyFilter.add(technology.slug)
+                            }}
+                          >
+                            { technology.label }
+                          </ExperiencesFilterOption>
+                        )
+                      })
+                    }
+                  </>
+                )
               }
             </div>
           </div>
