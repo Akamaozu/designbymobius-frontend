@@ -430,6 +430,35 @@ const ExperienceFilters = props => {
                   </>
                 )
               }
+              {
+                technology_type_map.hasOwnProperty( 'message-queue' )
+                && (
+                  <>
+                    <div style={{ fontSize: '.85em', marginTop: '1.25em' }}>Message Queue</div>
+                    {
+                      technology_type_map[ 'message-queue' ].map( technology_slug => {
+                        const technology = technology_map[ technology_slug ]
+
+                        return (
+                          <ExperiencesFilterOption
+                            active={experienceFilters.technologies?.indexOf(technology.slug) > -1}
+                            key={technology.slug}
+                            slug={technology.slug}
+                            onClick={() => {
+                              if (!experienceFilters.technologies) return technologyFilter.add(technology.slug)
+
+                              if (experienceFilters.technologies.indexOf(technology.slug) > -1) technologyFilter.del(technology.slug)
+                              else technologyFilter.add(technology.slug)
+                            }}
+                          >
+                            { technology.label }
+                          </ExperiencesFilterOption>
+                        )
+                      })
+                    }
+                  </>
+                )
+              }
             </div>
           </div>
         )
