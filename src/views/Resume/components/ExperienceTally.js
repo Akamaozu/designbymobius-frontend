@@ -92,8 +92,6 @@ const ExperienceTally = () => {
         >
           { technology_tags[ 'non-relational-db' ].map( id => state.technologies.map[ id ].label ).join(', ') }
         </span>
-        <br />
-        { experiences.length } { experiences.length === 1 ? 'Experience' : 'Experiences' }.
       </div>
       {
         isFiltered && (
