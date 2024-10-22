@@ -48,6 +48,22 @@ const ViewProvider = props => {
     return technologyTypeMap
   }, {})
 
+  // sort technology type group members alphabetically
+  Object
+    .keys( initialState.technologies.typeMembersMap )
+    .forEach( type_slug => {
+
+      initialState.technologies.typeMembersMap[ type_slug ]
+        .sort(( tech_a_slug, tech_b_slug ) => {
+          const tech_a = initialState.technologies.map[ tech_a_slug ]
+          const tech_b = initialState.technologies.map[ tech_b_slug ]
+
+          if (tech_a.label > tech_b.label) return 1
+          if (tech_a.label < tech_b.label) return -1
+          return 0
+      })
+    })
+
   initialState.experiences.yearMap = initialState.experiences.items.reduce(( map, experience ) => {
     const {
       slug: experience_slug,
