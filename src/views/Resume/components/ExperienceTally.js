@@ -19,7 +19,7 @@ const ExperienceTally = () => {
     .length
     - 1
 
-  const technology_type_map = state?.technologies?.typeMap
+  const technology_type_members_map = state?.technologies?.typeMembersMap
   const technology_tags = state?.technologies?.tagMap
 
   return (
@@ -27,7 +27,7 @@ const ExperienceTally = () => {
       <div className='Experiences-tally-unfiltered'>
         { years_of_experience } { years_of_experience === 1 ? 'Year' : 'Years' } of Experience.
         <br />
-        { technology_type_map[ 'programming-language' ].length } { technology_type_map[ 'programming-language' ].length === 1 ? 'Language' : 'Languages' }.
+        { technology_type_members_map[ 'programming-language' ].length } { technology_type_members_map[ 'programming-language' ].length === 1 ? 'Language' : 'Languages' }.
         {' '}
         <span
           style={{
@@ -35,7 +35,7 @@ const ExperienceTally = () => {
             fontSize: '85%',
           }}
         >
-          { technology_type_map[ 'programming-language' ].map( id => state.technologies.map[ id ].label ).join(', ') }
+          { technology_type_members_map[ 'programming-language' ].map( id => state.technologies.map[ id ].label ).join(', ') }
         </span>
         <br />
         { technology_tags[ 'backend' ].length } Backend.
@@ -60,7 +60,7 @@ const ExperienceTally = () => {
           { technology_tags[ 'frontend' ].map( id => state.technologies.map[ id ].label ).join(', ') }
         </span>
         <br />
-        { technology_type_map[ 'message-queue' ].length } { technology_type_map[ 'message-queue' ].length === 1 ? 'Message Queue' : 'Message Queues' }.
+        { technology_type_members_map[ 'message-queue' ].length } { technology_type_members_map[ 'message-queue' ].length === 1 ? 'Message Queue' : 'Message Queues' }.
         {' '}
         <span
           style={{
@@ -68,7 +68,7 @@ const ExperienceTally = () => {
             fontSize: '85%',
           }}
         >
-          { technology_type_map[ 'message-queue' ].map( id => state.technologies.map[ id ].label ).join(', ') }
+          { technology_type_members_map[ 'message-queue' ].map( id => state.technologies.map[ id ].label ).join(', ') }
         </span>
         <br />
         { technology_tags[ 'relational-db' ].length } { technology_tags[ 'relational-db' ].length === 1 ? 'Relational Database' : 'Relational Databases' }.

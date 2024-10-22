@@ -33,7 +33,12 @@ const ViewProvider = props => {
     return technologyMap
   }, {})
 
-  initialState.technologies.typeMap = initialState.technologies.items.reduce((technologyTypeMap, technology) => {
+  initialState.technologies.typeMap = initialState.technologies.types.reduce((technologyTypeMap, technologyType) => {
+    technologyTypeMap[ technologyType.slug ] = technologyType
+    return technologyTypeMap
+  }, {})
+
+  initialState.technologies.typeMembersMap = initialState.technologies.items.reduce((technologyTypeMap, technology) => {
     const technologyType = technology.type
     if (!technologyType) return technologyTypeMap
 

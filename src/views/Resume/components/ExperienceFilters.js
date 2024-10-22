@@ -18,7 +18,7 @@ const ExperienceFilters = props => {
   const technologies = state?.technologies?.items ?? []
   const technology_map = state?.technologies?.map ?? {}
   const technology_tags = state?.technologies?.tagMap ?? {}
-  const technology_type_map = state?.technologies?.typeMap ?? {}
+  const technology_type_members_map = state?.technologies?.typeMembersMap ?? {}
 
   const typeFilter = {
     add: type => {
@@ -286,12 +286,12 @@ const ExperienceFilters = props => {
             </div>
             <div className="Experiences-filter Experiences-filter-technology">
               {
-                technology_type_map.hasOwnProperty( 'programming-language' )
+                technology_type_members_map.hasOwnProperty( 'programming-language' )
                 && (
                   <>
                     <div style={{ fontSize: '.85em', marginTop: '1.25em' }}>Programming Language</div>
                     {
-                      technology_type_map[ 'programming-language' ].map( technology_slug => {
+                      technology_type_members_map[ 'programming-language' ].map( technology_slug => {
                         const technology = technology_map[ technology_slug ]
 
                         return (
@@ -431,12 +431,12 @@ const ExperienceFilters = props => {
                 )
               }
               {
-                technology_type_map.hasOwnProperty( 'message-queue' )
+                technology_type_members_map.hasOwnProperty( 'message-queue' )
                 && (
                   <>
                     <div style={{ fontSize: '.85em', marginTop: '1.25em' }}>Message Queue</div>
                     {
-                      technology_type_map[ 'message-queue' ].map( technology_slug => {
+                      technology_type_members_map[ 'message-queue' ].map( technology_slug => {
                         const technology = technology_map[ technology_slug ]
 
                         return (
@@ -456,6 +456,44 @@ const ExperienceFilters = props => {
                         )
                       })
                     }
+                  </>
+                )
+              }
+              {
+                technology_type_members_map.hasOwnProperty( 'cloud-infrastructure' )
+                && (
+                  <>
+                    <div style={{ fontSize: '.85em', marginTop: '1.25em' }}>Cloud Infrastructure</div>
+                    {
+                      technology_type_members_map[ 'cloud-infrastructure' ]
+                        .sort(( slug_a, slug_b ) => {
+                          const tech_a = technology_map[ slug_a ]
+                          const tech_b = technology_map[ slug_b ]
+
+                          if (tech_a.label > tech_b.label) return 1
+                          if (tech_a.label < tech_b.label) return -1
+                          return 0
+                        })
+                        .map( technology_slug => {
+                          const technology = technology_map[ technology_slug ]
+
+                          return (
+                            <ExperiencesFilterOption
+                              active={experienceFilters.technologies?.indexOf(technology.slug) > -1}
+                              key={technology.slug}
+                              slug={technology.slug}
+                              onClick={() => {
+                                if (!experienceFilters.technologies) return technologyFilter.add(technology.slug)
+
+                                if (experienceFilters.technologies.indexOf(technology.slug) > -1) technologyFilter.del(technology.slug)
+                                else technologyFilter.add(technology.slug)
+                              }}
+                            >
+                              { technology.label }
+                            </ExperiencesFilterOption>
+                          )
+                        })
+                      }
                   </>
                 )
               }
