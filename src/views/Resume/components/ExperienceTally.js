@@ -92,6 +92,17 @@ const ExperienceTally = () => {
         >
           { technology_tags[ 'non-relational-db' ].map( id => state.technologies.map[ id ].label ).join(', ') }
         </span>
+        <br />
+        { technology_type_members_map[ 'cloud-infrastructure' ].length } { technology_type_members_map[ 'cloud-infrastructure' ].length === 1 ? 'Cloud Infrastructure' : 'Cloud Infrastructures' }.
+        {' '}
+        <span
+          style={{
+            color: '#888',
+            fontSize: '85%',
+          }}
+        >
+          { technology_type_members_map[ 'cloud-infrastructure' ].map( id => state.technologies.map[ id ].label ).join(', ') }
+        </span>
       </div>
       {
         isFiltered && (
