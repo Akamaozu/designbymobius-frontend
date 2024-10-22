@@ -142,5 +142,15 @@
     "tags": [
       "backend"
     ]
+  },
+  {
+    "slug": "heroku",
+    "label": "Heroku",
+    "type": "cloud-infrastructure"
+  },
+  {
+    "slug": "aws",
+    "label": "Amazon Web Services (AWS)",
+    "type": "cloud-infrastructure"
   }
 ]

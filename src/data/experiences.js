@@ -400,6 +400,7 @@ const experiences = [
       'rabbitmq',
       'redis',
       'wordpress',
+      'heroku',
     ],
   },
   {
@@ -523,6 +524,7 @@ const experiences = [
       'puppeteer',
       'rabbitmq',
       'redis',
+      'heroku',
     ],
   },
   {
@@ -613,6 +615,7 @@ const experiences = [
       'postgres',
       'react',
       'typescript',
+      'aws'
     ],
   },
   {
@@ -627,6 +630,7 @@ const experiences = [
       'rabbitmq',
       'indexeddb',
       'svg',
+      'heroku'
     ],
     nutshell: 'Running a Data Explorer service for Mozilla Pocket\'s users',
     notes: [
