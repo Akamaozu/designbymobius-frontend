@@ -196,9 +196,10 @@
     }
 
     .Experiences > .Experience > .Experience-technologies {
+      margin: .85em;
     }
 
-      .Experiences > .Experience > .Experience-technologies > .Experience-technology {
+      .Experiences > .Experience > .Experience-technologies .Experience-technology {
         display:  inline-block;
         margin-right: .5em;
         border: 1px solid #888;
@@ -210,21 +211,21 @@
         cursor: default;
       }
 
-      .Experiences > .Experience > .Experience-technologies > .Experience-technology:hover {
+      .Experiences > .Experience > .Experience-technologies .Experience-technology:hover {
         background-color: palegoldenrod;
       }
 
-      .Experiences > .Experience > .Experience-technologies.Experience-technologies-filtered > .Experience-technology {
+      .Experiences > .Experience > .Experience-technologies.Experience-technologies-filtered .Experience-technology {
         color: #ccc;
         border-color: #ccc;
       }
 
-      .Experiences > .Experience > .Experience-technologies.Experience-technologies-filtered > .Experience-technology.Experience-technologies-filter-match {
+      .Experiences > .Experience > .Experience-technologies.Experience-technologies-filtered .Experience-technology.Experience-technologies-filter-match {
         color: #888;
         border-color: #888;
       }
 
-        .Experiences > .Experience > .Experience-technologies > .Experience-technology > .Experience-technology-type {
+        .Experiences > .Experience > .Experience-technologies .Experience-technology > .Experience-technology-type {
           display: none;
           position: absolute;
           border-radius: .5em;
@@ -236,7 +237,7 @@
           text-align: center;
         }
 
-        .Experiences > .Experience > .Experience-technologies > .Experience-technology:hover > .Experience-technology-type {
+        .Experiences > .Experience > .Experience-technologies .Experience-technology:hover > .Experience-technology-type {
           display: block;
         }
 
