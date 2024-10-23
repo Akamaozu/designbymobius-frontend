@@ -113,6 +113,16 @@ const Experience = props => {
                   )
                 }
                 {
+                  expanded_experience_technology_groupings[ 'message-queue' ]
+                  && (
+                    <div key='message-queue' style={{ display: 'inline-block', marginRight: '1em' }}>
+                      <span style={{ textTransform: 'uppercase', fontSize: '.64em', color: '#888', fontWeight: 900 }}>Message Queue:</span>
+                      {' '}
+                      { expanded_experience_technology_groupings[ 'message-queue' ].map( slug => <ExperienceTechnology key={ slug } slug={ slug } /> ) }
+                    </div>
+                  )
+                }
+                {
                   expanded_experience_technology_groupings[ 'cloud-infrastructure' ]
                   && (
                     <div key='cloud-infrastructure' style={{ display: 'inline-block', marginRight: '1em' }}>
