@@ -105,6 +105,21 @@ const ViewProvider = props => {
     return map
   }, {})
 
+  Object
+    .keys( initialState.technologies.tagMap )
+    .forEach( type_slug => {
+
+      initialState.technologies.tagMap[ type_slug ]
+        .sort(( tech_a_slug, tech_b_slug ) => {
+          const tech_a = initialState.technologies.map[ tech_a_slug ]
+          const tech_b = initialState.technologies.map[ tech_b_slug ]
+
+          if (tech_a.label > tech_b.label) return 1
+          if (tech_a.label < tech_b.label) return -1
+          return 0
+      })
+    })
+
   if (props?.initialState?.types) initialState.experiences.filters.types = props.initialState.types.filter(type => initialState.experiences.typeMap.hasOwnProperty(type))
   if (props?.initialState?.technologies) initialState.experiences.filters.technologies = props.initialState.technologies.filter(tech => initialState.technologies.map.hasOwnProperty(tech))
 

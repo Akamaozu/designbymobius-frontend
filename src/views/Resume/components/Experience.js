@@ -123,12 +123,22 @@ const Experience = props => {
                   )
                 }
                 {
-                  expanded_experience_technology_groupings[ 'cloud-infrastructure' ]
+                  expanded_experience_technology_groupings.hosting
                   && (
-                    <div key='cloud-infrastructure' style={{ display: 'inline-block', marginRight: '1em' }}>
+                    <div key='hosting' style={{ display: 'inline-block', marginRight: '1em' }}>
                       <span style={{ textTransform: 'uppercase', fontSize: '.64em', color: '#888', fontWeight: 900 }}>Cloud:</span>
                       {' '}
-                      { expanded_experience_technology_groupings[ 'cloud-infrastructure' ].map( slug => <ExperienceTechnology key={ slug } slug={ slug } /> ) }
+                      { expanded_experience_technology_groupings.hosting.map( slug => <ExperienceTechnology key={ slug } slug={ slug } /> ) }
+                    </div>
+                  )
+                }
+                {
+                  expanded_experience_technology_groupings.deploy
+                  && (
+                    <div key='deploy' style={{ display: 'inline-block', marginRight: '1em' }}>
+                      <span style={{ textTransform: 'uppercase', fontSize: '.64em', color: '#888', fontWeight: 900 }}>Deploy:</span>
+                      {' '}
+                      { expanded_experience_technology_groupings.deploy.map( slug => <ExperienceTechnology key={ slug } slug={ slug } /> ) }
                     </div>
                   )
                 }
@@ -161,8 +171,13 @@ const Experience = props => {
   )
 
   function ExperienceTechnology({ slug }) {
+    if (!slug) return null
+
     const technology = technologyMap[ slug ]
     if (!technology) return null
+
+    const technology_type = technologyTypeMap[ technology.type ]
+    if (!technology_type) return null
 
     const is_filter_match = experienceFilters?.technologies?.indexOf?.(technology.slug) > -1
 

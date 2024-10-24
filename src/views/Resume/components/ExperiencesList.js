@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import Experience from './Experience'
 import viewContext from '../contexts/view'
 
-
 const PROFESSIONAL_EXPERIENCE_TYPE_MAP = {
   entrepreneur: 'entrepreneur',
   employment: 'employment',
@@ -51,8 +50,6 @@ const ExperiencesList = () => {
           return 0
         })
 
-    updateSortedExperiences( recalculatedSortedExperiences )
-
     const experience_type_group_map = {}
 
     recalculatedSortedExperiences.forEach( experience => {
@@ -66,6 +63,7 @@ const ExperiencesList = () => {
     })
 
     setExperienceTypeGroups( experience_type_group_map )
+    updateSortedExperiences( recalculatedSortedExperiences )
   },
   [
     state?.experiences,
