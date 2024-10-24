@@ -572,6 +572,7 @@ const experiences = [
     technologies: [
       'nodejs',
       'rabbitmq',
+      'github-actions'
     ],
   },
   {
@@ -615,7 +616,8 @@ const experiences = [
       'postgres',
       'react',
       'typescript',
-      'aws'
+      'aws',
+      'docker'
     ],
   },
   {

@@ -146,11 +146,33 @@
   {
     "slug": "heroku",
     "label": "Heroku",
-    "type": "cloud-infrastructure"
+    "type": "cloud-infrastructure",
+    "tags": [
+      "hosting"
+    ]
   },
   {
     "slug": "aws",
     "label": "Amazon Web Services (AWS)",
-    "type": "cloud-infrastructure"
+    "type": "cloud-infrastructure",
+    "tags": [
+      "hosting"
+    ]
+  },
+  {
+    "slug": "github-actions",
+    "label": "GitHub Actions",
+    "type": "cloud-infrastructure",
+    "tags": [
+      "deploy"
+    ]
+  },
+  {
+    "slug": "docker",
+    "label": "Docker",
+    "type": "virtual-machine",
+    "tags": [
+      "deploy"
+    ]
   }
 ]

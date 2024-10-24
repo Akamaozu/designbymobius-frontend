@@ -38,5 +38,9 @@
   {
     "slug": "cloud-infrastructure",
     "label": "Cloud Infrastructure"
+  },
+  {
+    "slug": "virtual-machine",
+    "label": "Virtual Machine"
   }
 ]
