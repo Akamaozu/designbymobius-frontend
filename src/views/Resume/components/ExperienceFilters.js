@@ -460,12 +460,50 @@ const ExperienceFilters = props => {
                 )
               }
               {
-                technology_type_members_map.hasOwnProperty( 'cloud-infrastructure' )
+                technology_tags.hasOwnProperty( 'deploy' )
                 && (
                   <>
-                    <div style={{ fontSize: '.85em', marginTop: '1.25em' }}>Cloud Infrastructure</div>
+                    <div style={{ fontSize: '.85em', marginTop: '1.25em' }}>Deployment</div>
                     {
-                      technology_type_members_map[ 'cloud-infrastructure' ]
+                      technology_tags[ 'deploy' ]
+                        .sort(( slug_a, slug_b ) => {
+                          const tech_a = technology_map[ slug_a ]
+                          const tech_b = technology_map[ slug_b ]
+
+                          if (tech_a.label > tech_b.label) return 1
+                          if (tech_a.label < tech_b.label) return -1
+                          return 0
+                        })
+                        .map( technology_slug => {
+                          const technology = technology_map[ technology_slug ]
+
+                          return (
+                            <ExperiencesFilterOption
+                              active={experienceFilters.technologies?.indexOf(technology.slug) > -1}
+                              key={technology.slug}
+                              slug={technology.slug}
+                              onClick={() => {
+                                if (!experienceFilters.technologies) return technologyFilter.add(technology.slug)
+
+                                if (experienceFilters.technologies.indexOf(technology.slug) > -1) technologyFilter.del(technology.slug)
+                                else technologyFilter.add(technology.slug)
+                              }}
+                            >
+                              { technology.label }
+                            </ExperiencesFilterOption>
+                          )
+                        })
+                      }
+                  </>
+                )
+              }
+              {
+                technology_tags.hasOwnProperty( 'hosting' )
+                && (
+                  <>
+                    <div style={{ fontSize: '.85em', marginTop: '1.25em' }}>Cloud Hosting</div>
+                    {
+                      technology_tags[ 'hosting' ]
                         .sort(( slug_a, slug_b ) => {
                           const tech_a = technology_map[ slug_a ]
                           const tech_b = technology_map[ slug_b ]
