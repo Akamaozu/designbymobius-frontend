@@ -642,8 +642,8 @@ const experiences = [
       <ExperienceNoteSection title='About'>
         <ul>
           <ExperienceNoteSectionListItem
-            title="sparkpocketjoy is a Software-as-a-Service providing data-driven tools for Mozilla's Pocket users"
-            description="flagship tool: client-side in-memory multi-attribute search"
+            title="Software-as-a-Service providing data-driven tools for Mozilla's Pocket users"
+            description="flagship tool: lightning-fast multi-attribute search, uses in-memory client-side search design"
           />
         </ul>
       </ExperienceNoteSection>,
