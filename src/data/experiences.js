@@ -634,11 +634,19 @@ const experiences = [
       'svg',
       'heroku'
     ],
-    nutshell: 'Running a Data Explorer service for Mozilla Pocket\'s users',
+    nutshell: 'Running a Data Explorer service for Mozilla\'s Pocket users',
     notes: [
       <>
         Site: <a href="https://www.sparkpocketjoy.com" target="_blank">sparkpocketjoy.com</a>
       </>,
+      <ExperienceNoteSection title='About'>
+        <ul>
+          <ExperienceNoteSectionListItem
+            title="sparkpocketjoy is a Software-as-a-Service providing data-driven tools for Mozilla's Pocket users"
+            description="flagship tool: client-side in-memory multi-attribute search"
+          />
+        </ul>
+      </ExperienceNoteSection>,
       <ExperienceNoteSection
         title='Responsibilities'
       >
