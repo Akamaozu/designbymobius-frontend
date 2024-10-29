@@ -214,9 +214,12 @@ function serve_resume_in_multiple_formats( req, res, next ) {
 
         const localhost_domain = process.env.PRIVATE_URL ?? `localhost`
         const browser_port = process.env.BROWSER_PORT_PRIVATE ?? port
+        const resume_app_domain = process.env.BROWSER_CONNECT_LOCALLY !== 'true'
+          ? process.env.PUBLIC_URL
+          : `http://${localhost_domain}:${browser_port}`
 
         await page.goto(
-          `http://${localhost_domain}:${browser_port}/resume${ sorted_valid_config_querystring.length > 0 ? '?'+ sorted_valid_config_querystring : '' }`,
+          `${resume_app_domain}/resume${ sorted_valid_config_querystring.length > 0 ? '?'+ sorted_valid_config_querystring : '' }`,
           { waitUntil: 'load', }
         );
 
