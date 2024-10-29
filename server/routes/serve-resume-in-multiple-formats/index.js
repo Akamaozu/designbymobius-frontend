@@ -167,7 +167,7 @@ function serve_resume_in_multiple_formats( req, res, next ) {
 
       if (process.env.BROWSER_WS_ENDPOINT) {
         browser = await puppeteer.connect({ browserWSEndpoint: process.env.BROWSER_WS_ENDPOINT })
-        console.log(`action=conenct-to-puppeteer success=true duration=${ Date.now() - opStartTime }ms`)
+        console.log(`action=connect-to-puppeteer success=true duration=${ Date.now() - opStartTime }ms`)
       }
       else {
         browser = await puppeteer.launch({ headless: true, args: [ '--no-sandbox' ] })
@@ -204,8 +204,12 @@ function serve_resume_in_multiple_formats( req, res, next ) {
           })
           .join("&")
 
+        const localhost_domain = process.env.PRIVATE_URL
+          ? process.env.PRIVATE_URL
+          : 'localhost'
+
         await page.goto(
-          `http://localhost:${port}/resume${ sorted_valid_config_querystring.length > 0 ? '?'+ sorted_valid_config_querystring : '' }`,
+          `http://${localhost_domain}:${port}/resume${ sorted_valid_config_querystring.length > 0 ? '?'+ sorted_valid_config_querystring : '' }`,
           { waitUntil: 'load', }
         );
 
