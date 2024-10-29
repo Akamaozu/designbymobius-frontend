@@ -170,6 +170,10 @@ function serve_resume_in_multiple_formats( req, res, next ) {
       }
 
       if (process.env.BROWSER_WS_ENDPOINT) {
+        browser_launch_args.headless = browser_launch_args.headless === true
+          ? 'true'
+          : browser_launch_args.headless
+
         browser = await puppeteer.connect({ browserWSEndpoint: `${process.env.BROWSER_WS_ENDPOINT}&launch=${ JSON.stringify( browser_launch_args ) }` })
         console.log(`action=connect-to-puppeteer success=true duration=${ Date.now() - opStartTime }ms`)
       }
