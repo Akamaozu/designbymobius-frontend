@@ -1,2 +1,2 @@
-[phase.build]
+[phase.setup]
   aptPkgs = ['ghostscript']
