@@ -164,13 +164,17 @@ function serve_resume_in_multiple_formats( req, res, next ) {
 
       let opStartTime = Date.now()
       let browser
+      const browser_launch_args = {
+        headless: true,
+        args: [ '--no-sandbox' ]
+      }
 
       if (process.env.BROWSER_WS_ENDPOINT) {
-        browser = await puppeteer.connect({ browserWSEndpoint: process.env.BROWSER_WS_ENDPOINT })
+        browser = await puppeteer.connect({ browserWSEndpoint: `${process.env.BROWSER_WS_ENDPOINT}&launch=${ JSON.stringify( browser_launch_args ) }` })
         console.log(`action=connect-to-puppeteer success=true duration=${ Date.now() - opStartTime }ms`)
       }
       else {
-        browser = await puppeteer.launch({ headless: true, args: [ '--no-sandbox' ] })
+        browser = await puppeteer.launch( browser_launch_args )
         console.log(`action=launch-puppeteer success=true duration=${ Date.now() - opStartTime }ms`)
       }
 
