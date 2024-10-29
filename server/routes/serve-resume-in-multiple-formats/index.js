@@ -206,10 +206,10 @@ function serve_resume_in_multiple_formats( req, res, next ) {
 
         const localhost_domain = process.env.PRIVATE_URL
           ? process.env.PRIVATE_URL
-          : `localhost:${port}`
+          : `localhost`
 
         await page.goto(
-          `http://${localhost_domain}/resume${ sorted_valid_config_querystring.length > 0 ? '?'+ sorted_valid_config_querystring : '' }`,
+          `http://${localhost_domain}:${port}/resume${ sorted_valid_config_querystring.length > 0 ? '?'+ sorted_valid_config_querystring : '' }`,
           { waitUntil: 'load', }
         );
 
