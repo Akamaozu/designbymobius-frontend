@@ -1,2 +1,5 @@
 [phase.setup]
-  aptPkgs = ['ghostscript']
+aptPkgs = [
+  '...',
+  'ghostscript'
+]
