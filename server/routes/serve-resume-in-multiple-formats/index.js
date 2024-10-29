@@ -212,12 +212,11 @@ function serve_resume_in_multiple_formats( req, res, next ) {
           })
           .join("&")
 
-        const localhost_domain = process.env.PRIVATE_URL
-          ? process.env.PRIVATE_URL
-          : `localhost`
+        const localhost_domain = process.env.PRIVATE_URL ?? `localhost`
+        const browser_port = process.env.BROWSER_PORT_PRIVATE ?? port
 
         await page.goto(
-          `http://${localhost_domain}:${port}/resume${ sorted_valid_config_querystring.length > 0 ? '?'+ sorted_valid_config_querystring : '' }`,
+          `http://${localhost_domain}:${browser_port}/resume${ sorted_valid_config_querystring.length > 0 ? '?'+ sorted_valid_config_querystring : '' }`,
           { waitUntil: 'load', }
         );
 
