@@ -358,6 +358,14 @@ const experiences = [
       <>
         Site: <a href="https://hubbli.com" target="_blank" rel="noreferrer">hubbli.com</a>
       </>,
+      <ExperienceNoteSection title='About'>
+        <ul>
+          <ExperienceNoteSectionListItem
+            title="communication and billing software-as-a-service for montessori schools"
+            description="key features: digital forms, privacy-focused group communication, invoicing and payments"
+          />
+        </ul>
+      </ExperienceNoteSection>,
       <ExperienceNoteSection
         title='Responsibilities'
       >
@@ -489,6 +497,14 @@ const experiences = [
           </li>
         </ul>
       </>,
+      <ExperienceNoteSection title='About'>
+        <ul>
+          <ExperienceNoteSectionListItem
+            title="software-as-a-service that streamlined finding and booking a US Medical Licensing Exam (USMLE Step 2 CS) spot"
+            description="key value: cost-effective (1/5th the cost of our cheapest competitor -- $64 vs $300)"
+          />
+        </ul>
+      </ExperienceNoteSection>,
       <ExperienceNoteSection
         title='Responsibilities'
       >
@@ -586,6 +602,14 @@ const experiences = [
       <>
         Site: <a href="https://robotsandpencils.com" target="_blank" rel="noreferrer">robotsandpencils.com</a>
       </>,
+      <ExperienceNoteSection title='About'>
+        <ul>
+          <ExperienceNoteSectionListItem
+            title="software development consultancy for medium and large businesses"
+            description="typical clients: banks, universities, airlines, start-ups"
+          />
+        </ul>
+      </ExperienceNoteSection>,
       <ExperienceNoteSection
         title='Responsibilities'
       >
@@ -642,7 +666,7 @@ const experiences = [
       <ExperienceNoteSection title='About'>
         <ul>
           <ExperienceNoteSectionListItem
-            title="Software-as-a-Service providing data-driven tools for Mozilla's Pocket users"
+            title="software-as-a-service offering dataset exploration tools for mozilla's pocket users"
             description="flagship tool: lightning-fast multi-attribute search, uses in-memory client-side search design"
           />
         </ul>
