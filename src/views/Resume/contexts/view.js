@@ -129,22 +129,16 @@ const ViewProvider = props => {
   const stringifiedTypeFilters = JSON.stringify(state?.experiences?.filters?.types)
   const stringifiedTechnologyFilters = JSON.stringify(state?.experiences?.filters?.technologies)
 
-  const is_filtering_experiences = state?.experiences?.isFiltered ?? false
-
   useEffect(() => {
-    const experiences = JSON.parse( stringifiedExperiences )
-    const experience_type_filters = JSON.parse( stringifiedTypeFilters )
-    const experience_technology_filters = JSON.parse( stringifiedTechnologyFilters )
-
     let filtered = false
-    const updatedFilteredExperiences = experiences?.filter(experience => {
+    const updatedFilteredExperiences = state?.experiences?.items?.filter(experience => {
 
-      if (experience_type_filters && experience_type_filters.length > 0) {
+      if (state?.experiences?.filters?.types && state?.experiences?.filters?.types.length > 0) {
         filtered = true
-        if (experience_type_filters.indexOf(experience.type) === -1) return false
+        if (state?.experiences?.filters?.types.indexOf(experience.type) === -1) return false
       }
 
-      if (experience_technology_filters && experience_technology_filters.length > 0) {
+      if (state?.experiences?.filters?.technologies && state?.experiences?.filters?.technologies.length > 0) {
         filtered = true
 
         // check expanded technologies for filtered techs
@@ -152,7 +146,7 @@ const ViewProvider = props => {
         let match = false
         allExperienceTechnologies.forEach(technologySlug => {
           if (match) return
-          if (experience_technology_filters.indexOf(technologySlug) > -1) match = true
+          if (state?.experiences?.filters?.technologies.indexOf(technologySlug) > -1) match = true
         })
 
         return match
@@ -160,6 +154,11 @@ const ViewProvider = props => {
 
       return true
     })
+
+    const updatedState = { ...state }
+    updatedState.experiences.isFiltered = filtered ?? false
+    updatedState.experiences.filteredExperiences = updatedFilteredExperiences ?? []
+
 
     updateState( latest_state => {
       const {
@@ -180,7 +179,7 @@ const ViewProvider = props => {
   }, [
     stringifiedExperiences,
     stringifiedExperienceTypes,
-    is_filtering_experiences,
+    state?.experiences?.isFiltered,
     state?.technologies?.map,
     stringifiedTypeFilters,
     stringifiedTechnologyFilters,

@@ -15,6 +15,7 @@ const ExperienceFilters = props => {
 
   const experienceTypes = state?.experiences?.types ?? []
   const experienceFilters = state?.experiences?.filters ?? {}
+  const technologies = state?.technologies?.items ?? []
   const technology_map = state?.technologies?.map ?? {}
   const technology_tags = state?.technologies?.tagMap ?? {}
   const technology_type_members_map = state?.technologies?.typeMembersMap ?? {}
@@ -113,6 +114,8 @@ const ExperienceFilters = props => {
       return map
     }, {})
 
+    const queryStringState = {}
+
     if (queryStringMap.types) {
       const types = queryStringMap.types.split(',').map(type => type.trim())
       types.forEach( type_slug => typeFilter.add(type_slug) )
@@ -148,29 +151,24 @@ const ExperienceFilters = props => {
         url_parsed: true,
       }
     })
-  })
+  }, [])
 
   // sync querystring with filter state
-  const stringified_experience_type_filters = JSON.stringify( experienceFilters?.types )
-  const stringified_experience_technology_filters = JSON.stringify( experienceFilters?.technologies )
-
   useEffect(() => {
     const next_querystring_builder = new URLSearchParams()
 
-    const experience_type_filters = JSON.parse( stringified_experience_type_filters )
-    if (experience_type_filters?.length > 0) {
+    if (experienceFilters?.types?.length > 0) {
       next_querystring_builder.set( 'types', 'FILTERED_EXPERIENCE_TYPES' )
     }
 
-    const experience_technology_filters = JSON.parse( stringified_experience_technology_filters )
-    if (experience_technology_filters?.length > 0) {
+    if (experienceFilters?.technologies?.length > 0) {
       next_querystring_builder.set( 'technologies', 'FILTERED_TECHNOLOGY_TYPES' )
     }
 
     const next_querystring_template = next_querystring_builder
       .toString()
-      .replace( 'FILTERED_EXPERIENCE_TYPES', experience_type_filters?.join(',') )
-      .replace( 'FILTERED_TECHNOLOGY_TYPES', experience_technology_filters?.join(',') )
+      .replace( 'FILTERED_EXPERIENCE_TYPES', experienceFilters?.types?.join(',') )
+      .replace( 'FILTERED_TECHNOLOGY_TYPES', experienceFilters?.technologies?.join(',') )
 
     const next_querystring = next_querystring_template.length > 0
         ? `?${ next_querystring_template }`
@@ -178,8 +176,8 @@ const ExperienceFilters = props => {
 
     window?.history?.replaceState( null, null, `${ window?.location?.pathname }${ next_querystring }` )
   }, [
-    stringified_experience_type_filters,
-    stringified_experience_technology_filters,
+    JSON.stringify( experienceFilters?.types ),
+    JSON.stringify( experienceFilters?.technologies ),
   ])
 
   return (
