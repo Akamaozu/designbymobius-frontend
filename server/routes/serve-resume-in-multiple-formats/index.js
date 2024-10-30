@@ -163,8 +163,24 @@ function serve_resume_in_multiple_formats( req, res, next ) {
       const scriptStartTime = Date.now()
 
       let opStartTime = Date.now()
-      const browser = await puppeteer.launch({ headless: true, args: [ '--no-sandbox' ] });
-      console.log(`action=launch-puppeteer success=true duration=${ Date.now() - opStartTime }ms`)
+      let browser
+      const browser_launch_args = {
+        headless: true,
+        args: [ '--no-sandbox' ]
+      }
+
+      if (process.env.BROWSER_WS_ENDPOINT) {
+        browser_launch_args.headless = browser_launch_args.headless === true
+          ? 'true'
+          : browser_launch_args.headless
+
+        browser = await puppeteer.connect({ browserWSEndpoint: `${process.env.BROWSER_WS_ENDPOINT}&launch=${ JSON.stringify( browser_launch_args ) }` })
+        console.log(`action=connect-to-puppeteer success=true duration=${ Date.now() - opStartTime }ms`)
+      }
+      else {
+        browser = await puppeteer.launch( browser_launch_args )
+        console.log(`action=launch-puppeteer success=true duration=${ Date.now() - opStartTime }ms`)
+      }
 
       const page = await browser.newPage();
 
@@ -196,8 +212,14 @@ function serve_resume_in_multiple_formats( req, res, next ) {
           })
           .join("&")
 
+        const localhost_domain = process.env.PRIVATE_URL ?? `localhost`
+        const browser_port = process.env.PRIVATE_BROWSER_PORT ?? port
+        const resume_app_domain = process.env.BROWSER_CONNECT_LOCALLY !== 'true'
+          ? `${process.env.PUBLIC_URL_PROTOCOL ?? 'https://'}${process.env.REACT_APP_PUBLIC_URL}`
+          : `http://${localhost_domain}:${browser_port}`
+
         await page.goto(
-          `http://localhost:${port}/resume${ sorted_valid_config_querystring.length > 0 ? '?'+ sorted_valid_config_querystring : '' }`,
+          `${resume_app_domain}/resume${ sorted_valid_config_querystring.length > 0 ? '?'+ sorted_valid_config_querystring : '' }`,
           { waitUntil: 'load', }
         );
 

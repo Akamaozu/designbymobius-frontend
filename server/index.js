@@ -37,7 +37,7 @@ console.log( 'action=setup-route-handler path="/resume" method=GET behavior=serv
 server.get( '/*', serve_app_or_prebuild )
 console.log( 'action=setup-route-handler path=ALL method=GET behavior=serve-app-build-or-prebuild' )
 
-server.listen( port, ()=> {
+server.listen( port, '::', ()=> {
   console.log( `action=server-listen port=${ port }` )
 
   check_and_build_app.async_check_and_maybe_build_app({ server })
