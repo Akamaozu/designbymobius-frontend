@@ -213,9 +213,9 @@ function serve_resume_in_multiple_formats( req, res, next ) {
           .join("&")
 
         const localhost_domain = process.env.PRIVATE_URL ?? `localhost`
-        const browser_port = process.env.BROWSER_PORT_PRIVATE ?? port
+        const browser_port = process.env.PRIVATE_BROWSER_PORT ?? port
         const resume_app_domain = process.env.BROWSER_CONNECT_LOCALLY !== 'true'
-          ? process.env.PUBLIC_URL
+          ? process.env.REACT_APP_PUBLIC_URL
           : `http://${localhost_domain}:${browser_port}`
 
         await page.goto(
