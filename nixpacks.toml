@@ -1,5 +1,5 @@
 [phases.setup]
 aptPkgs = [
   "...",
-  "ghostscript",
+  "ghostscript=9.50~dfsg-5ubuntu4.13",
 ]
