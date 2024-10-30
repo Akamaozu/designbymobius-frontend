@@ -1,7 +1,5 @@
 [phases.setup]
 aptPkgs = [
   "...",
-  "ghostscript",
-  "imagemagick",
-  "libgs-dev",
+  "ghostscript=9.53.3",
 ]
