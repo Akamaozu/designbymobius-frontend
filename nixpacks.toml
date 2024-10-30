@@ -4,5 +4,4 @@ aptPkgs = [
   "ghostscript",
   "imagemagick",
   "libgs-dev",
-  "gs-esp",
 ]
