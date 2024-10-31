@@ -490,10 +490,10 @@ const experiences = [
           }}
         >
           <li>
-            <a href="https://www.indiehackers.com/product/spotgetter/revenue" target="_blank">indiehackers.com/product/spotgetter/revenue</a>
+            <a href="https://www.indiehackers.com/product/spotgetter/revenue" target="_blank" rel="noreferrer">indiehackers.com/product/spotgetter/revenue</a>
           </li>
           <li>
-            <a href="https://www.facebook.com/spotgetter/reviews" target="_blank">facebook.com/spotgetter/reviews</a>
+            <a href="https://www.facebook.com/spotgetter/reviews" target="_blank" rel="noreferrer">facebook.com/spotgetter/reviews</a>
           </li>
         </ul>
       </>,
@@ -661,7 +661,7 @@ const experiences = [
     nutshell: 'Running a Data Explorer service for Mozilla\'s Pocket users',
     notes: [
       <>
-        Site: <a href="https://www.sparkpocketjoy.com" target="_blank">sparkpocketjoy.com</a>
+        Site: <a href="https://www.sparkpocketjoy.com" target="_blank" rel="noreferrer">sparkpocketjoy.com</a>
       </>,
       <ExperienceNoteSection title='About'>
         <ul>
