@@ -5,6 +5,7 @@ const { useView } = viewContext
 const ExperienceTally = () => {
   const [ state ] = useView()
 
+  const experiences = state?.experiences?.items ?? []
   const experienceFilters = state?.experiences?.filters ?? {}
   const experienceTypesMap = state?.experiences?.typeMap ?? {}
   const technologyMap = state?.technologies?.map ?? {}
@@ -138,7 +139,7 @@ const ExperienceTally = () => {
               process.env.REACT_APP_PUBLIC_URL
               && <>
                 <div className='Experiences-tally-filtered-caveat'>
-                  <i>(view full list of experiences at: <a href={ `${ process.env.PUBLIC_URL_PROTOCOL ?? 'https://' }${ process.env.REACT_APP_PUBLIC_URL }/resume` } target="_blank" rel="noreferrer" >{ process.env.REACT_APP_PUBLIC_URL }/resume</a>)</i>
+                  <i>(view full list of experiences at: <a href={ `${ process.env.PUBLIC_URL_PROTOCOL ?? 'https://' }${ process.env.REACT_APP_PUBLIC_URL }/resume` } target="_blank" >{ process.env.REACT_APP_PUBLIC_URL }/resume</a>)</i>
                 </div>
               </>
             }
