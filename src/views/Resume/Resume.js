@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import ViewTitle from '../../components/ViewTitle'
 import ViewSubtitle from '../../components/ViewSubtitle'
 import ExperiencesList from './components/ExperiencesList'
@@ -9,9 +7,8 @@ import viewContext from './contexts/view'
 
 import { ReactComponent as EmailNotificationSVG } from '../../svgs/email-notification.svg'
 import { ReactComponent as GithubOctocatSVG } from '../../svgs/github-octocat.svg'
-import { ReactComponent as KeyboardSVG } from '../../svgs/keyboard.svg'
-import { ReactComponent as NigeriaFlagSVG } from '../../svgs/nigeria-flag.svg'
 import { ReactComponent as CanadaFlagSVG } from '../../svgs/canada-flag.svg'
+import { ReactComponent as KeyboardSVG } from '../../svgs/keyboard.svg'
 
 import './style.css'
 

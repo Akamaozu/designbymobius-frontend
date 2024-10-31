@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import ExperiencesFilterOption from './ExperiencesFilterOption'
@@ -15,85 +15,97 @@ const ExperienceFilters = props => {
 
   const experienceTypes = state?.experiences?.types ?? []
   const experienceFilters = state?.experiences?.filters ?? {}
-  const technologies = state?.technologies?.items ?? []
   const technology_map = state?.technologies?.map ?? {}
   const technology_tags = state?.technologies?.tagMap ?? {}
   const technology_type_members_map = state?.technologies?.typeMembersMap ?? {}
 
-  const typeFilter = {
-    add: type => {
-      if (!state?.experiences?.filters) throw new Error('experience filters data-struct not found')
+  const stringified_experience_type_filters = JSON.stringify( experienceFilters?.types )
+  const stringified_experience_technology_filters = JSON.stringify( experienceFilters?.technologies )
 
-      let updated = false
-      let updates = { ...state }
+  const { typeFilter, technologyFilter } = useMemo(() => {
+    const typeFilter = {
+      add: type => {
+        if (!state?.experiences?.filters) throw new Error('experience filters data-struct not found')
 
-      if (!updates.experiences.filters.types) updates.experiences.filters.types = []
-      if (updates.experiences.filters.types.indexOf(type) === -1) {
-        updates.experiences.filters.types.push(type)
-        updated = true
-      }
+        let updated = false
+        let updates = { ...state }
 
-      if (updated) {
-        updateState(updates)
-        console.log({ action: 'add-type-filter', type, filters: updates.experiences.filters })
-      }
-    },
-    del: type => {
-      if (!state?.experiences?.filters) throw new Error('experience filters data-struct not found')
+        if (!updates.experiences.filters.types) updates.experiences.filters.types = []
+        if (updates.experiences.filters.types.indexOf(type) === -1) {
+          updates.experiences.filters.types.push(type)
+          updated = true
+        }
 
-      let updated = false
-      let updates = { ...state }
+        if (updated) {
+          updateState(updates)
+          console.log({ action: 'add-type-filter', type, filters: updates.experiences.filters })
+        }
+      },
+      del: type => {
+        if (!state?.experiences?.filters) throw new Error('experience filters data-struct not found')
 
-      if (!updates.experiences.filters.types) updates.experiences.filters.types = []
-      if (updates.experiences.filters.types.indexOf(type) > -1) {
-        const typeIndex = updates.experiences.filters.types.indexOf(type)
-        updates.experiences.filters.types.splice(typeIndex, 1)
-        updated = true
-      }
+        let updated = false
+        let updates = { ...state }
 
-      if (updated) {
-        updateState(updates)
-        console.log({ action: 'remove-type-filter', type, filters: updates.experiences.filters })
-      }
-    }
-  }
-  const technologyFilter = {
-    add: technology => {
-      if (!state?.experiences?.filters) throw new Error('experience filters data-struct not found')
+        if (!updates.experiences.filters.types) updates.experiences.filters.types = []
+        if (updates.experiences.filters.types.indexOf(type) > -1) {
+          const typeIndex = updates.experiences.filters.types.indexOf(type)
+          updates.experiences.filters.types.splice(typeIndex, 1)
+          updated = true
+        }
 
-      let updated = false
-      let updates = { ...state }
-      let experienceFilters = state.experiences.filters
-
-      if (!experienceFilters.technologies) updates.experiences.filters.technologies = []
-      if (updates.experiences.filters.technologies.indexOf(technology) === -1) {
-        updates.experiences.filters.technologies.push(technology)
-        updated = true
-      }
-
-      if (updated) {
-        updateState(updates)
-        console.log({ action: 'add-technology-filter', technology, filters: updates.experiences.filters })
-      }
-    },
-    del: technology => {
-      let updated = false
-      let updates = { ...state }
-      let experienceFilters = state.experiences.filters
-
-      if (!experienceFilters.technologies) updates.experiences.filters.technologies = []
-      if (experienceFilters.technologies.indexOf(technology) > -1) {
-        const technologyIndex = updates.experiences.filters.technologies.indexOf(technology)
-        updates.experiences.filters.technologies.splice(technologyIndex, 1)
-        updated = true
-      }
-
-      if (updated) {
-        updateState(updates)
-        console.log({ action: 'remove-technology-filter', technology, filters: updates.experiences.filters })
+        if (updated) {
+          updateState(updates)
+          console.log({ action: 'remove-type-filter', type, filters: updates.experiences.filters })
+        }
       }
     }
-  }
+    const technologyFilter = {
+      add: technology => {
+        if (!state?.experiences?.filters) throw new Error('experience filters data-struct not found')
+
+        let updated = false
+        let updates = { ...state }
+        let experienceFilters = state.experiences.filters
+
+        if (!experienceFilters.technologies) updates.experiences.filters.technologies = []
+        if (updates.experiences.filters.technologies.indexOf(technology) === -1) {
+          updates.experiences.filters.technologies.push(technology)
+          updated = true
+        }
+
+        if (updated) {
+          updateState(updates)
+          console.log({ action: 'add-technology-filter', technology, filters: updates.experiences.filters })
+        }
+      },
+      del: technology => {
+        let updated = false
+        let updates = { ...state }
+        let experienceFilters = state.experiences.filters
+
+        if (!experienceFilters.technologies) updates.experiences.filters.technologies = []
+        if (experienceFilters.technologies.indexOf(technology) > -1) {
+          const technologyIndex = updates.experiences.filters.technologies.indexOf(technology)
+          updates.experiences.filters.technologies.splice(technologyIndex, 1)
+          updated = true
+        }
+
+        if (updated) {
+          updateState(updates)
+          console.log({ action: 'remove-technology-filter', technology, filters: updates.experiences.filters })
+        }
+      }
+    }
+
+    return {
+      typeFilter,
+      technologyFilter
+    }
+  }, [
+    state,
+    updateState,
+  ])
 
   const clearFilters = () => {
     const updates = { ...state }
@@ -104,7 +116,9 @@ const ExperienceFilters = props => {
   }
 
   // create initial state from url querystring
+  const { url_parsed } = state
   useEffect(() => {
+    if (url_parsed) return
     if (typeof (location?.search) !== 'string') return
 
     const queryStringIterable = new URLSearchParams(location.search)
@@ -113,8 +127,6 @@ const ExperienceFilters = props => {
       map[tuple[0]] = tuple[1]
       return map
     }, {})
-
-    const queryStringState = {}
 
     if (queryStringMap.types) {
       const types = queryStringMap.types.split(',').map(type => type.trim())
@@ -151,24 +163,30 @@ const ExperienceFilters = props => {
         url_parsed: true,
       }
     })
-  }, [])
+  }, [
+    url_parsed,
+    location.search,
+    typeFilter,
+    technologyFilter,
+    updateState,
+  ])
 
   // sync querystring with filter state
   useEffect(() => {
     const next_querystring_builder = new URLSearchParams()
 
-    if (experienceFilters?.types?.length > 0) {
-      next_querystring_builder.set( 'types', 'FILTERED_EXPERIENCE_TYPES' )
-    }
+    const experience_type_filters = stringified_experience_type_filters && JSON.parse( stringified_experience_type_filters )
+    if (experience_type_filters?.length > 0) next_querystring_builder.set( 'types', 'FILTERED_EXPERIENCE_TYPES' )
 
-    if (experienceFilters?.technologies?.length > 0) {
+    const experience_technology_filters = stringified_experience_technology_filters && JSON.parse( stringified_experience_technology_filters )
+    if (experience_technology_filters?.length > 0) {
       next_querystring_builder.set( 'technologies', 'FILTERED_TECHNOLOGY_TYPES' )
     }
 
     const next_querystring_template = next_querystring_builder
       .toString()
-      .replace( 'FILTERED_EXPERIENCE_TYPES', experienceFilters?.types?.join(',') )
-      .replace( 'FILTERED_TECHNOLOGY_TYPES', experienceFilters?.technologies?.join(',') )
+      .replace( 'FILTERED_EXPERIENCE_TYPES', experience_type_filters?.join(',') )
+      .replace( 'FILTERED_TECHNOLOGY_TYPES', experience_technology_filters?.join(',') )
 
     const next_querystring = next_querystring_template.length > 0
         ? `?${ next_querystring_template }`
@@ -176,8 +194,8 @@ const ExperienceFilters = props => {
 
     window?.history?.replaceState( null, null, `${ window?.location?.pathname }${ next_querystring }` )
   }, [
-    JSON.stringify( experienceFilters?.types ),
-    JSON.stringify( experienceFilters?.technologies ),
+    stringified_experience_type_filters,
+    stringified_experience_technology_filters,
   ])
 
   return (
