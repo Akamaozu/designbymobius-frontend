@@ -656,7 +656,7 @@ const experiences = [
       'rabbitmq',
       'indexeddb',
       'svg',
-      'heroku'
+      'railway'
     ],
     nutshell: 'Running a Data Explorer service for Mozilla\'s Pocket users',
     notes: [
