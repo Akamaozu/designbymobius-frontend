@@ -19,82 +19,147 @@ const ExperienceFilters = props => {
   const technology_tags = state?.technologies?.tagMap ?? {}
   const technology_type_members_map = state?.technologies?.typeMembersMap ?? {}
 
+  const experience_filters_initialized = experienceFilters ? true : false
   const stringified_experience_type_filters = JSON.stringify( experienceFilters?.types )
   const stringified_experience_technology_filters = JSON.stringify( experienceFilters?.technologies )
 
   const { typeFilter, technologyFilter } = useMemo(() => {
+
+    const experience_type_filters = stringified_experience_type_filters
+      ? JSON.parse( stringified_experience_type_filters )
+      : []
+
+    const experience_technology_filters = stringified_experience_technology_filters
+      ? JSON.parse( stringified_experience_technology_filters )
+      : []
+
     const typeFilter = {
       add: type => {
-        if (!state?.experiences?.filters) throw new Error('experience filters data-struct not found')
+        if (!experience_filters_initialized) throw new Error('experience filters data-struct not found')
+        if (experience_type_filters.indexOf( type ) > -1) return
 
-        let updated = false
-        let updates = { ...state }
+        updateState( current_state => {
+          const { experiences } = current_state
+          const { filters } = experiences ?? {}
+          const { types = [] } = filters ?? {}
 
-        if (!updates.experiences.filters.types) updates.experiences.filters.types = []
-        if (updates.experiences.filters.types.indexOf(type) === -1) {
-          updates.experiences.filters.types.push(type)
-          updated = true
-        }
+          return {
+            ...current_state,
+            experiences: {
+              ...experiences,
+              filters: {
+                ...filters,
+                types: [
+                  ...types,
+                  type,
+                ]
+              }
+            }
+          }
+        })
 
-        if (updated) {
-          updateState(updates)
-          console.log({ action: 'add-type-filter', type, filters: updates.experiences.filters })
-        }
+        console.log({
+          action: 'add-type-filter', type,
+          filters: {
+            types: [ ...experience_type_filters, type ],
+            technologies: experience_technology_filters,
+          }
+        })
       },
       del: type => {
-        if (!state?.experiences?.filters) throw new Error('experience filters data-struct not found')
+        if (!experience_filters_initialized) throw new Error('experience filters data-struct not found')
+        if (experience_type_filters.indexOf( type ) === -1) return
 
-        let updated = false
-        let updates = { ...state }
+        updateState( current_state => {
+          const { experiences } = current_state
+          const { filters } = experiences ?? {}
+          const { types = [] } = filters ?? {}
 
-        if (!updates.experiences.filters.types) updates.experiences.filters.types = []
-        if (updates.experiences.filters.types.indexOf(type) > -1) {
-          const typeIndex = updates.experiences.filters.types.indexOf(type)
-          updates.experiences.filters.types.splice(typeIndex, 1)
-          updated = true
-        }
+          return {
+            ...current_state,
+            experiences: {
+              ...experiences,
+              filters: {
+                ...filters,
+                types: types.filter( type_to_test => type_to_test !== type )
+              }
+            }
+          }
+        })
 
-        if (updated) {
-          updateState(updates)
-          console.log({ action: 'remove-type-filter', type, filters: updates.experiences.filters })
-        }
+        console.log({
+          action: 'remove-type-filter', type,
+          filters: {
+            types: experience_type_filters.filter( type_to_test => type_to_test !== type ),
+            technologies: experience_technology_filters,
+          }
+        })
       }
     }
     const technologyFilter = {
       add: technology => {
-        if (!state?.experiences?.filters) throw new Error('experience filters data-struct not found')
+        if (!experience_filters_initialized) throw new Error('experience filters data-struct not found')
+        if (experience_technology_filters.indexOf( technology ) > -1) return
 
-        let updated = false
-        let updates = { ...state }
-        let experienceFilters = state.experiences.filters
+        updateState( current_state => {
+          const { experiences } = current_state
+          const { filters } = experiences ?? {}
+          const { technologies = [] } = filters ?? {}
 
-        if (!experienceFilters.technologies) updates.experiences.filters.technologies = []
-        if (updates.experiences.filters.technologies.indexOf(technology) === -1) {
-          updates.experiences.filters.technologies.push(technology)
-          updated = true
-        }
+          return {
+            ...current_state,
+            experiences: {
+              ...experiences,
+              filters: {
+                ...filters,
+                technologies: [
+                  ...technologies,
+                  technology,
+                ]
+              }
+            }
+          }
+        })
 
-        if (updated) {
-          updateState(updates)
-          console.log({ action: 'add-technology-filter', technology, filters: updates.experiences.filters })
-        }
+        console.log({
+          action: 'add-technology-filter', technology,
+          filters: {
+            types: experience_type_filters,
+            technologies: [
+              ...experience_technology_filters,
+              technology,
+            ]
+          }
+        })
       },
       del: technology => {
-        let updated = false
-        let updates = { ...state }
-        let experienceFilters = state.experiences.filters
+        if (!experience_filters_initialized) throw new Error('experience filters data-struct not found')
+        if (experience_technology_filters.indexOf( technology ) === -1) return
 
-        if (!experienceFilters.technologies) updates.experiences.filters.technologies = []
-        if (experienceFilters.technologies.indexOf(technology) > -1) {
-          const technologyIndex = updates.experiences.filters.technologies.indexOf(technology)
-          updates.experiences.filters.technologies.splice(technologyIndex, 1)
-          updated = true
-        }
+        updateState( current_state => {
+          const { experiences } = current_state
+          const { filters } = experiences ?? {}
+          const { technologies } = filters ?? {}
 
-        if (updated) {
-          updateState(updates)
-          console.log({ action: 'remove-technology-filter', technology, filters: updates.experiences.filters })
-        }
+          return {
+            ...current_state,
+            experiences: {
+              ...experiences,
+              filters: {
+                ...filters,
+                technologies: technologies.filter( tech_to_test => tech_to_test !== technology ),
+              }
+            }
+          }
+        })
+
+        console.log({
+          action: 'remove-technology-filter', technology,
+          filters: {
+            types: experience_type_filters,
+            technologies: experience_technology_filters.filter( tech_to_test => tech_to_test !== technology )
+          }
+        })
       }
     }
 
@@ -103,8 +168,10 @@ const ExperienceFilters = props => {
       technologyFilter
     }
   }, [
-    state,
     updateState,
+    experience_filters_initialized,
+    stringified_experience_type_filters,
+    stringified_experience_technology_filters,
   ])
 
   const clearFilters = () => {
