@@ -19,9 +19,9 @@ const ExperienceFilters = props => {
   const technology_tags = state?.technologies?.tagMap ?? {}
   const technology_type_members_map = state?.technologies?.typeMembersMap ?? {}
 
+  const experience_filters_initialized = experienceFilters ? true : false
   const stringified_experience_type_filters = JSON.stringify( experienceFilters?.types )
   const stringified_experience_technology_filters = JSON.stringify( experienceFilters?.technologies )
-  const stringified_filtered_experiences = JSON.stringify( state?.experiences?.filteredExperiences )
 
   const { typeFilter, technologyFilter } = useMemo(() => {
 
@@ -35,7 +35,7 @@ const ExperienceFilters = props => {
 
     const typeFilter = {
       add: type => {
-        if (!experienceFilters) throw new Error('experience filters data-struct not found')
+        if (!experience_filters_initialized) throw new Error('experience filters data-struct not found')
         if (experience_type_filters.indexOf( type ) > -1) return
 
         updateState( current_state => {
@@ -67,7 +67,7 @@ const ExperienceFilters = props => {
         })
       },
       del: type => {
-        if (!experienceFilters) throw new Error('experience filters data-struct not found')
+        if (!experience_filters_initialized) throw new Error('experience filters data-struct not found')
         if (experience_type_filters.indexOf( type ) === -1) return
 
         updateState( current_state => {
@@ -98,7 +98,7 @@ const ExperienceFilters = props => {
     }
     const technologyFilter = {
       add: technology => {
-        if (!experienceFilters) throw new Error('experience filters data-struct not found')
+        if (!experience_filters_initialized) throw new Error('experience filters data-struct not found')
         if (experience_technology_filters.indexOf( technology ) > -1) return
 
         updateState( current_state => {
@@ -133,7 +133,7 @@ const ExperienceFilters = props => {
         })
       },
       del: technology => {
-        if (!experienceFilters) throw new Error('experience filters data-struct not found')
+        if (!experience_filters_initialized) throw new Error('experience filters data-struct not found')
         if (experience_technology_filters.indexOf( technology ) === -1) return
 
         updateState( current_state => {
@@ -169,10 +169,9 @@ const ExperienceFilters = props => {
     }
   }, [
     updateState,
-    experienceFilters,
+    experience_filters_initialized,
     stringified_experience_type_filters,
     stringified_experience_technology_filters,
-    stringified_filtered_experiences,
   ])
 
   const clearFilters = () => {
