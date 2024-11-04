@@ -183,10 +183,57 @@ const ExperienceFilters = props => {
   }
 
   // create initial state from url querystring
-  const { url_parsed } = state
   useEffect(() => {
-    if (url_parsed) return
-    if (typeof (location?.search) !== 'string') return
+    if (state?.url_parsed) return;
+
+    const set_url_parsed_state_flag = () => {
+      updateState( latest_state => {
+        return {
+          ...latest_state,
+          url_parsed: true,
+        }
+      })
+    }
+
+    const log_url_parsed = filter_state => {
+      const { types = [], technologies = [], notes } = filter_state ?? {}
+
+      const url_type_filters = types.length > 0
+        ? ` types="${ types.join(', ') }"`
+        : ''
+
+      const url_technology_filters = technologies.length > 0
+        ? ` technologies="${ technologies.join(', ') }"`
+        : ''
+
+      const url_open_notes_flag = notes === 'open'
+        ? ' open-experience-notes=true'
+        : ''
+
+      console.log({
+        action: 'load-experience-filters-from-url',
+        ...(
+          url_type_filters
+            ? { types }
+            : {}
+        ),
+        ...(
+          url_technology_filters
+            ? { technologies }
+            : {}
+        ),
+        ...(
+          url_open_notes_flag
+            ? { notes }
+            : {}
+        ),
+      })
+    }
+
+    if (typeof (location?.search) !== 'string') {
+      set_url_parsed_state_flag()
+      return
+    }
 
     const queryStringIterable = new URLSearchParams(location.search)
     const queryStringArray = [ ...queryStringIterable ]
@@ -195,25 +242,61 @@ const ExperienceFilters = props => {
       return map
     }, {})
 
+    let types
     if (queryStringMap.types) {
-      const types = queryStringMap.types.split(',').map(type => type.trim())
-      types.forEach( type_slug => typeFilter.add(type_slug) )
+      types = queryStringMap.types.split(',').map(type => type.trim())
+
+      if (types.length > 0) {
+        updateState( current_state => {
+          const { experiences } = current_state
+          const { filters } = experiences ?? {}
+
+          return {
+            ...current_state,
+            experiences: {
+              ...experiences,
+              filters: {
+                ...filters,
+                types,
+              }
+            }
+          }
+        })
+      }
     }
 
+    let technologies
     if (queryStringMap.technologies) {
-      const technologies = queryStringMap.technologies.split(',').map(tech => tech.trim())
-      technologies.forEach( tech_slug => technologyFilter.add(tech_slug) )
+      technologies = queryStringMap.technologies.split(',').map(tech => tech.trim())
+
+      if (technologies.length > 0) {
+        updateState( current_state => {
+          const { experiences } = current_state
+          const { filters } = experiences ?? {}
+
+          return {
+            ...current_state,
+            experiences: {
+              ...experiences,
+              filters: {
+                ...filters,
+                technologies,
+              }
+            }
+          }
+        })
+      }
     }
 
+    let notes
     if (queryStringMap.notes === 'open') {
+      notes = queryStringMap.notes
+
       updateState( latest_state => {
-        const {
-          experiences,
-          ...rest_of_latest_state
-        } = latest_state ?? {}
+        const { experiences } = latest_state
 
         const state_to_use = {
-          ...rest_of_latest_state,
+          ...latest_state,
           experiences: {
             ...experiences,
             showNotes: true,
@@ -224,19 +307,9 @@ const ExperienceFilters = props => {
       })
     }
 
-    updateState( latest_state => {
-      return {
-        ...latest_state,
-        url_parsed: true,
-      }
-    })
-  }, [
-    url_parsed,
-    location.search,
-    typeFilter,
-    technologyFilter,
-    updateState,
-  ])
+    set_url_parsed_state_flag()
+    log_url_parsed({ types, technologies, notes })
+  })
 
   // sync querystring with filter state
   useEffect(() => {
