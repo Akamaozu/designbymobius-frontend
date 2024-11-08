@@ -97,14 +97,14 @@ function serve_resume_in_multiple_formats( req, res, next ) {
 
     if (!config.notes) config.notes = 'open'
    
-    const sorted_config_keys = Object.keys(config).map(key => key.toLowerCase()).sort()
+    const sorted_config_keys = Object.keys(config).map(key => key.toLowerCase())
     const sorted_config = sorted_config_keys.reduce((sorted, key) => {
       sorted[key] = config[key]
 
       switch (key) {
         case 'technologies':
         case 'types':
-          sorted[key] = config[key].split(',').sort()
+          sorted[key] = config[key].split(',')
         break
       }
 
@@ -120,11 +120,11 @@ function serve_resume_in_multiple_formats( req, res, next ) {
       if (sorted_config[key]) {
         switch(key) {
           case 'technologies':
-            sorted_valid[key] = sorted_config[key].filter(technology => valid_technologies_options.includes(technology)).sort()
+            sorted_valid[key] = sorted_config[key].filter(technology => valid_technologies_options.includes(technology))
           break
 
           case 'types':
-            sorted_valid[key] = sorted_config[key].filter(type => valid_types_options.includes(type)).sort()
+            sorted_valid[key] = sorted_config[key].filter(type => valid_types_options.includes(type))
           break
 
           case 'notes':
