@@ -321,30 +321,42 @@ const experiences = [
       <>
         Site: <a href="https://github.com/akamaozu/node-supe" target="_blank" rel="noreferrer">github.com/akamaozu/node-supe</a>
       </>,
-      <ExperienceNoteSection
-        title='Objectives'
-      >
+      <ExperienceNoteSection title='Objectives'>
         <ul>
           <ExperienceNoteSectionListItem
             title='simple api to monitor and manage node.js processes'
-            description={
-              'restart crashed processes, page on-call engineers after multiple crashes, et cetera'
-            }
+            description='restart crashed processes, page on-call engineers after multiple crashes, et cetera'
           />
           <ExperienceNoteSectionListItem
             title='enable inter-process communication patterns between node.js processes'
-            description='message primitives: signal, pub-sub, mailbox (message queue)'
+            description='implemented signal (direct), pub-sub (indirect), mailbox (blocking) messaging'
           />
         </ul>
       </ExperienceNoteSection>,
-      <ExperienceNoteSection
-        title='Responsibilities'
-      >
+      <ExperienceNoteSection title='Responsibilities'>
         <ul>
           <ExperienceNoteSectionListItem
             title='design core components, messaging primitives and lifecycle events'
+            description='module pattern made it easy to add/modify/override functionality'
+          />
+          <ExperienceNoteSectionListItem
+            title='write tests to verify api properties and behavior'
+            description='verifiable definition of what a node-supe instance is and how it works'
+          />
+        </ul>
+      </ExperienceNoteSection>,
+      <ExperienceNoteSection title='Accomplishments'>
+        <ul>
+          <ExperienceNoteSectionListItem
+            title="over 90% test code coverage"
             description={
-              'module pattern made it easy to add/modify/override functionality'
+              <a
+                href="https://coveralls.io/github/Akamaozu/node-supe?branch=master"
+                target="_blank"
+                rel="noreferrer"
+              >
+                coveralls.io/github/akamaozu/node-supe
+              </a>
             }
           />
         </ul>
@@ -615,12 +627,12 @@ const experiences = [
       <ExperienceNoteSection title='Objectives'>
         <ul>
           <ExperienceNoteSectionListItem
-            title="create and maintain indexes on in-memory datasets without being a database engineer"
-            description="automatically updates indexes when dataset entries are created, modified or deleted"
+            title="self-managing indexes"
+            description="automatically reindex when an entry changes, keeping indexes in sync with the dataset"
           />
           <ExperienceNoteSectionListItem
-            title="simple api for connecting datasets to external systems"
-            description="send emails when entries are created, update logs when entries change, et cetera"
+            title="simple api to run code after dataset changes"
+            description="send emails when entries are created, update logs when entries get deleted, et cetera"
           />
         </ul>
       </ExperienceNoteSection>,
@@ -630,6 +642,28 @@ const experiences = [
             title='design dataset and indexing engine, api and lifecycle events'
             description={
               'module pattern made it easy to add/modify/override functionality'
+            }
+          />
+          <ExperienceNoteSectionListItem
+            title='write tests to verify api properties and behavior'
+            description={
+              'verifiable definition of the datastore instance, from capabilities to failure modes'
+            }
+          />
+        </ul>
+      </ExperienceNoteSection>,
+      <ExperienceNoteSection title='Accomplishments'>
+        <ul>
+          <ExperienceNoteSectionListItem
+            title="over 90% test code coverage"
+            description={
+              <a
+                href="https://coveralls.io/github/Akamaozu/cjs-indexing-hash?branch=master"
+                target="_blank"
+                rel="noreferrer"
+              >
+                coveralls.io/github/akamaozu/cjs-indexing-hash
+              </a>
             }
           />
         </ul>
