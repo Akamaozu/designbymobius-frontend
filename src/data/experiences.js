@@ -322,6 +322,22 @@ const experiences = [
         Site: <a href="https://github.com/akamaozu/node-supe" target="_blank" rel="noreferrer">github.com/akamaozu/node-supe</a>
       </>,
       <ExperienceNoteSection
+        title='Objectives'
+      >
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='simple api to monitor and manage node.js processes'
+            description={
+              'restart crashed processes, page on-call engineers after multiple crashes, et cetera'
+            }
+          />
+          <ExperienceNoteSectionListItem
+            title='enable inter-process communication patterns between node.js processes'
+            description='message primitives: signal, pub-sub, mailbox (message queue)'
+          />
+        </ul>
+      </ExperienceNoteSection>,
+      <ExperienceNoteSection
         title='Responsibilities'
       >
         <ul>
@@ -332,19 +348,7 @@ const experiences = [
             }
           />
         </ul>
-      </ExperienceNoteSection>,
-      <ExperienceNoteSection
-        title='Accomplishments'
-      >
-        <ul>
-          <ExperienceNoteSectionListItem
-            title='built a simple api to monitor, manage and communicate with node.js processes'
-            description={
-              'reduced the work needed to setup system failure recovery processes'
-            }
-          />
-        </ul>
-      </ExperienceNoteSection>,
+      </ExperienceNoteSection>
     ]
   },
   {
@@ -547,13 +551,10 @@ const experiences = [
     slug: 'jackrabbit',
     label: 'jackrabbit',
     start: '2019',
-    end: '2019',
     type: 'open-source',
     nutshell: 'Contributed to an Open-Source Node.js RabbitMQ Library',
     notes: [
-      <ExperienceNoteSection
-        title='Accomplishments'
-      >
+      <ExperienceNoteSection title='Accomplishments'>
         <ul>
           <ExperienceNoteSectionListItem
             title='diagnosed and fixed multiple race conditions'
@@ -582,12 +583,60 @@ const experiences = [
               </span>
             }
           />
+          <ExperienceNoteSectionListItem
+            title='maintain a fork'
+            description={
+              <span>
+                <a className="inline-block" href="https://github.com/Akamaozu/tibbarkcaj" target="_blank" rel="noreferrer">
+                  github.com/Akamaozu/tibbarkcaj
+                </a>
+              </span>
+            }
+          />
         </ul>
       </ExperienceNoteSection>
     ],
     technologies: [
       'nodejs',
       'rabbitmq',
+      'github-actions'
+    ],
+  },
+  {
+    slug: 'cjs-indexing-hash',
+    label: 'cjs-indexing-hash',
+    start: '2020',
+    type: 'open-source',
+    nutshell: 'Authored an Open-Source JavaScript In-Memory Data Store',
+    notes: [
+      <>
+        Site: <a href="https://github.com/akamaozu/cjs-indexing-hash" target="_blank" rel="noreferrer">github.com/akamaozu/cjs-indexing-hash</a>
+      </>,
+      <ExperienceNoteSection title='Objectives'>
+        <ul>
+          <ExperienceNoteSectionListItem
+            title="create and maintain indexes on in-memory datasets without being a database engineer"
+            description="automatically updates indexes when dataset entries are created, modified or deleted"
+          />
+          <ExperienceNoteSectionListItem
+            title="simple api for connecting datasets to external systems"
+            description="send emails when entries are created, update logs when entries change, et cetera"
+          />
+        </ul>
+      </ExperienceNoteSection>,
+      <ExperienceNoteSection title='Responsibilities'>
+        <ul>
+          <ExperienceNoteSectionListItem
+            title='design dataset and indexing engine, api and lifecycle events'
+            description={
+              'module pattern made it easy to add/modify/override functionality'
+            }
+          />
+        </ul>
+      </ExperienceNoteSection>
+    ],
+    technologies: [
+      'javascript',
       'github-actions'
     ],
   },
