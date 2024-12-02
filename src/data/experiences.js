@@ -433,7 +433,7 @@ const experiences = [
     start: '2017',
     end: '2017',
     type: 'volunteer',
-    nutshell: 'Volunteered to Lead a Node.js Workshop on Fault Tolerance',
+    nutshell: 'Led a Node.js Workshop on Fault Tolerance',
     notes: [
       <>
         Site:
@@ -599,8 +599,8 @@ const experiences = [
             title='maintain a fork'
             description={
               <span>
-                <a className="inline-block" href="https://github.com/Akamaozu/tibbarkcaj" target="_blank" rel="noreferrer">
-                  github.com/Akamaozu/tibbarkcaj
+                <a className="inline-block" href="https://github.com/akamaozu/tibbarkcaj" target="_blank" rel="noreferrer">
+                  github.com/akamaozu/tibbarkcaj
                 </a>
               </span>
             }
