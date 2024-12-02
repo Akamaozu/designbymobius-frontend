@@ -329,7 +329,7 @@ const experiences = [
           />
           <ExperienceNoteSectionListItem
             title='enable inter-process communication patterns between node.js processes'
-            description='message primitives: signal, pub-sub, mailbox (message queue)'
+            description='implemented signal (direct), pub-sub (indirect), mailbox (blocking) messaging'
           />
         </ul>
       </ExperienceNoteSection>,
