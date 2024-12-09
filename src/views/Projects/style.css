@@ -45,11 +45,11 @@
           }
 
           .ProjectsList > .ProjectGroup > .ProjectGroupList > .Project > .ProjectTags > .ProjectTag-monetized {
-            background-color: darkolivegreen;
+            background-color: darkgreen;
           }
 
           .ProjectsList > .ProjectGroup > .ProjectGroupList > .Project > .ProjectTags > .ProjectTag-open-source {
-            background-color: darkviolet;
+            background-color: darkcyan;
           }
 
         .ProjectsList > .ProjectGroup > .ProjectGroupList > .Project > .ProjectNutshell {
