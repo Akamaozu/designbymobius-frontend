@@ -3,6 +3,7 @@ import AppHeader from './components/AppHeader'
 import FacebookChat from './components/FacebookChat'
 import Home from './views/Home'
 import Resume from './views/Resume'
+import Projects from './views/Projects'
 import './App.css'
 
 const FACEBOOK_PAGE_ID = process.env.REACT_APP_FACEBOOK_PAGE_ID
@@ -16,7 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={ <Home /> } />
             <Route path="/resume" element={ <Resume /> } />
-            <Route path="/projects" element={ <Resume /> } />
+            <Route path="/projects" element={ <Projects /> } />
             <Route path="/*" element={ <Navigate to="/" /> } />
           </Routes>
         </div>

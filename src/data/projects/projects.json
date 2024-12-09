@@ -1,0 +1,69 @@
+[
+  {
+    "slug": "node-gloves",
+    "label": "node-gloves",
+    "nutshell": "Node REPL with Support for Logical Operators like AND (&&) and PIPE (|)",
+    "tags": [ "open-source" ],
+    "start_year": 2016
+  },
+  {
+    "slug": "ftp-push",
+    "label": "FTP-Push",
+    "nutshell": "Copy any URL's content to your FTP Server via HTTP Streams",
+    "start_year": 2014
+  },
+  {
+    "slug": "github-org-explorer",
+    "label": "GitHub Org Explorer",
+    "nutshell": "Find out a GitHub Organization's most active members or repos, pending pull requests and more",
+    "tags": [ "open-source" ],
+    "start_year": 2022
+  },
+  {
+    "slug": "cjs-sync-hooks",
+    "label": "cjs-sync-hooks",
+    "nutshell": "JavaScript Library for writing modular software. Inspired by WordPress.",
+    "tags": [ "open-source" ],
+    "start_year": 2017
+  },
+  {
+    "slug": "cjs-noticeboard",
+    "label": "cjs-noticeboard",
+    "nutshell": "Publish-Subscribe Library for JavaScript (with a built-in cache)",
+    "tags": [ "open-source" ],
+    "start_year": 2014
+  },
+  {
+    "slug": "cjs-task",
+    "label": "cjs-task",
+    "nutshell": "Control Flow Library for JavaScript",
+    "tags": [ "open-source" ],
+    "start_year": 2015
+  },
+  {
+    "slug": "fault-tolerance-in-space-workshop",
+    "label": "Workshop: Fault Tolerance in Space",
+    "nutshell": "Interactive session showcasing the power of Fault Tolerance software design. Hosted by TorontoJS.",
+    "start_year": 2017
+  },
+  {
+    "slug": "spotgetter",
+    "label": "spotgetter",
+    "nutshell": "Scheduling Service for US Medical Licensing Exam (USMLE) Step 2 CS",
+    "tags": [ "monetized" ],
+    "start_year": 2018
+  },
+  {
+    "slug": "sparkpocketjoy",
+    "label": "sparkpocketjoy",
+    "nutshell": "Data Explorer for Mozilla's Pocket",
+    "start_year": 2023
+  },
+  {
+    "slug": "cjs-indexing-hash",
+    "label": "cjs-indexing-hash",
+    "nutshell": "In-Memory Data Store with Automatically-Managed Indexes, written in JavaScript",
+    "tags": [ "open-source" ],
+    "start_year": 2020
+  }
+]
