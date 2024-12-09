@@ -1,0 +1,58 @@
+.ProjectsList {
+  padding: 2em
+}
+
+  .ProjectsList > .ProjectGroup {
+    margin-bottom: 2em;
+  }
+
+    .ProjectsList > .ProjectGroup > .ProjectGroupTitle {
+      font-weight: 900;
+      color: #888;
+    }
+
+    .ProjectsList > .ProjectGroup > .ProjectGroupList {
+      box-sizing: border-box;
+      padding-left: 1em;
+    }
+
+      .ProjectsList > .ProjectGroup > .ProjectGroupList > .Project {
+        margin-bottom: 1em;
+      }
+
+        .ProjectsList > .ProjectGroup > .ProjectGroupList > .Project > .ProjectName {
+          display: inline-block;
+          margin-right: .5em;
+          font-weight: 900;
+          letter-spacing: -1px;
+        }
+
+        .ProjectsList > .ProjectGroup > .ProjectGroupList > .Project > .ProjectTags {
+          display: inline-block;
+          color: #888;
+          font-size: 0.85em;
+        }
+
+          .ProjectsList > .ProjectGroup > .ProjectGroupList > .Project > .ProjectTags > .ProjectTag {
+            text-transform: uppercase;
+            font-size: 0.64em;
+            padding: .25em .75em;
+            background-color: #aaa;
+            display: inline-block;
+            color: #fff;
+            border-radius: .64em;
+            vertical-align: text-bottom;
+          }
+
+          .ProjectsList > .ProjectGroup > .ProjectGroupList > .Project > .ProjectTags > .ProjectTag-monetized {
+            background-color: darkolivegreen;
+          }
+
+          .ProjectsList > .ProjectGroup > .ProjectGroupList > .Project > .ProjectTags > .ProjectTag-open-source {
+            background-color: darkviolet;
+          }
+
+        .ProjectsList > .ProjectGroup > .ProjectGroupList > .Project > .ProjectNutshell {
+          color: #888;
+          font-size: 0.85em;
+        }
