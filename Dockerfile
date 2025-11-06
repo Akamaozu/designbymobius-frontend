@@ -3,8 +3,8 @@ ARG NODE_VERSION=24
 ARG PORT=3001
 
 # use specified values, if any
-ENV ${NODE_VERSION}
-ENV ${PORT}
+ENV NODE_VERSION=${NODE_VERSION}
+ENV PORT=${PORT}
 
 # Use an existing image as a base
 FROM node:${NODE_VERSION}
