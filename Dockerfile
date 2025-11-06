@@ -13,6 +13,7 @@ RUN npm install
 RUN apt-get -y update && apt-get -y install ghostscript
 
 # Copy the rest of the code
+WORKDIR /usr/app
 COPY . .
 
 # Expose the port that the app listens on
