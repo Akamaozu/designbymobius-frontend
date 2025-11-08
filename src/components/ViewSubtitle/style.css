@@ -1,6 +1,6 @@
 .ViewSubtitle {
   font-size: 1em;
-  text-transform: uppercase;
+  text-transform: lowercase;
   letter-spacing: -1px;
   margin-top: -0.5em;
   line-height: .85em;
