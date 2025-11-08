@@ -15,11 +15,12 @@ const HomeCategory = props => {
 const Home = () => {
   return (
     <>
-      <ViewTitle>Software Engineer</ViewTitle>
+      <ViewTitle>Uzo Olisemeka</ViewTitle>
       <ViewSubtitle>
-        <span className="emphasis">JavaScript</span>
-        {" "} + <span className="emphasis">Node.js</span>
-        {" "} + <span className="emphasis">React</span>
+        <span className="emphasis">Software Engineer</span>
+        {" "} + <span className="emphasis">Reader</span>
+        {" "} + <span className="emphasis">Gamer</span>
+        {" "} + <span className="emphasis">Optimist</span>
       </ViewSubtitle>
       <div className="HomeCategories">
         <HomeCategory
