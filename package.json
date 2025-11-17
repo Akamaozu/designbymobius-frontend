@@ -14,7 +14,8 @@
     "react-messenger-chat-plugin": "^3.0.5",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "shelljs": "^0.8.5"
+    "shelljs": "^0.8.5",
+    "supe": "^0.5.2"
   },
   "scripts": {
     "start": "npm run start:dev",
