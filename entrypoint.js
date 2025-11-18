@@ -6,11 +6,15 @@ const utils = require('./utils')
 utils.env.load()
 
 const { ENV_NAME } = process.env
-console.log({ env: ENV_NAME })
 
 if (ENV_NAME.toLowerCase() === 'production') {
+  console.log('action=start-server type=production')
+
   const supervisor = supe()
   supervisor.start( 'server', path.join(__dirname, './server'))
 }
 
-else exec('npm run start:dev')
+else {
+  console.log('action=start-server type=development')
+  exec('npm run start:dev')
+}
