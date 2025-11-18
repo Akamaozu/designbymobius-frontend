@@ -18,7 +18,7 @@
     "supe": "^0.5.2"
   },
   "scripts": {
-    "start": "npm run start:dev",
+    "start": "node entrypoint.js",
     "start:dev": "react-scripts start",
     "start:prod": "node server",
     "build": "react-scripts build",
